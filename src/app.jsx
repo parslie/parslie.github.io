@@ -28,6 +28,7 @@ function App() {
           )}
         </nav>
       </header>
+      
       <main>
         <Switch>
           <Route exact path='/'>
