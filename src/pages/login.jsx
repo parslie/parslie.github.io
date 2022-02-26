@@ -1,10 +1,11 @@
 import React from 'react'
 
-function HomePage({ me }) {
+function LoginPage({ me }) {
   return (
     <React.Fragment>
+
     </React.Fragment>
   )
 }
 
-export default HomePage
+export default LoginPage

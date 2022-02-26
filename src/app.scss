@@ -1,3 +1,6 @@
+@import './variables/colors.scss';
+@import './variables/sizings.scss';
+
 * {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,8 +9,39 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-  
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+body {
+  background-color: $white;
+}
+
+.app {
+  > header {
+    display: flex;
+    gap: $large-gap;
+
+    padding: $large-gap;
+    background-color: $green;
+    color: $green-light;
+
+    > nav {
+      display: flex;
+      gap: $medium-gap;
+
+      a, span {
+        margin: auto 0;
+        color: inherit;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:active {
+          text-decoration: none;
+        }
+      }
+    }
+  } 
 }

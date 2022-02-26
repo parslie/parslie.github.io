@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SoftwarePage() {
+function SoftwarePage({ me }) {
   return (
     <React.Fragment>
     </React.Fragment>
