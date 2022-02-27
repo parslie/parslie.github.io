@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import { mutate } from 'swr'
 import { post } from '../utils/request'
 
 import { InputButton, InputField } from '../components/input'
-import { mutate } from 'swr'
 
 function LoginPage({ me }) {
   const [ emailError, setEmailError ] = useState(null)

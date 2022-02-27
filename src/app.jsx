@@ -8,9 +8,10 @@ import LoginPage from './pages/login'
 
 import './styles/app.scss'
 import './styles/article.scss'
+import useSWR from 'swr'
 
 function App() {
-  const me = undefined // TODO: fetch
+  const { data: me } = useSWR(['/accounts/me/', true])
 
   return (
     <div className='app'>

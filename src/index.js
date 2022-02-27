@@ -1,14 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
-import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
+import reportWebVitals from './reportWebVitals';
+
+import { SWRConfig } from 'swr';
+import { get } from './utils/request'
+
+import App from './app';
+
+const swrOptions = { 
+  fetcher: (endpoint, useToken, config = {}) => get(endpoint, useToken, config).then(res => res.data), 
+  shouldRetryOnError: false,
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <SWRConfig value={swrOptions}>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </SWRConfig>
   </React.StrictMode>,
   document.getElementById('root')
 );
