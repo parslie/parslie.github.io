@@ -1,5 +1,5 @@
-@import './variables/colors.scss';
-@import './variables/sizings.scss';
+@import './colors.scss';
+@import './sizings.scss';
 
 * {
   margin: 0;
@@ -44,4 +44,15 @@ body {
       }
     }
   } 
+
+  > main {
+    box-sizing: border-box;
+    padding: $large-gap;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: inherit;
 }

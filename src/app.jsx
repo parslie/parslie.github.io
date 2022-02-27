@@ -6,7 +6,8 @@ import SoftwarePage from './pages/software'
 import RegisterPage from './pages/register'
 import LoginPage from './pages/login'
 
-import './app.scss'
+import './styles/app.scss'
+import './styles/article.scss'
 
 function App() {
   const me = undefined // TODO: fetch

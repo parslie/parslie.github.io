@@ -1,0 +1,30 @@
+@import './colors.scss';
+@import './sizings.scss';
+
+article {
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  border: 2px solid $green;
+  color: $black;
+
+  > * {
+    padding: $medium-gap $medium-gap 0;
+  }
+
+  &:last-child {
+    padding-bottom: $medium-gap;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: $medium-gap;
+
+    .row > * {
+      flex-grow: 1;
+    }
+  }
+}
+

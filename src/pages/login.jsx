@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
-import { SubmitButton } from '../components/input/button'
-import { EmailInput, PasswordInput } from '../components/input/text'
+import { post } from '../utils/request'
+
+import { InputButton, InputField } from '../components/input'
+import { mutate } from 'swr'
 
 function LoginPage({ me }) {
+  const [ emailError, setEmailError ] = useState(null)
+  const [ passwordError, setPasswordError ] = useState(null)
+  const [ generalError, setGeneralError ] = useState(null)
+  const history = useHistory()
 
   const onLogin = (e) => {
     e.preventDefault()
@@ -13,8 +20,15 @@ function LoginPage({ me }) {
       password: e.target.password.value,
     }
 
-    console.log(data)
-    // TODO: send data
+    post('/accounts/login/', data).then(res => {
+      window.localStorage.setItem('token', res.data.token)
+      history.push('/')
+      mutate(['/accounts/me/', true])
+    }).catch(({ response: res }) => {
+      setEmailError(res.data.email ? res.data.email[0] : null)
+      setPasswordError(res.data.password ? res.data.password[0] : null)
+      setGeneralError(res.data.non_field_errors ? res.data.non_field_errors[0] : null)
+    })
   }
 
   return (
@@ -25,9 +39,13 @@ function LoginPage({ me }) {
         </header>
 
         <form onSubmit={onLogin}>
-          <EmailInput label='E-mail' name='email' placeholder='Enter e-mail adress here...' />
-          <PasswordInput label='Password' name='password' placeholder='Enter password here...' />
-          <SubmitButton label='Log In' />
+          <InputField label='E-mail' error={emailError}>
+            <input name='email' type='email' placeholder='Enter e-mail adress here...' />
+          </InputField>
+          <InputField label='Password' error={passwordError}>
+            <input name='password' type='password' placeholder='Enter password here...' />
+          </InputField>
+          <InputButton label='Log In' isSubmit={true} error={generalError} />
         </form>
       </article>
     </React.Fragment>

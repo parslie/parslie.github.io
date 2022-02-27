@@ -1,0 +1,58 @@
+@import './colors.scss';
+@import './sizings.scss';
+
+/*form {
+  .row > * {
+    flex-grow: 1;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: row;
+    gap: $small-gap;
+
+    > * {
+      margin: auto 0;
+    }
+
+    > input {
+      flex-grow: 1;
+    }
+  }
+}*/
+
+.input-group {
+  &.error {
+    color: $red;
+
+    input {
+      border-color: $red;
+    }
+  }
+
+  input {
+    border: 1px solid $black;
+    padding: $small-gap;
+    font-size: 1em;
+  }
+}
+
+.input-field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: $small-gap;
+  
+  label {
+    align-self: center;
+  }
+  h5 {
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
+}
+
+.input-button {
+  display: flex;
+  flex-direction: column;
+  gap: $small-gap;
+}
