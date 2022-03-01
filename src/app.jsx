@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
-import useSWR from 'swr'
+import useSWR, { mutate } from 'swr'
+
+import { post } from './utils/request'
 
 import HomePage from './pages/home'
 import SoftwarePage from './pages/software'
@@ -14,6 +16,14 @@ import './styles/misc.scss'
 function App() {
   const { data: me } = useSWR(['/accounts/me/', true])
 
+  const onLogout = () => {
+    post('/accounts/logout/', {}, true).then(res => {
+      mutate(['/accounts/me/', true], undefined)
+    }).catch(({ response: res }) => {
+      console.error(res)
+    })
+  }
+
   return (
     <div className='app'>
       <header>
@@ -22,7 +32,7 @@ function App() {
           <Link to='/'>Home</Link>
           <Link to='/software'>Software</Link>
           {me && me.is_superuser ? (
-            <span>Log out as {me.username}</span>
+            <span onClick={onLogout}>Log out as {me.username}</span>
           ) : (
             <React.Fragment>
               <Link to='/login'>Log in</Link>
