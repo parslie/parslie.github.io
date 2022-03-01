@@ -9,7 +9,7 @@
   .input-group {
     display: flex;
     flex-direction: row;
-    gap: $small-gap;
+    gap: $small-padding;
 
     > * {
       margin: auto 0;
@@ -32,7 +32,7 @@
 
   input {
     border: 1px solid $black;
-    padding: $small-gap;
+    padding: $small-padding;
     font-size: 1em;
   }
 }
@@ -40,7 +40,7 @@
 .input-field {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: $small-gap;
+  column-gap: $small-padding;
   
   label {
     align-self: center;
@@ -54,5 +54,5 @@
 .input-button {
   display: flex;
   flex-direction: column;
-  gap: $small-gap;
+  gap: $small-padding;
 }

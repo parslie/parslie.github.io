@@ -17,15 +17,15 @@ body {
 .app {
   > header {
     display: flex;
-    gap: $large-gap;
+    gap: $large-padding;
 
-    padding: $large-gap;
+    padding: $large-padding;
     background-color: $green;
     color: $green-light;
 
     > nav {
       display: flex;
-      gap: $medium-gap;
+      gap: $medium-padding;
 
       a, span {
         margin: auto 0;
@@ -46,13 +46,40 @@ body {
   } 
 
   > main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: $large-padding;
+
     box-sizing: border-box;
-    padding: $large-gap;
+    margin: 0 auto;
+    padding: $large-padding;
   }
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
-  gap: inherit;
+@media screen and (max-width: calc(#{$medium-page-width} - 1px)) {
+  main {
+    max-width: $small-page-width;
+    > .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media screen and (max-width: calc(#{$large-page-width} - 1px)) and (min-width: $medium-page-width) {
+  main {
+    max-width: $medium-page-width;
+    > .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media screen and (min-width: $large-page-width) {
+  main {
+    max-width: $large-page-width;
+    > .grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
 }

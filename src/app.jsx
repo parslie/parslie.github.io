@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
+import useSWR from 'swr'
 
 import HomePage from './pages/home'
 import SoftwarePage from './pages/software'
@@ -8,7 +9,7 @@ import LoginPage from './pages/login'
 
 import './styles/app.scss'
 import './styles/article.scss'
-import useSWR from 'swr'
+import './styles/misc.scss'
 
 function App() {
   const { data: me } = useSWR(['/accounts/me/', true])
