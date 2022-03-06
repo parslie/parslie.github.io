@@ -8,6 +8,7 @@ article {
   min-width: $header-width;
   max-width: $article-max-width;
   box-sizing: border-box;
+  border-radius: $medium-size;
   
   background-color: $white;
 }

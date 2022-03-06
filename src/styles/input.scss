@@ -7,6 +7,12 @@
   padding: $medium-size;
   width: 100%;
   box-sizing: border-box;
+  border-radius: $small-size;
+
+  background: linear-gradient(180deg, $green 0%, $green-dark 240%);
+  &:active {
+    background: linear-gradient(0deg, $green 0%, $green-dark 240%);
+  }
 
   border: 1px solid $green-dark;
   box-shadow: inset 0 0 0 1px $green-light;
@@ -25,45 +31,10 @@
   padding: $medium-size;
   width: 100% !important;
   box-sizing: border-box;
+  border-radius: $small-size;
 
+  border: 1px solid $gray;
   color: $black;
   font-size: 1em;
   font-family: inherit; /* Textarea already inherits from body, but it only inherits correctly with this??? */
-}
-
-/* Specific theming */
-
-.app {
-  > header {
-    .button {
-      background-color: transparent;
-      &:hover {
-        background-color: change-color($white, $alpha: 2 / 16);
-      }
-      &:active {
-        background-color: change-color($black, $alpha: 2 / 16);
-      }
-    }
-
-    .text-field {
-      border: 1px solid $green-light;
-      box-shadow: inset 0 0 0 1px $green-dark;
-    }
-  }
-
-  > main {
-    .button {
-      background-color: $green;
-      &:hover {
-        background-color: mix($white, $green, 100% * 2 / 16);
-      }
-      &:active {
-        background-color: mix($black, $green, 100% * 2 / 16);
-      }
-    }
-
-    .text-field {
-      border: 1px solid $gray;
-    }
-  }
 }
