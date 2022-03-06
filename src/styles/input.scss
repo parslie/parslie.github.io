@@ -23,11 +23,12 @@
   display: block;
   margin: $small-size 0;
   padding: $medium-size;
-  width: 100%;
+  width: 100% !important;
   box-sizing: border-box;
 
   color: $black;
   font-size: 1em;
+  font-family: inherit; /* Textarea already inherits from body, but it only inherits correctly with this??? */
 }
 
 /* Specific theming */

@@ -16,3 +16,8 @@ export function SingleLineField({ placeholder, name, type, onChange }) {
   return <input className='text-field' type={type} placeholder={placeholder} 
     name={name} onChange={onChange} />
 }
+
+export function MultiLineField({ placeholder, name, onChange }) {
+  return <textarea className='text-field' name={name} onChange={onChange}
+    placeholder={placeholder} />
+}
