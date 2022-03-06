@@ -1,23 +1,18 @@
+import { Link } from 'react-router-dom'
+
 import '../styles/input.scss'
 
-export function InputField({ label, children, error }) {
-  return (
-    <div className={`input-group input-field ${error ? 'error' : ''}`}>
-      <label>{label}</label>
-      {children}
-      {error && <h5>{error}</h5>}
-    </div>
-  )
+// TODO: create way to show input errors
+
+export function Button({ title, onClick, name, type }) {
+  return <button className='button' onClick={onClick} name={name} type={type}>{title}</button>
 }
 
-export function InputButton({ label, isSubmit, error }) {
-  return (
-    <div className={`input-group input-button ${error ? 'error' : ''}`}>
-      {isSubmit
-        ? <input type='submit' value={label} />
-        : <input type='button' value={label} />
-      }
-      {error && <h5>{error}</h5>}
-    </div>
-  )
+export function LinkButton({ title, to }) {
+  return <Link className='button' to={to}>{title}</Link>
+}
+
+export function SingleLineField({ placeholder, name, type, onChange }) {
+  return <input className='text-field' type={type} placeholder={placeholder} 
+    name={name} onChange={onChange} />
 }

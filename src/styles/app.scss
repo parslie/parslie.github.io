@@ -1,85 +1,37 @@
-@import './colors.scss';
-@import './sizings.scss';
-
-* {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background-color: $white;
-}
+@import './vars/colors.scss';
+@import './vars/sizings.scss';
 
 .app {
   > header {
-    display: flex;
-    gap: $large-padding;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: $large-size;
+    width: $header-width;
+    box-sizing: border-box;
 
-    padding: $large-padding;
-    background-color: $green;
-    color: $green-light;
+    border-right: 1px solid $green-dark;
+    box-shadow: inset -1px 0 0 $green-light;
+    background: linear-gradient(180deg, $green 0%, $green-dark 100%);
 
-    > nav {
-      display: flex;
-      gap: $medium-padding;
-
-      a, span {
-        margin: auto 0;
-        color: inherit;
-        text-decoration: none;
-        font-weight: bold;
-        cursor: pointer;
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-        &:active {
-          text-decoration: none;
-        }
-      }
+    h1 {
+      color: $white;
+      text-align: center;
     }
-  } 
+  }
 
   > main {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: $large-padding;
-
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: $header-width;
+    padding: $large-size;
     box-sizing: border-box;
-    margin: 0 auto;
-    padding: $large-padding;
-  }
-}
+    overflow-y: auto;
 
-@media screen and (max-width: calc(#{$medium-page-width} - 1px)) {
-  main {
-    max-width: $small-page-width;
-    > .grid {
-      grid-template-columns: 1fr;
-    }
-  }
-}
-
-@media screen and (max-width: calc(#{$large-page-width} - 1px)) and (min-width: $medium-page-width) {
-  main {
-    max-width: $medium-page-width;
-    > .grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-}
-
-@media screen and (min-width: $large-page-width) {
-  main {
-    max-width: $large-page-width;
-    > .grid {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+    background-color: $white;
+    color: $black;
   }
 }

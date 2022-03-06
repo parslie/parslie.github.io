@@ -1,0 +1,13 @@
+@import './vars/colors.scss';
+@import './vars/sizings.scss';
+
+article {
+  margin: $large-size auto;
+  border: 1px solid $gray;
+  padding: $large-size;
+  min-width: $header-width;
+  max-width: $article-max-width;
+  box-sizing: border-box;
+  
+  background-color: $white;
+}
