@@ -2,11 +2,13 @@ import { Switch, Route } from 'react-router-dom'
 
 import useSWR, { mutate } from 'swr'
 
-import '../styles/app.scss'
 import LoginPage from '../pages/Login'
 import SoftwarePage from '../pages/Software'
-import { Button, LinkButton } from './input'
 import RegisterPage from '../pages/Register'
+import ProductivityPage from '../pages/Productivity'
+
+import '../styles/app.scss'
+import { Button, LinkButton } from './input'
 
 function App() {
   const { data: me } = useSWR(['/accounts/me/', true])
@@ -23,8 +25,14 @@ function App() {
         <nav>
           <LinkButton to='/' title='Home' />
           <LinkButton to='/software' title='Software' />
-          {/*<LinkButton to='/studies' title='Studies' />*/}
           <LinkButton to='/contact' title='Contact' />
+
+          {me && me.is_superuser && (
+            <>
+              <LinkButton to='/productivity' title='Productivity' />
+              <LinkButton to='/studies' title='Studies' />
+            </>
+          )}
 
           {me ? <Button title={'Log Out as ' + me.username} onClick={logout} /> : (
             <>
@@ -42,11 +50,14 @@ function App() {
         <Route path='/software'>
             <SoftwarePage me={me} />
         </Route>
+        <Route path='/contact'>
+          
+        </Route>
         <Route path='/studies'>
 
         </Route>
-        <Route path='/contact'>
-          
+        <Route path='/productivity'>
+          <ProductivityPage me={me} />
         </Route>
         <Route path='/login'>
           <LoginPage me={me} />
