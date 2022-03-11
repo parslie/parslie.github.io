@@ -1,8 +1,8 @@
 import useSWR, { mutate } from "swr"
-import { post, del } from "../utils/request"
+import { post } from "../utils/request"
 
 import { Button, SelectMenu, SingleLineField } from "../components/input"
-import { ActionStart, ActionEntry } from "../components/articles/productivity"
+import { ActionCanvas, ActionStart, ActionEntry } from "../components/articles/productivity"
 
 function ProductivityPage({ me }) {
   const { data: categories } = useSWR(["/productivity/categories/", true])
@@ -40,10 +40,18 @@ function ProductivityPage({ me }) {
       </article>
 
       {entries && starts && (
-        <article>
-          {starts.map((start, i) => <ActionStart key={i} data={start} />)}
-          {entries.map((entry, i) => <ActionEntry key={i} data={entry} />)}
-        </article>
+        <>
+          <article>
+            <h1>Statistics</h1>
+            <ActionCanvas entries={entries} starts={starts} />
+          </article>
+
+          <article>
+            <h1>Entries</h1>
+            {starts.map((start, i) => <ActionStart key={i} data={start} />)}
+            {entries.map((entry, i) => <ActionEntry key={i} data={entry} />)}
+          </article>
+        </>
       )}
     </main>
   )

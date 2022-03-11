@@ -31,7 +31,7 @@ article {
     padding: $small-size;
     margin: 0;
 
-    &:nth-child(odd) {
+    &:nth-child(even) {
       background-color: $white-dark;
       border-radius: $small-size;
     }
@@ -39,5 +39,10 @@ article {
     .button {
       width: auto;
     }
+  }
+
+  canvas {
+    width: 100%;
+    transform: rotateX(180deg);
   }
 }
