@@ -26,8 +26,15 @@ article {
     }
   }
 
-  .action-entry {
-    margin: $medium-size 0;
+  .action-entry, 
+  .action-start {
+    padding: $small-size;
+    margin: 0;
+
+    &:nth-child(odd) {
+      background-color: $white-dark;
+      border-radius: $small-size;
+    }
 
     .button {
       width: auto;

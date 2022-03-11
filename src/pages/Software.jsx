@@ -1,7 +1,7 @@
 import useSWR, { mutate } from 'swr'
 import { post } from '../utils/request'
 
-import SoftwarePost from '../components/posts/SoftwarePost'
+import SoftwarePost from '../components/articles/software'
 import { SingleLineField, Button, MultiLineField } from '../components/input'
 
 function SoftwarePage({ me }) {
