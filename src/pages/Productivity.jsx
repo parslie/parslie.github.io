@@ -6,7 +6,7 @@ import { Button, SelectMenu, SingleLineField } from "../components/input"
 function ActionEntry({ data }) {
   const deleteEntry = () => {
     del(`/productivity/entries/${data.id}/`, true).then(res => {
-      mutate("/productivity/entries/")
+      mutate(["/productivity/entries/", true])
     })
   }
 
@@ -21,9 +21,9 @@ function ActionEntry({ data }) {
 }
 
 function ProductivityPage({ me }) {
-  const { data: actions } = useSWR("/productivity/actions/")
-  const { data: prefabs } = useSWR("/productivity/prefabs/")
-  const { data: entries } = useSWR("/productivity/entries/")
+  const { data: actions } = useSWR(["/productivity/actions/", true])
+  const { data: prefabs } = useSWR(["/productivity/prefabs/", true])
+  const { data: entries } = useSWR(["/productivity/entries/", true])
 
   const actionList = []
   if (actions)
@@ -39,7 +39,7 @@ function ProductivityPage({ me }) {
 
     post("/productivity/entries/", data, true).then(res => {
       e.target.reset()
-      mutate("/productivity/entries/")
+      mutate(["/productivity/entries/", true])
     })
   }
 
