@@ -30,7 +30,7 @@ export function SelectMenu({ name, placeholder, labels, values }) {
       </option>
       {values.map((value, i) => (
         <option key={i} value={value}>
-          {labels.length > i ? labels[i] : value}
+          {labels && labels.length > i ? labels[i] : value}
         </option>
       ))}
     </select>

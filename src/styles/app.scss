@@ -33,15 +33,5 @@
 
     background-color: $white;
     color: $black;
-
-    .row {
-      display: flex;
-      margin: $small-size 0;
-      gap: $small-size;
-
-      * { margin: auto 0; }
-      *:first-child { margin-left: 0 !important; }
-      *:last-child { margin-right: 0 !important; }
-    }
   }
 }
