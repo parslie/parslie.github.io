@@ -9,7 +9,7 @@ export function ActionStart({ data }) {
     post("/productivity/entries/", { start: data.id }, true).then(res => {
       mutate(["/productivity/starts/", true])
       mutate(["/productivity/entries/", true])
-      mutate(["/productivity/statistics/", true])
+      mutate("/productivity/statistics/")
     })
   }
 
@@ -45,7 +45,7 @@ export function ActionEntry({ data }) {
     // TODO: handle errors
     del(`/productivity/entries/${data.id}/`, true).then(res => {
       mutate(["/productivity/entries/", true])
-      mutate(["/productivity/statistics/", true])
+      mutate("/productivity/statistics/")
     })
   }
   

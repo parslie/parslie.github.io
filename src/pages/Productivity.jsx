@@ -30,29 +30,29 @@ function ProductivityPage({ me }) {
 
   return (
     <main>
+      {me && me.is_superuser && (
+        <article>
+          <h1>Log an Action</h1>
+          <form onSubmit={startAction}>
+            <SelectMenu name="category" values={categoryList} 
+              placeholder="-- Please select a category --" />
+            <SingleLineField name="description" placeholder="Enter description here..." />
+            <Button type="submit" title="Log" />
+          </form>
+        </article>
+      )}
+
       <article>
-        <h1>Log an Action</h1>
-        <form onSubmit={startAction}>
-          <SelectMenu name="category" values={categoryList} 
-            placeholder="-- Please select a category --" />
-          <SingleLineField name="description" placeholder="Enter description here..." />
-          <Button type="submit" title="Log" />
-        </form>
+        <h1>Statistics</h1>
+        <ActionGraph />
       </article>
 
       {entries && starts && (
-        <>
-          <article>
-            <h1>Statistics</h1>
-            <ActionGraph />
-          </article>
-
-          <article>
-            <h1>Entries</h1>
-            {starts.map((start, i) => <ActionStart key={i} data={start} />)}
-            {entries.map((entry, i) => <ActionEntry key={i} data={entry} />)}
-          </article>
-        </>
+        <article>
+          <h1>Entries</h1>
+          {starts.map((start, i) => <ActionStart key={i} data={start} />)}
+          {entries.map((entry, i) => <ActionEntry key={i} data={entry} />)}
+        </article>
       )}
     </main>
   )
