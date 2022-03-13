@@ -2,7 +2,8 @@ import useSWR, { mutate } from "swr"
 import { post } from "../utils/request"
 
 import { Button, SelectMenu, SingleLineField } from "../components/input"
-import { ActionCanvas, ActionStart, ActionEntry } from "../components/articles/productivity"
+import { ActionStart, ActionEntry } from "../components/productivity/entry"
+import ActionGraph from "../components/productivity/graph"
 
 function ProductivityPage({ me }) {
   const { data: categories } = useSWR(["/productivity/categories/", true])
@@ -43,7 +44,7 @@ function ProductivityPage({ me }) {
         <>
           <article>
             <h1>Statistics</h1>
-            <ActionCanvas entries={entries} starts={starts} />
+            <ActionGraph />
           </article>
 
           <article>
