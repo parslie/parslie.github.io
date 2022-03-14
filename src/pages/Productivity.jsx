@@ -6,7 +6,7 @@ import { ActionStart, ActionEntry } from "../components/productivity/entry"
 import ActionGraph from "../components/productivity/graph"
 
 function ProductivityPage({ me }) {
-  const { data: categories } = useSWR(["/productivity/categories/", true])
+  const { data: categories } = useSWR("/productivity/categories/")
   const { data: entries } = useSWR(["/productivity/entries/", true])
   const { data: starts } = useSWR(["/productivity/starts/", true])
 
@@ -47,7 +47,7 @@ function ProductivityPage({ me }) {
         <ActionGraph />
       </article>
 
-      {entries && starts && (
+      {me && me.is_superuser && entries && starts && (
         <article>
           <h1>Entries</h1>
           {starts.map((start, i) => <ActionStart key={i} data={start} />)}
