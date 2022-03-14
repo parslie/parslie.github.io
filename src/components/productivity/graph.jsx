@@ -81,12 +81,41 @@ function ActionGraph() {
       const width = canvasRef.current.offsetWidth
       const height = width * 9 / 16
       
-      let canvas = canvasRef.current
+      const canvas = canvasRef.current
       canvas.width = width
       canvas.height = height
-      let context = canvas.getContext("2d")
+      const context = canvas.getContext("2d")
 
-      drawGraph(context, 0, 0, width, height, stats)
+      const fontSize = 12
+      const fontMargin = 12
+
+      const topMargin = fontSize
+      const rightMargin = fontSize * 0.3
+      const bottomMargin = fontSize + fontMargin
+      const leftMargin = fontMargin + fontSize * 1.7
+
+      const dayInterval = (width - rightMargin - leftMargin) / (stats.day_count - 1)
+      const tenMinuteInterval = (height - topMargin - bottomMargin) / (stats.max_duration / (60 * 10))
+
+      drawGraph(context, leftMargin, topMargin, width - leftMargin - rightMargin, height - bottomMargin - topMargin, stats)
+      context.fillStyle = "#000000"
+      context.font = fontSize + "px sans-serif"
+
+      // Draw y labels
+      context.textAlign = "right"
+      context.textBaseline = "middle"
+      for (let i = 0; i < stats.max_duration / (60 * 10) + 1; i++) {
+        let y = height - bottomMargin - tenMinuteInterval * i
+        context.fillText(i * 10, leftMargin - fontMargin, y)
+      }
+
+      // Draw x labels
+      context.textAlign = "center"
+      context.textBaseline = "top"
+      for (let i = 0; i < stats.day_count; i++) {
+        let x = leftMargin + dayInterval * i
+        context.fillText(i - 13, x, height - bottomMargin + fontMargin)
+      }
     }
   }, [stats])
   

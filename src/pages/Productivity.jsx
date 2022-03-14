@@ -43,7 +43,7 @@ function ProductivityPage({ me }) {
       )}
 
       <article>
-        <h1>Statistics</h1>
+        <h1>Statistics (minutes of productivity per day)</h1>
         <ActionGraph />
       </article>
 
