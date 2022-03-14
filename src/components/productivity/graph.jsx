@@ -45,16 +45,16 @@ function ActionGraph() {
       let oldGraphYOffsets = [...graphYOffset]
 
       // Draw durations
-      for (const [category, durations] of Object.entries(stats.durations)) {
+      for (const category of stats.categories) {
         context.beginPath()
         context.moveTo(0, 0 + oldGraphYOffsets[0])
 
         // Set lines of top of category
-        for (let i = 0; i < durations.length; i++) {
+        for (let i = 0; i < category.durations.length; i++) {
           let x = 0 + dayInterval * i
-          let y = 0 + oldGraphYOffsets[i] + durations[i] * secondInterval
+          let y = 0 + oldGraphYOffsets[i] + category.durations[i] * secondInterval
           context.lineTo(x, y)
-          graphYOffset[i] += durations[i] * secondInterval
+          graphYOffset[i] += category.durations[i] * secondInterval
         }
 
         // Set lines of bottom of category
@@ -63,7 +63,8 @@ function ActionGraph() {
           let y = 0 + oldGraphYOffsets[i]
           context.lineTo(x, y)
         }
-        context.fillStyle = (category === "Studying" ? "#f23" : "#fc1") + "a" // TODO: randomize in other way
+
+        context.fillStyle = category.color + "aa"
         context.fill()
 
         oldGraphYOffsets = [...graphYOffset]
