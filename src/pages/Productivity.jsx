@@ -49,7 +49,7 @@ function ProductivityPage({ me }) {
 
       {me && me.is_superuser && entries && starts && (
         <article>
-          <h1>Entries</h1>
+          <h1>Entries (today)</h1>
           {starts.map((start, i) => <ActionStart key={i} data={start} />)}
           {entries.map((entry, i) => <ActionEntry key={i} data={entry} />)}
         </article>
