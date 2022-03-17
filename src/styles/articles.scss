@@ -44,4 +44,12 @@ article {
   canvas {
     width: 100%;
   }
+
+  &.message.sent {
+    margin-left: $huge-size;
+  }
+
+  &.message.received {
+    margin-right: $huge-size;
+  }
 }

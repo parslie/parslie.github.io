@@ -6,6 +6,7 @@ import LoginPage from '../pages/Login'
 import SoftwarePage from '../pages/Software'
 import RegisterPage from '../pages/Register'
 import ProductivityPage from '../pages/Productivity'
+import ContactPage from '../pages/Contact'
 
 import '../styles/app.scss'
 import { Button, LinkButton } from './input'
@@ -51,7 +52,7 @@ function App() {
             <SoftwarePage me={me} />
         </Route>
         <Route path='/contact'>
-          
+            <ContactPage me={me} />
         </Route>
         <Route path='/studies'>
 
