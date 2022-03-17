@@ -6,8 +6,7 @@ import reportWebVitals from './reportWebVitals'
 import { SWRConfig } from 'swr'
 import { get } from './utils/request'
 
-import './index.scss'
-import App from './components/app'
+import App from './app'
 
 const swrOptions = { 
   fetcher: (endpoint, useToken, config = {}) => get(endpoint, useToken, config).then(res => res.data), 
