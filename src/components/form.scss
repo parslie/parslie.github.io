@@ -1,0 +1,46 @@
+@import "../vars/colors.scss";
+@import "../vars/sizings.scss";
+
+.form-field, .form-button {
+  * {
+    margin: 0;
+  }
+
+  .error {
+    color: $red;
+  }
+}
+
+.form-field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  row-gap: $small-size;
+
+  .label {
+    padding: $small-size $small-size $small-size 0;
+  }
+
+  textarea, input, select {
+    padding: $small-size;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 1em;
+  }
+
+  .error {
+    grid-column: 2 / span 1;
+  }
+}
+
+.form-button {
+  display: flex;
+  flex-direction: column;
+  gap: $small-size;
+
+  input {
+    padding: $small-size;
+    font-family: inherit;
+    font-size: 1em;
+  }
+}
