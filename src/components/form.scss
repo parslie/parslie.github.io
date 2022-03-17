@@ -2,6 +2,8 @@
 @import "../vars/sizings.scss";
 
 .form-field, .form-button {
+  margin: $medium-size 0;
+
   * {
     margin: 0;
   }
@@ -15,10 +17,11 @@
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr auto;
-  row-gap: $small-size;
+  row-gap: $tiny-size;
 
   .label {
-    padding: $small-size $small-size $small-size 0;
+    padding-right: $tiny-size;
+    align-self: center;
   }
 
   textarea, input, select {
@@ -36,7 +39,7 @@
 .form-button {
   display: flex;
   flex-direction: column;
-  gap: $small-size;
+  gap: $tiny-size;
 
   input {
     padding: $small-size;
