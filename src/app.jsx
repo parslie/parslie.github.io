@@ -1,4 +1,5 @@
 import "./app.scss"
+import "./misc.scss"
 
 import Form, { SingleLineField, MultiLineField, SelectMenu, Button, SubmitButton } from './components/form'
 import { HomePost, SoftwarePost } from "./components/posts"

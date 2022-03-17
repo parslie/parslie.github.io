@@ -1,73 +1,44 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import './vars/colors.scss';
+@import './vars/sizings.scss';
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+.app {
+  > aside {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: $large-size;
+    width: $aside-width;
+    box-sizing: border-box;
 
-h1 {
-  display: block;
-  font-size: 2em;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
+    border-right: 1px solid $green-dark;
+    box-shadow: inset -1px 0 0 $green-light;
+    background: linear-gradient(180deg, $green 0%, $green-dark 100%);
 
-h2 {
-  display: block;
-  font-size: 1.5em;
-  margin-top: 0.83em;
-  margin-bottom: 0.83em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
+    h1 {
+      color: $white;
+      text-align: center;
+    }
+  }
 
-h3 {
-  display: block;
-  font-size: 1.17em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-} 
+  > main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: $aside-width;
+    padding: $large-size;
+    box-sizing: border-box;
+    overflow-y: auto;
 
-h4 {
-  display: block;
-  font-size: 1em;
-  margin-top: 1.33em;
-  margin-bottom: 1.33em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
+    background-color: $white;
+    color: $black;
 
-h5 {
-  display: block;
-  font-size: .83em;
-  margin-top: 1.67em;
-  margin-bottom: 1.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
-
-h6 {
-  display: block;
-  font-size: .67em;
-  margin-top: 2.33em;
-  margin-bottom: 2.33em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
+    *:first-child {
+      margin-top: 0;
+    }
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
 }

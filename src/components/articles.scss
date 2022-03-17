@@ -2,6 +2,17 @@
 @import "../vars/sizings.scss";
 
 article {
+  margin: $large-size auto;
+  border-radius: $medium-size;
+  border: 1px solid $gray;
+  padding: $medium-size;
+  min-width: min-content;
+  max-width: $article-max-width;
+  box-sizing: border-box;
+
+  background-color: $white;
+  color: $black;
+
   &.post {
     .title {
       margin-bottom: $tiny-size;
@@ -11,10 +22,47 @@ article {
     }
   }
 
-  *:first-child {
+  > *:first-child {
     margin-top: 0;
   }
-  *:last-child {
+  > *:last-child {
     margin-bottom: 0;
   }
 }
+
+/*
+article {
+  .row {
+    display: flex;
+    margin: $small-size 0;
+    gap: $small-size;
+
+    * { margin: auto 0 !important; }
+    *:first-child { margin-left: 0 !important; }
+    *:last-child { margin-right: 0 !important; }
+
+    .spacer {
+      flex-grow: 1;
+    }
+  }
+
+  .action-entry, 
+  .action-start {
+    padding: $small-size;
+    margin: 0;
+
+    &:nth-child(even) {
+      background-color: $white-dark;
+      border-radius: $small-size;
+    }
+
+    .button {
+      width: auto;
+    }
+  }
+
+  canvas {
+    width: 100%;
+  }
+}
+*/
