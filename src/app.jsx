@@ -1,5 +1,9 @@
 import "./app.scss"
 
+import Form, { 
+  SingleLineField, MultiLineField, SelectMenu, Button, SubmitButton 
+} from './components/form'
+
 export default function App() {
   return (
     <div className="app">
@@ -38,30 +42,17 @@ export default function App() {
             Inside the <b>{"<form>"}</b> element there exists <b>{"<input>"}</b> elements
             that are encapsulated inside <b>{"<div className=\"form-field\">"}</b> and <b>{"<div className=\"form-button\">"}</b> elements.
           </p>
-          <form>
-            <div className="form-field">
-              <label for="single-line-input">Single-line Input</label>
-              <input className="text-field" id="single-line-input" />
-              <h5 className="error">This is error text.</h5>
-            </div>
-            <div className="form-field">
-              <label for="multi-line-input">Multi-line Input</label>
-              <textarea className="text-field" id="multi-line-input" />
-              <h5 className="error">This is error text.</h5>
-            </div>
-            <div className="form-field">
-              <label for="select-menu">Select Menu</label>
-              <select id="select-menu" className="select-menu" defaultValue="">
-                <option disabled value="">-- Select an option --</option>
-                <option value="Value 1">Label 1</option>
-              </select>
-              <h5 className="error">This is error text.</h5>
-            </div>
-            <div className="form-button">
-              <input type="submit" className="button" />
-              <h5 className="error">This is error text.</h5>
-            </div>
-          </form> 
+          <Form>
+            <SingleLineField id="slt" name="slt" label="Single-line Text" 
+              placeholder="Enter text here..." error="Test error." />
+            <MultiLineField id="mlt" name="mlt" label="Multi-line Text" 
+              placeholder="Enter text here..." error="Test error." />
+            <SelectMenu id="slctmenu" name="slctmenu" label="Select Menu"
+              options={["Option 1", "Option 2"]} values={["Value 1", "Value 2"]}
+              defaultOption="-- Select an item ---" error="Test error." />
+            <Button label="button" error="Test error." />
+            <SubmitButton label="submit" error="Test error." />
+          </Form> 
         </article>
       </main>
     </div>
