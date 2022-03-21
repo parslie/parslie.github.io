@@ -13,10 +13,6 @@
   }
 }
 
-.row .form-field, .row .form-button {
-  flex-grow: 1;
-}
-
 .form-field {
   display: grid;
   grid-template-columns: auto 1fr;
