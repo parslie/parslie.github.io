@@ -3,8 +3,10 @@ import useSWR from "swr"
 import "./app.scss"
 import "./misc.scss"
 
-import Form, { LinkButton, SingleLineField, MultiLineField, SelectMenu, Button, SubmitButton } from './components/articles/form'
+import Form from './components/articles/form'
 import { HomePost, SoftwarePost } from "./components/articles/posts"
+import { SingleLineField, MultiLineField, SelectMenu } from "./components/input/fields"
+import { LinkButton, Button, SubmitButton } from "./components/input/buttons"
 
 export default function App() {
   const me = useSWR(["/accounts/me/", true])
