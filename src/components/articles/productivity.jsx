@@ -13,7 +13,9 @@ export function ActionBarChart({ data }) {
     for (let category of data.categories) {
       const duration = category.durations[i]
       const color = category.color
-      const tooltip = `Name: ${category.name}\nDuration: ${duration / 60} minutes`
+
+      const duractionMins = duration / 60
+      const tooltip = `Name: ${category.name}\nDuration: ${duractionMins.toFixed(2)} minutes`
 
       if (duration !== 0) {
         totalDuration += duration

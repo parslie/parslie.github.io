@@ -31,13 +31,15 @@ export default function ProductivityPage({ me }) {
 
   return (
     <main>
-      <Form title="Log an Action" onSubmit={logAction}>
-        <SingleLineField id="desc" name="description" 
-          label="Description" placeholder="Enter description here..." />
-        <SelectMenu id="category" name="category" label="Category" options={categoryList} 
-          values={categoryList} defaultOption="-- Please select a category --" />
-        <SubmitButton label="Log" />
-      </Form>
+      {me && me.is_superuser && (
+        <Form title="Log an Action" onSubmit={logAction}>
+          <SingleLineField id="desc" name="description" 
+            label="Description" placeholder="Enter description here..." />
+          <SelectMenu id="category" name="category" label="Category" options={categoryList} 
+            values={categoryList} defaultOption="-- Please select a category --" />
+          <SubmitButton label="Log" />
+        </Form>
+      )}
 
       {statistics && <ActionBarChart data={statistics} />}
 
