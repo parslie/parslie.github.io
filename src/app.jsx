@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router-dom"
-import useSWR from "swr"
+import useSWR, { mutate } from "swr"
 
 import "./app.scss"
 import "./misc.scss"
@@ -10,9 +10,16 @@ import HomePage from "./pages/home"
 import SoftwarePage from "./pages/software"
 import ProductivityPage from "./pages/productivity"
 import LoginPage from "./pages/login"
+import RegisterPage from "./pages/register"
 
 export default function App() {
-  const me = useSWR(["/accounts/me/", true])
+  const { data: me } = useSWR(["/accounts/me/", true])
+
+  const logOut = () => {
+    window.localStorage.removeItem("token")
+    mutate(["/accounts/me/", true], undefined)
+  }
+  
 
   return (
     <div className="app">
@@ -24,7 +31,7 @@ export default function App() {
           <LinkButton to="/contact" label="Contact" />
           <LinkButton to="/productivity" label="Productivity" />
 
-          {me ? <Button label="Log Out" /> : (
+          {me ? <Button label={`Log Out as ${me.username}`} onClick={logOut} /> : (
             <>
               <LinkButton to="/login" label="Log In" />
               <LinkButton to="/register" label="Register" />
@@ -45,6 +52,9 @@ export default function App() {
         </Route>
         <Route path="/login">
             <LoginPage me={me} />
+        </Route>
+        <Route path="/register">
+            <RegisterPage me={me} />
         </Route>
       </Switch>
     </div>
