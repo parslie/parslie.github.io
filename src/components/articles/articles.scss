@@ -34,6 +34,31 @@ article {
   }
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: $tiny-size 0;
+  gap: $tiny-size;
+
+  * { margin: auto 0 !important; }
+  *:first-child { margin-left: 0 !important; }
+  *:last-child { margin-right: 0 !important; }
+
+  .spacer {
+    flex-grow: 1;
+  }
+}
+
+.action-entry, .action-start {
+  padding: $tiny-size;
+  margin: 0;
+
+  &:nth-child(even) {
+    background-color: $white-dark;
+    border-radius: $small-size;
+  }
+}
+
 .bar-chart {
   display: flex;
   flex-direction: row;
