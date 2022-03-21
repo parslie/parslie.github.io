@@ -1,10 +1,14 @@
+import useSWR from "swr"
+
 import "./app.scss"
 import "./misc.scss"
 
-import Form, { SingleLineField, MultiLineField, SelectMenu, Button, SubmitButton } from './components/form'
-import { HomePost, SoftwarePost } from "./components/posts"
+import Form, { LinkButton, SingleLineField, MultiLineField, SelectMenu, Button, SubmitButton } from './components/articles/form'
+import { HomePost, SoftwarePost } from "./components/articles/posts"
 
 export default function App() {
+  const me = useSWR(["/accounts/me/", true])
+
   const mockHomeData = {
     title: "Title yay! Home!",
     content: "This is content. **wohoo!**",
@@ -20,7 +24,20 @@ export default function App() {
   return (
     <div className="app">
       <aside>
+        <h1>Parslie</h1>
+        <nav>
+          <LinkButton to="/" label="home" />
+          <LinkButton to="/software" label="software" />
+          <LinkButton to="/contact" label="contact" />
+          <LinkButton to="/productivity" label="productivity" />
 
+          {me ? <Button label="log out" /> : (
+            <>
+              <LinkButton to="/login" label="log in" />
+              <LinkButton to="/register" label="register" />
+            </>
+          )}
+        </nav>
       </aside>
 
       <main>

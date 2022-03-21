@@ -1,5 +1,5 @@
-@import "../vars/colors.scss";
-@import "../vars/sizings.scss";
+@import "../../vars/colors.scss";
+@import "../../vars/sizings.scss";
 
 article {
   margin: $large-size auto;
@@ -20,13 +20,6 @@ article {
     .date {
       margin-top: $tiny-size;
     }
-  }
-
-  > *:first-child {
-    margin-top: 0;
-  }
-  > *:last-child {
-    margin-bottom: 0;
   }
 }
 

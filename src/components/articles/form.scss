@@ -1,5 +1,5 @@
-@import "../vars/colors.scss";
-@import "../vars/sizings.scss";
+@import "../../vars/colors.scss";
+@import "../../vars/sizings.scss";
 
 .form-field, .form-button {
   margin: $medium-size 0;
@@ -17,7 +17,6 @@
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr auto;
-  row-gap: $tiny-size;
 
   .label {
     padding-right: $tiny-size;
@@ -39,7 +38,6 @@
 .form-button {
   display: flex;
   flex-direction: column;
-  gap: $tiny-size;
 
   input {
     padding: $small-size;
