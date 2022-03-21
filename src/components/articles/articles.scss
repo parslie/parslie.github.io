@@ -51,13 +51,25 @@ article {
   .bar-portion {
     background-color: black;  // Used to see which portions need new colors
   }
-  .bar-portion.green {
-    @include barPortionColor($green, $green-dark, $green-light);
-  }
   .bar-portion.red {
     @include barPortionColor($red, $red-dark, $red-light);
   }
+  .bar-portion.orange {
+    @include barPortionColor($orange, $orange-dark, $orange-light);
+  }
+  .bar-portion.green {
+    @include barPortionColor($green, $green-dark, $green-light);
+  }
   .bar-portion.blue {
     @include barPortionColor($blue, $blue-dark, $blue-light);
+  }
+  .bar-portion.purple {
+    @include barPortionColor($purple, $purple-dark, $purple-light);
+  }
+  .bar-portion.pink {
+    @include barPortionColor($pink, $pink-dark, $pink-light);
+  }
+  .bar-portion.white {
+    @include barPortionColor($white, $gray, $white);
   }
 }
