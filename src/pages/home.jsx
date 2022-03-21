@@ -1,15 +1,15 @@
+import useSWR from "swr"
+
 import { HomePost } from "../components/articles/posts"
 
 export default function HomePage({ me }) {
-  const mockHomeData = {
-    title: "Title yay! Home!",
-    content: "This is content. **wohoo!**",
-    date: "2022-03-14T09:38:42.759059+01:00",
-  }
+  const { data: homePosts } = useSWR("/posts/home/")
 
   return (
     <main>
-      <HomePost data={mockHomeData} />
+      {homePosts && homePosts.map(
+        (postData, i) => <HomePost key={i} data={postData} />
+      )}
     </main>
   )
 }
