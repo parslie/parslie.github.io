@@ -1,8 +1,19 @@
 @import "../../vars/colors.scss";
 @import "../../vars/sizings.scss";
 
+@mixin buttonColor($color, $darkColor, $lightColor) {
+  background-color: $color;
+  background: linear-gradient(180deg, $color 0%, $darkColor 240%);
+  box-shadow: inset 0 0 0 1px $darkColor,
+              inset 0 0 0 2px $lightColor;
+    
+  &:hover {
+    background: linear-gradient(0deg, $color 0%, $darkColor 240%);
+  }
+}
+
 .form-field, .form-button {
-  margin: $medium-size 0;
+  margin: $small-size 0;
 
   * {
     margin: 0;
@@ -28,8 +39,12 @@
   }
 
   textarea, input, select {
+    border-radius: $small-size;
+    border: 1px solid $gray;
     padding: $small-size;
     resize: vertical;
+
+    // Textarea already inherits from body, but it only inherits correctly with this???
     font-family: inherit;
     font-size: 1em;
   }
@@ -42,68 +57,18 @@
 .form-button {
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 
   input {
+    border-radius: $small-size;
+    border: 0;
     padding: $small-size;
+
     font-family: inherit;
     font-size: 1em;
+    color: $white;
+    cursor: pointer;
+
+    @include buttonColor($green, $green-dark, $green-light);
   }
 }
-
-/*
-@import './vars/colors.scss';
-@import './vars/sizings.scss';
-
-.button {
-  display: block;
-  margin: $small-size 0;
-  padding: $medium-size;
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: $small-size;
-
-  background: linear-gradient(180deg, $green 0%, $green-dark 240%);
-  &:active {
-    background: linear-gradient(0deg, $green 0%, $green-dark 240%);
-  }
-
-  border: 1px solid $green-dark;
-  box-shadow: inset 0 0 0 1px $green-light;
-  color: $white;
-  text-decoration: none;
-  text-align: center;
-  font-size: 1em;
-
-  cursor: pointer;
-  user-select: none;
-}
-
-.text-field {
-  display: block;
-  margin: $small-size 0;
-  padding: $medium-size;
-  width: 100% !important;
-  box-sizing: border-box;
-  border-radius: $small-size;
-
-  background-color: white;
-  border: 1px solid $gray;
-  color: $black;
-  font-size: 1em;
-  font-family: inherit; // Textarea already inherits from body, but it only inherits correctly with this???
-}
-
-.select-menu {
-  display: block;
-  margin: $small-size 0;
-  padding: $medium-size;
-  width: 100% !important;
-  box-sizing: border-box;
-  border-radius: $small-size;
-
-  background-color: white;
-  border: 1px solid $gray;
-  color: $black;
-  font-size: 1em;
-}
-*/
