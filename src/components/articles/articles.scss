@@ -1,6 +1,17 @@
 @import "../../vars/colors.scss";
 @import "../../vars/sizings.scss";
 
+@mixin barPortionColor($color, $darkColor, $lightColor) {
+  background-color: $color;
+  background: linear-gradient(180deg, $color 0%, $darkColor 240%);
+  box-shadow: inset 0 0 0 1px $darkColor,
+              inset 0 0 0 2px $lightColor;
+    
+  &:hover {
+    background: linear-gradient(0deg, $color 0%, $darkColor 240%);
+  }
+}
+
 article {
   margin: $large-size auto;
   border-radius: $medium-size;
@@ -23,39 +34,30 @@ article {
   }
 }
 
-/*
-article {
-  .row {
+.bar-chart {
+  display: flex;
+  flex-direction: row;
+  gap: $tiny-size;
+  aspect-ratio: 16/9;
+
+  .bar {
     display: flex;
-    margin: $small-size 0;
-    gap: $small-size;
+    flex-direction: column;
+    flex-grow: 1;
 
-    * { margin: auto 0 !important; }
-    *:first-child { margin-left: 0 !important; }
-    *:last-child { margin-right: 0 !important; }
-
-    .spacer {
-      flex-grow: 1;
-    }
+    box-sizing: border-box;
   }
 
-  .action-entry, 
-  .action-start {
-    padding: $small-size;
-    margin: 0;
-
-    &:nth-child(even) {
-      background-color: $white-dark;
-      border-radius: $small-size;
-    }
-
-    .button {
-      width: auto;
-    }
+  .bar-portion {
+    background-color: black;  // Used to see which portions need new colors
   }
-
-  canvas {
-    width: 100%;
+  .bar-portion.green {
+    @include barPortionColor($green, $green-dark, $green-light);
+  }
+  .bar-portion.red {
+    @include barPortionColor($red, $red-dark, $red-light);
+  }
+  .bar-portion.blue {
+    @include barPortionColor($blue, $blue-dark, $blue-light);
   }
 }
-*/
