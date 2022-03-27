@@ -33,7 +33,7 @@ export default function SoftwarePage({ me }) {
           <div className="row">
             <SingleLineField id="repoOwner" name="repoOwner" label="Repository"
               placeholder="Enter repository owner here..." />
-            <span>/</span>
+            <span className="repository-divider">/</span>
             <SingleLineField id="repoName" name="repoName"
               placeholder="Enter repository name here..." />
           </div>

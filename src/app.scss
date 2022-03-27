@@ -2,17 +2,36 @@
 @import './vars/sizings.scss';
 
 .app {
-  > aside {
+  @media screen and (max-width: $mobile-width) {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    padding: $large-size;
-    width: $aside-width;
-    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
 
-    border-right: 1px solid $green-dark;
-    box-shadow: inset -1px 0 0 $green-light;
+    display: flex;
+    flex-direction: column;
+  }
+
+  > aside {
+    @media screen and (min-width: $desktop-width) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      padding: $large-size;
+      width: $aside-width;
+      box-sizing: border-box;
+
+      box-shadow: inset -1px 0 0 $green-light;
+      border-right: 1px solid $green-dark;
+    }
+    
+    @media screen and (max-width: $mobile-width) {
+      padding: $large-size;
+
+      box-shadow: inset 0 -1px 0 $green-light;
+      border-bottom: 1px solid $green-dark;
+    }
+
     background: linear-gradient(180deg, $green 0%, $green-dark 100%);
 
     h1 {
@@ -22,14 +41,22 @@
   }
 
   > main {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: $aside-width;
-    padding: $large-size;
-    box-sizing: border-box;
-    overflow-y: auto;
+    @media screen and (min-width: $desktop-width) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: $aside-width;
+      padding: $large-size;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    @media screen and (max-width: $mobile-width) {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
 
     background-color: $white;
     color: $black;

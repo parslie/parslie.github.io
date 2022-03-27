@@ -7,7 +7,7 @@ export default function Form({ title, onSubmit, children }) {
   }
 
   return (
-    <article>
+    <article className="form">
       <h2 className="title">{title}</h2>
       <form onSubmit={internalOnSubmit}>
         {children}

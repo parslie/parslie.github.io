@@ -13,16 +13,25 @@
 }
 
 article {
-  margin: $large-size auto;
-  border-radius: $medium-size;
-  border: 1px solid $gray;
   padding: $medium-size;
-  min-width: min-content;
-  max-width: $article-max-width;
   box-sizing: border-box;
 
   background-color: $white;
   color: $black;
+
+  @media screen and (min-width: $desktop-width) {
+    margin: $large-size auto;
+    border-radius: $medium-size;
+    border: 1px solid $gray;
+    min-width: min-content;
+    max-width: $article-max-width;
+  }
+
+  @media screen and (max-width: $mobile-width) {
+    border-bottom: 1px solid $gray;
+
+    .repository-divider { display: none; }
+  }
 
   &.post {
     .title {
@@ -32,13 +41,18 @@ article {
       margin-top: $tiny-size;
     }
   }
+
+  &.form .row {
+    @media screen and (min-width: $desktop-width) { flex-direction: row; }
+    @media screen and (max-width: $mobile-width) { flex-direction: column; }
+  }
 }
 
 .row {
   display: flex;
   flex-direction: row;
-  margin: $tiny-size 0;
-  gap: $tiny-size;
+  margin: $small-size 0;
+  gap: $small-size;
 
   * { margin: auto 0 !important; }
   *:first-child { margin-left: 0 !important; }
@@ -66,14 +80,14 @@ article {
 .bar-chart {
   display: flex;
   flex-direction: row;
-  gap: $tiny-size;
+  gap: 1px;
   aspect-ratio: 16/9;
 
   .bar {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: $tiny-size;
+    gap: 1px;
 
     box-sizing: border-box;
   }
