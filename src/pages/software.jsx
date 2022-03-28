@@ -3,7 +3,7 @@ import { post } from "../utils/request"
 
 import { SoftwarePost } from "../components/articles/posts"
 import Form from "../components/articles/form"
-import { SingleLineField, SelectMenu, MultiLineField } from "../components/input/fields"
+import { SingleLineField, MultiLineField } from "../components/input/fields"
 import { SubmitButton } from "../components/input/buttons"
 
 export default function SoftwarePage({ me }) {

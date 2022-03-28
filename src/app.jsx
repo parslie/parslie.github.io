@@ -8,6 +8,7 @@ import { LinkButton, Button } from "./components/input/buttons"
 
 import HomePage from "./pages/home"
 import SoftwarePage from "./pages/software"
+import ContactPage from "./pages/contact"
 import ProductivityPage from "./pages/productivity"
 import LoginPage from "./pages/login"
 import RegisterPage from "./pages/register"
@@ -46,6 +47,9 @@ export default function App() {
         </Route>
         <Route path="/software">
             <SoftwarePage me={me} />
+        </Route>
+        <Route path="/contact">
+            <ContactPage me={me} />
         </Route>
         <Route path="/productivity">
             <ProductivityPage me={me} />
