@@ -10,12 +10,12 @@ export function ActionBarChart({ data }) {
     let totalDuration = 0
 
     // Generate bar portions for categories
-    for (let category of data.categories) {
-      const duration = category.durations[i]
-      const color = category.color
+    for (let type of data.types) {
+      const duration = type.durations[i]
+      const color = type.color
 
       const duractionMins = duration / 60
-      const tooltip = `Name: ${category.name}\nDuration: ${duractionMins.toFixed(2)} minutes`
+      const tooltip = `Name: ${type.name}\nDuration: ${duractionMins.toFixed(2)} minutes`
 
       if (duration !== 0) {
         totalDuration += duration
@@ -51,7 +51,7 @@ export function ActionEntry({ data }) {
   return (
     <div className="action-entry row">
       <h4>
-        {data.start_obj.category}
+        {data.start_obj.type_obj.name}
         <span> - </span>
         {data.start_obj.description}
         <span> - </span>
@@ -82,7 +82,7 @@ export function ActionStart({ data }) {
   return (
     <div className="action-start row">
       <h4>
-        {data.category}
+        {data.type_obj.name}
         <span> - </span>
         {data.description}
       </h4>

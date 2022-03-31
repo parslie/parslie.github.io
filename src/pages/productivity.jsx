@@ -9,17 +9,22 @@ import { SubmitButton } from "../components/input/buttons"
 
 export default function ProductivityPage({ me }) {
   const { data: statistics } = useSWR("/productivity/statistics/")
-  const { data: categories } = useSWR("/productivity/categories/")
+  const { data: types } = useSWR("/productivity/types/")
   const { data: entries } = useSWR(["/productivity/entries/", true])
   const { data: starts } = useSWR(["/productivity/starts/", true])
 
-  const categoryList = []
-  if (categories)
-    categories.map(category => categoryList.push(category.name))
+  const typeList = []
+  const typeIdList = []
+  if (types) {
+    types.map(type => {
+      typeList.push(type.name)
+      typeIdList.push(type.id)
+    })
+  }
 
   const logAction = (e) => {
     const logData = {
-      category: e.target.category.value,
+      type: e.target.type.value,
       description: e.target.description.value,
     }
   
@@ -35,8 +40,8 @@ export default function ProductivityPage({ me }) {
         <Form title="Log an Action" onSubmit={logAction}>
           <SingleLineField id="desc" name="description" 
             label="Description" placeholder="Enter description here..." />
-          <SelectMenu id="category" name="category" label="Category" options={categoryList} 
-            values={categoryList} defaultOption="-- Please select a category --" />
+          <SelectMenu id="type" name="type" label="Type" options={typeList} 
+            values={typeIdList} defaultOption="-- Please select a type --" />
           <SubmitButton label="Log" />
         </Form>
       )}
