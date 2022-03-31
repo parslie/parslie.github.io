@@ -23,7 +23,7 @@ export default function LoginPage({ me }) {
   }
 
   return (
-    <main>
+    <div className="articles">
       <Form title="Log In" onSubmit={logIn}>
         <SingleLineField id="email" name="email" type="email" 
           placeholder="Enter your e-mail here..." label="E-mail" />
@@ -33,6 +33,6 @@ export default function LoginPage({ me }) {
 
         <SubmitButton label="Log In" />
       </Form>
-    </main>
+    </div>
   )
 }

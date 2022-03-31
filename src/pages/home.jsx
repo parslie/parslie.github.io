@@ -6,10 +6,10 @@ export default function HomePage({ me }) {
   const { data: homePosts } = useSWR("/posts/home/")
 
   return (
-    <main>
+    <div className="articles">
       {homePosts && homePosts.map(
         (postData, i) => <HomePost key={i} data={postData} />
       )}
-    </main>
+    </div>
   )
 }

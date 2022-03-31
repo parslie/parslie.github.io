@@ -26,7 +26,7 @@ export default function RegisterPage({ me }) {
   }
 
   return (
-    <main>
+    <div className="articles">
       <Form title="Register" onSubmit={register}>
         <SingleLineField id="email" name="email" type="email" 
           placeholder="Enter your e-mail here..." label="E-mail" />
@@ -41,6 +41,6 @@ export default function RegisterPage({ me }) {
 
         <SubmitButton label="Log In" />
       </Form>
-    </main>
+    </div>
   )
 }

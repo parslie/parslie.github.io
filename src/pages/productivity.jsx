@@ -30,7 +30,7 @@ export default function ProductivityPage({ me }) {
   }
 
   return (
-    <main>
+    <div className="articles">
       {me && me.is_superuser && (
         <Form title="Log an Action" onSubmit={logAction}>
           <SingleLineField id="desc" name="description" 
@@ -50,6 +50,6 @@ export default function ProductivityPage({ me }) {
           {entries.map((entry, i) => <ActionEntry key={i} data={entry} />)}
         </article>
       )}
-    </main>
+    </div>
   )
 }

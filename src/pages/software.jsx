@@ -23,7 +23,7 @@ export default function SoftwarePage({ me }) {
   }
 
   return (
-    <main>
+    <div className="articles">
       {me && me.is_superuser && (
         <Form title="Create a Software Post" onSubmit={createPost}>
           <SingleLineField id="title" name="title" label="Title"
@@ -44,6 +44,6 @@ export default function SoftwarePage({ me }) {
       {softwarePosts && softwarePosts.map(
         (postData, i) => <SoftwarePost key={i} data={postData} />
       )}
-    </main>
+    </div>
   )
 }

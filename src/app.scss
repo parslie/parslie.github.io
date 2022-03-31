@@ -26,7 +26,7 @@
     }
     
     @media screen and (max-width: $mobile-width) {
-      padding: $large-size;
+      padding: $medium-size;
 
       box-shadow: inset 0 -1px 0 $green-light;
       border-bottom: 1px solid $green-dark;
@@ -53,13 +53,23 @@
     }
 
     @media screen and (max-width: $mobile-width) {
-      display: flex;
-      flex-direction: column;
       flex-grow: 1;
     }
 
     background-color: $white;
     color: $black;
+
+    > .articles {
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: $desktop-width) {
+        gap: $large-size;
+      }
+
+      margin: 0 auto;
+      max-width: $article-max-width;
+    }
   }
 
   *:first-child {

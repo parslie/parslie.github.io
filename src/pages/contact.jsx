@@ -11,7 +11,7 @@ function AdminContactPage({ me }) {
   }
 
   return (
-    <main>
+    <div className="articles">
       <article className="test">
 
       </article>
@@ -21,7 +21,7 @@ function AdminContactPage({ me }) {
           placeholder="Enter a message here..." />
         <SubmitButton label="Send" />
       </Form>
-    </main>
+    </div>
   )
 }
 
@@ -33,7 +33,7 @@ function NormalContactPage({ me }) {
   }
 
   return (
-    <main>
+    <div className="articles">
       <Form title="Send a Message to Parslie" onSubmit={sendMessage}>
         <MultiLineField id="msg" name="message" label="Message"
           placeholder="Enter a message here..." />
@@ -41,17 +41,17 @@ function NormalContactPage({ me }) {
       </Form>
 
       {messages && messages.map((message, i) => <Message me={me} data={message} key={i} />)}
-    </main>
+    </div>
   )
 }
 
 function NoContactPage() {
   return (
-    <main>
+    <div className="articles">
       <article>
         <h2>You need to log in to send a message.</h2>
       </article>
-    </main>
+    </div>
   )
 }
 

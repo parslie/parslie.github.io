@@ -41,26 +41,28 @@ export default function App() {
         </nav>
       </aside>
 
-      <Switch>
-        <Route exact path="/">
-            <HomePage me={me} />
-        </Route>
-        <Route path="/software">
-            <SoftwarePage me={me} />
-        </Route>
-        <Route path="/contact">
-            <ContactPage me={me} />
-        </Route>
-        <Route path="/productivity">
-            <ProductivityPage me={me} />
-        </Route>
-        <Route path="/login">
-            <LoginPage me={me} />
-        </Route>
-        <Route path="/register">
-            <RegisterPage me={me} />
-        </Route>
-      </Switch>
+      <main>
+        <Switch>
+          <Route exact path="/">
+              <HomePage me={me} />
+          </Route>
+          <Route path="/software">
+              <SoftwarePage me={me} />
+          </Route>
+          <Route path="/contact">
+              <ContactPage me={me} />
+          </Route>
+          <Route path="/productivity">
+              <ProductivityPage me={me} />
+          </Route>
+          <Route path="/login">
+              <LoginPage me={me} />
+          </Route>
+          <Route path="/register">
+              <RegisterPage me={me} />
+          </Route>
+        </Switch>
+      </main>
     </div>
   )
 }

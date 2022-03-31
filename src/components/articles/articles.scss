@@ -14,22 +14,19 @@
 
 article {
   padding: $medium-size;
+  width: 100%;
   box-sizing: border-box;
 
   background-color: $white;
   color: $black;
 
   @media screen and (min-width: $desktop-width) {
-    margin: $large-size auto;
     border-radius: $medium-size;
     border: 1px solid $gray;
-    min-width: min-content;
-    max-width: $article-max-width;
   }
 
   @media screen and (max-width: $mobile-width) {
     border-bottom: 1px solid $gray;
-
     .repository-divider { display: none; }
   }
 
