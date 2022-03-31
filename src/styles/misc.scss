@@ -22,7 +22,7 @@ h1 {
   font-weight: bold;
 }
 
-h2 {
+h2, article > section h1 {
   display: block;
   font-size: 1.5em;
   margin-top: 0.83em;
@@ -32,7 +32,7 @@ h2 {
   font-weight: bold;
 }
 
-h3 {
+h3, article > section h2 {
   display: block;
   font-size: 1.17em;
   margin-top: 1em;
@@ -42,7 +42,7 @@ h3 {
   font-weight: bold;
 } 
 
-h4 {
+h4, article > section h3 {
   display: block;
   font-size: 1em;
   margin-top: 1.33em;
@@ -52,7 +52,7 @@ h4 {
   font-weight: bold;
 }
 
-h5 {
+h5, article > section h4 {
   display: block;
   font-size: .83em;
   margin-top: 1.67em;
@@ -62,7 +62,7 @@ h5 {
   font-weight: bold;
 }
 
-h6 {
+h6, article > section h5 {
   display: block;
   font-size: .67em;
   margin-top: 2.33em;

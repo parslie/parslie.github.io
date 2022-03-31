@@ -4,6 +4,8 @@ import useSWR, { mutate } from "swr"
 import "./styles/app.scss"
 import "./styles/misc.scss"
 
+import SoftwarePage from "./pages/software"
+
 export default function App() {
   const { data: me } = useSWR(["/accounts/me/", true])
 
@@ -15,12 +17,14 @@ export default function App() {
   return (
     <div className="app">
       <header>
+        <h1>Parslie</h1>
       </header>
 
-      <main>
-        <Switch>
-        </Switch>
-      </main>
+      <Switch>
+        <Route path="/software">
+          <SoftwarePage me={me} />
+        </Route>
+      </Switch>
     </div>
   )
 }
