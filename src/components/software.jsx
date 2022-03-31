@@ -3,6 +3,8 @@ import ReactMarkdown from "react-markdown"
 import { mutate } from "swr"
 import { del } from "../utils/request"
 
+import "../styles/articles.scss"
+
 export function Post({ data, me }) {
   const date = new Date(data.date)
   const repoUrl = `https://github.com/${data.repository}`

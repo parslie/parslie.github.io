@@ -1,0 +1,17 @@
+@import "./vars/colors.scss";
+@import "./vars/sizings.scss";
+
+article {
+  @media screen and (min-width: $desktop-width) {
+    > header { padding: $large-size; }
+    > section { padding: 0 $large-size $large-size; }
+  }
+  @media screen and (max-width: $mobile-width) {
+    > header { padding: $medium-size; }
+    > section { padding: 0 $medium-size $medium-size; }
+  }
+  
+  & + article { border-top: 1px solid $gray; }
+
+  > header * { margin: 0; }
+}
