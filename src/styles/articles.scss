@@ -10,8 +10,12 @@ article {
     > header { padding: $medium-size; }
     > section { padding: 0 $medium-size $medium-size; }
   }
-  
   & + article { border-top: 1px solid $gray; }
 
   > header * { margin: 0; }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 }
