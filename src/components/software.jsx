@@ -24,7 +24,7 @@ export function Post({ data, me }) {
   }
 
   return (
-    <article className="post">
+    <article>
       <header>
         <h1>{data.title}</h1>
         <h5>{date.toLocaleString("sv-SE")}</h5>

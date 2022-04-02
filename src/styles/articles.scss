@@ -27,4 +27,18 @@ article {
     display: flex;
     flex-direction: column;
   }
+
+  .action-start, .action-entry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: $small-size;
+    padding: $small-size;
+
+    > * { margin: 0; }
+
+    &:nth-child(odd) {
+      background-color: $white-dark;
+    }
+  }
 }

@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Route, Switch } from "react-router-dom"
 import useSWR, { mutate } from "swr"
 
+// TODO: separate article components/styles & element components/styles
 import "./styles/app.scss"
 import "./styles/misc.scss"
 
@@ -10,6 +11,7 @@ import { Button, LinkButton, SubmitButton } from "./components/buttons"
 import { FormPrompt, YesNoPrompt } from "./components/prompts"
 import { SingleLineText } from "./components/fields"
 import { post } from "./utils/request"
+import ProductivityPage from "./pages/productivity"
 
 export default function App() {
   const [ showLogIn, setShowLogIn ] = useState(false)
@@ -78,6 +80,9 @@ export default function App() {
       <Switch>
         <Route path="/software">
           <SoftwarePage me={me} />
+        </Route>
+        <Route path="/productivity">
+          <ProductivityPage me={me} />
         </Route>
       </Switch>
 

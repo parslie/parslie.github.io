@@ -5,7 +5,7 @@ export default function Form({ title, onSubmit, children, className }) {
   }
   
   return (
-    <article className={className ? "form " + className : "form"}>
+    <article className={className}>
       <header>
         <h1>{title}</h1>
       </header>
