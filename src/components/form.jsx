@@ -1,11 +1,11 @@
-export default function Form({ title, onSubmit, children }) {
+export default function Form({ title, onSubmit, children, className }) {
   const onPreSubmit = (e) => {
     e.preventDefault()
     onSubmit(e)
   }
   
   return (
-    <article className="form">
+    <article className={className ? "form " + className : "form"}>
       <header>
         <h1>{title}</h1>
       </header>
