@@ -9,15 +9,6 @@ import { MultiLineText, SingleLineText } from "../components/fields"
 import { Button, SubmitButton } from "../components/buttons"
 
 export default function SoftwarePage({ me }) {
-  const mockPostData = {
-    id: 1,
-    title: "test",
-    content: "# asdasd\n\ntesting con***tent***!",
-    repository: "parslie/parslie.github.io",
-    date: "2022-03-06T18:34:27.184671+01:00",
-  }
-
-  // TODO: remove debug above
   const { data: posts } = useSWR("/posts/software/")
 
   const [ titleError, setTitleError ] = useState()
@@ -49,16 +40,18 @@ export default function SoftwarePage({ me }) {
 
   return (
     <main>
-      <Form onSubmit={createPost} title="Create a Software Post">
-        <SingleLineText name="title" placeholder="Enter post title here..." error={titleError} />
-        <MultiLineText name="content" placeholder="Enter post content here..." error={contentError} />
-        <SingleLineText name="repoOwner" placeholder="Enter repository owner here..." />
-        <SingleLineText name="repoName" placeholder="Enter repository name here..."
-           error={repositoryError} />
-        <SubmitButton label="Post" error={generalError} />
-      </Form>
+      {me && me.is_superuser && (
+        <Form onSubmit={createPost} title="Create a Software Post">
+          <SingleLineText name="title" placeholder="Enter post title here..." error={titleError} />
+          <MultiLineText name="content" placeholder="Enter post content here..." error={contentError} />
+          <SingleLineText name="repoOwner" placeholder="Enter repository owner here..." />
+          <SingleLineText name="repoName" placeholder="Enter repository name here..."
+            error={repositoryError} />
+          <SubmitButton label="Post" error={generalError} />
+        </Form>
+      )}
 
-      {posts && posts.map((postData, i) => <Post data={postData} key={i} />)}
+      {posts && posts.map((postData, i) => <Post me={me} data={postData} key={i} />)}
     </main>
   )
 }

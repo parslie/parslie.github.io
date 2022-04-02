@@ -1,4 +1,5 @@
-import "../styles/prompt.scss"
+import "../styles/prompts.scss"
+import "../styles/articles.scss"
 
 import Form from "./form"
 import { Button } from "./buttons"

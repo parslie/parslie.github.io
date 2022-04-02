@@ -7,8 +7,10 @@
   right: 0;
   bottom: 0;
   left: 0;
-  padding: $large-size;
   background-color: rgba(0, 0, 0, 0.5);
+
+  @media screen and (min-width: $desktop-width) { padding: $large-size; }
+  @media screen and (max-width: $mobile-width) { padding: $medium-size; }
 
   .prompt-perimeter {
     position: fixed;
