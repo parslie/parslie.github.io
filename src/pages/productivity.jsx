@@ -1,4 +1,4 @@
-import useSWR from "swr"
+import useSWR, { mutate } from "swr"
 import { post } from "../utils/request"
 
 import Form from "../components/form"
@@ -13,7 +13,18 @@ export default function ProductivityPage({ me }) {
   const { data: statistics } = useSWR("/productivity/statistics/")
 
   const logAction = (e) => {
+    const logData = {
+      description: e.target.description.value,
+      type: e.target.type.value,
+    }
 
+    post("/productivity/starts/", logData, true).then(res => {
+      e.target.reset()
+      mutate("/productivity/statistics/")
+      mutate(["/productivity/starts/", true])
+    }).catch(({ response: res }) => {
+      // TODO
+    })
   }
 
   return (
@@ -35,7 +46,7 @@ export default function ProductivityPage({ me }) {
           {actionStarts && actionEntries && (
             <article>
               <header>
-                <h1>Action Entries</h1>
+                <h1>Action of Today</h1>
               </header>
               <section>
                 {actionStarts.map((actionStart, i) => <ActionStart key={i} data={actionStart} />)}

@@ -36,7 +36,7 @@ export default function App() {
       mutate(["/accounts/me/", true])
       setShowLogIn(false) 
     }).catch(({ response: res }) => {
-
+      // TODO
     })
   }
 
@@ -53,7 +53,7 @@ export default function App() {
         mutate(["/accounts/me/", true])
         setShowRegister(false)
       }).catch(({ response: res }) => {
-        
+        // TODO
       })
     }
   }

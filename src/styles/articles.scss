@@ -31,6 +31,7 @@ article {
   .action-start, .action-entry {
     display: flex;
     flex-direction: row;
+    gap: $tiny-size;
     align-items: center;
     border-radius: $small-size;
     padding: $small-size;

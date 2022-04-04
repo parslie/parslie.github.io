@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { del } from "../utils/request"
+import { mutate } from "swr"
+import { del, post } from "../utils/request"
 
 import "../styles/articles.scss"
 import "../styles/charts.scss"
@@ -47,10 +48,39 @@ export function ActionChart({ data }) {
 }
 
 export function ActionStart({ data }) {
-  return (
-    <div className="action-start">
+  const [ showDeletePrompt, setShowDeletePrompt ] = useState(false)
+  const [ showFinishPrompt, setShowFinishPrompt ] = useState(false)
 
-    </div>
+  const deleteAction = () => {
+    del(`/productivity/starts/${data.id}/`, true).then(res => {
+      mutate(["/productivity/starts/", true])
+      setShowDeletePrompt(false)
+    })
+  }
+
+  const finishAction = () => {
+    post("/productivity/entries/", { start: data.id }, true).then(res => {
+      mutate(["/productivity/starts/", true])
+      mutate(["/productivity/entries/", true])
+      mutate("/productivity/statistics/")
+      setShowFinishPrompt(false)
+    })
+  }
+
+  return ( 
+    <>
+      <div className="action-start">
+        <h3>{data.type_obj.name} - {data.description} - TODO</h3>
+        <div style={{ flexGrow: 1 }} />
+        <Button label="End" onClick={() => setShowFinishPrompt(true)} />
+        <Button label="Delete" onClick={() => setShowDeletePrompt(true)} />
+      </div>
+
+      {showDeletePrompt && <YesNoPrompt title={`Do you really want to delete "${data.description}"?`} onYes={deleteAction}
+        onNo={() => setShowDeletePrompt(false)} />}
+      {showFinishPrompt && <YesNoPrompt title={`Do you really want to finish "${data.description}"?`} onYes={finishAction}
+        onNo={() => setShowFinishPrompt(false)} />}
+    </>
   )
 }
 
@@ -60,8 +90,10 @@ export function ActionEntry({ data }) {
   const durationMins = Math.floor(data.duration / 60)
   const durationSecs = Math.floor(data.duration % 60)
 
-  const deleteEntry = () => {
+  const deleteAction = () => {
     del(`/productivity/entries/${data.id}/`, true).then(res => {
+      mutate(["/productivity/entries/", true])
+      mutate("/productivity/statistics/")
       setShowDeletePrompt(false)
     })
   }
@@ -74,7 +106,7 @@ export function ActionEntry({ data }) {
         <Button label="Delete" onClick={() => setShowDeletePrompt(true)} />
       </div>
 
-      {showDeletePrompt && <YesNoPrompt title={`Do you really want to delete "${data.start_obj.description}"?`} onYes={deleteEntry}
+      {showDeletePrompt && <YesNoPrompt title={`Do you really want to delete "${data.start_obj.description}"?`} onYes={deleteAction}
         onNo={() => setShowDeletePrompt(false)} />}
     </>
   )
