@@ -1,0 +1,54 @@
+@import "./vars/colors.scss";
+@import "./vars/sizings.scss";
+
+.input {
+  display: flex;
+  flex-direction: column;
+  margin: $tiny-size 0;
+  text-decoration: none;
+
+  * { margin: 0; }
+  .error { color: $red; }
+
+  input, textarea, select {
+    border-radius: $small-size;
+    padding: $small-size $medium-size;
+    width: 100%;
+    box-sizing: border-box;
+
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  select {
+    border: 0;
+    box-shadow: inset 0 0 0 1px $gray;
+    color: $black;
+  }
+
+  &.text-field input, textarea {
+    resize: vertical;
+    
+    border: 0;
+    box-shadow: inset 0 0 0 1px $gray;
+    color: $black;
+
+    &::placeholder {
+      color:$gray;
+      opacity: 1;
+    }
+  }
+
+  &.button input {
+    border: 0;
+    box-shadow: inset 0 0 0 1px $green-dark,
+                inset 0 0 0 2px $green-light;
+    background: linear-gradient(180deg, $green 0%, $green-dark 220%);
+    color: $white;
+    cursor: pointer;
+
+    &:hover {
+      background: linear-gradient(0deg, $green 0%, $green-dark 220%);
+    }
+  }
+}

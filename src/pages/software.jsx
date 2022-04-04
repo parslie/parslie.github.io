@@ -1,49 +1,57 @@
+import { useState } from "react"
+
 import useSWR, { mutate } from "swr"
 import { post } from "../utils/request"
 
-import { SoftwarePost } from "../components/articles/posts"
-import Form from "../components/articles/form"
-import { SingleLineField, MultiLineField } from "../components/input/fields"
-import { SubmitButton } from "../components/input/buttons"
+import Form from "../components/form"
+import { Post } from "../components/software"
+import { MultiLineText, SingleLineText } from "../components/fields"
+import { Button, SubmitButton } from "../components/buttons"
 
 export default function SoftwarePage({ me }) {
-  const { data: softwarePosts } = useSWR("/posts/software/")
+  const { data: posts } = useSWR("/posts/software/")
+
+  const [ titleError, setTitleError ] = useState()
+  const [ contentError, setContentError ] = useState()
+  const [ repositoryError, setRepositoryError ] = useState()
+  const [ generalError, setGeneralError ] = useState()
 
   const createPost = (e) => {
-    const data = {
+    const postData = {
       title: e.target.title.value,
       content: e.target.content.value,
       repository: `${e.target.repoOwner.value}/${e.target.repoName.value}`,
     }
 
-    post('/posts/software/', data, true).then(res => {
-      mutate('/posts/software/')
+    post("/posts/software/", postData, true).then(res => {
       e.target.reset()
+      setTitleError("")
+      setContentError("")
+      setRepositoryError("")
+      setGeneralError("")
+      mutate("/posts/software/")
+    }).catch(({ response: res }) => {
+      setTitleError(res.data.title)
+      setContentError(res.data.content)
+      setRepositoryError(res.data.repository)
+      setGeneralError(`${res.status} ${res.statusText}`)
     })
   }
 
   return (
-    <div className="articles">
+    <main>
       {me && me.is_superuser && (
-        <Form title="Create a Software Post" onSubmit={createPost}>
-          <SingleLineField id="title" name="title" label="Title"
-            placeholder="Enter post title here..." />
-          <MultiLineField id="content" name="content" label="Content"
-            placeholder="Enter post content here..." />
-          <div className="row">
-            <SingleLineField id="repoOwner" name="repoOwner" label="Repository"
-              placeholder="Enter repository owner here..." />
-            <span className="repository-divider">/</span>
-            <SingleLineField id="repoName" name="repoName"
-              placeholder="Enter repository name here..." />
-          </div>
-          <SubmitButton />
+        <Form onSubmit={createPost} title="Create a Software Post">
+          <SingleLineText name="title" placeholder="Enter post title here..." error={titleError} />
+          <MultiLineText name="content" placeholder="Enter post content here..." error={contentError} />
+          <SingleLineText name="repoOwner" placeholder="Enter repository owner here..." />
+          <SingleLineText name="repoName" placeholder="Enter repository name here..."
+            error={repositoryError} />
+          <SubmitButton label="Post" error={generalError} />
         </Form>
       )}
 
-      {softwarePosts && softwarePosts.map(
-        (postData, i) => <SoftwarePost key={i} data={postData} />
-      )}
-    </div>
+      {posts && posts.map((postData, i) => <Post me={me} data={postData} key={i} />)}
+    </main>
   )
 }

@@ -1,60 +1,61 @@
-import { mutate } from "swr"
-import useSWR from "swr"
+import useSWR, { mutate } from "swr"
 import { post } from "../utils/request"
 
-import { ActionBarChart, ActionEntry, ActionStart } from "../components/articles/productivity"
-import Form from "../components/articles/form"
-import { SingleLineField, SelectMenu } from "../components/input/fields"
-import { SubmitButton } from "../components/input/buttons"
+import Form from "../components/form"
+import { SingleLineText, SelectMenu } from "../components/fields"
+import { SubmitButton } from "../components/buttons"
+import { ActionEntry, ActionChart, ActionStart } from "../components/productivity"
 
 export default function ProductivityPage({ me }) {
+  const { data: actionTypes } = useSWR("/productivity/types/") // TODO: remove action from names
+  const { data: actionStarts } = useSWR(["/productivity/starts/", true])
+  const { data: actionEntries } = useSWR(["/productivity/entries/", true])
   const { data: statistics } = useSWR("/productivity/statistics/")
-  const { data: types } = useSWR("/productivity/types/")
-  const { data: entries } = useSWR(["/productivity/entries/", true])
-  const { data: starts } = useSWR(["/productivity/starts/", true])
-
-  const typeList = []
-  const typeIdList = []
-  if (types) {
-    types.map(type => {
-      typeList.push(type.name)
-      typeIdList.push(type.id)
-    })
-  }
 
   const logAction = (e) => {
     const logData = {
-      type: e.target.type.value,
       description: e.target.description.value,
+      type: e.target.type.value,
     }
-  
+
     post("/productivity/starts/", logData, true).then(res => {
       e.target.reset()
+      mutate("/productivity/statistics/")
       mutate(["/productivity/starts/", true])
+    }).catch(({ response: res }) => {
+      // TODO
     })
   }
 
   return (
-    <div className="articles">
+    <main>
+      {statistics && <ActionChart data={statistics} />}
+
       {me && me.is_superuser && (
-        <Form title="Log an Action" onSubmit={logAction}>
-          <SingleLineField id="desc" name="description" 
-            label="Description" placeholder="Enter description here..." />
-          <SelectMenu id="type" name="type" label="Type" options={typeList} 
-            values={typeIdList} defaultOption="-- Please select a type --" />
-          <SubmitButton label="Log" />
-        </Form>
-      )}
+        <>
+          {actionTypes && (
+            <Form title="Log an Action" onSubmit={logAction}>
+              <SelectMenu name="type" defaultOption="--Select an action type--"
+                options={actionTypes.map(type => type.name)} 
+                values={actionTypes.map(type => type.id)} />
+              <SingleLineText name="description" placeholder="Enter a description here..." />
+              <SubmitButton label="Log" />
+            </Form>
+          )}
 
-      {statistics && <ActionBarChart data={statistics} />}
-
-      {me && me.is_superuser && entries && starts && (
-        <article className="actions">
-          <h2>Actions of Today</h2>
-          {starts.map((start, i) => <ActionStart key={i} data={start} />)}
-          {entries.map((entry, i) => <ActionEntry key={i} data={entry} />)}
-        </article>
+          {actionStarts && actionEntries && (
+            <article>
+              <header>
+                <h1>Action of Today</h1>
+              </header>
+              <section>
+                {actionStarts.map((actionStart, i) => <ActionStart key={i} data={actionStart} />)}
+                {actionEntries.map((actionEntry, i) => <ActionEntry key={i} data={actionEntry} />)}
+              </section>
+            </article>
+          )}
+        </>
       )}
-    </div>
+    </main>
   )
 }
