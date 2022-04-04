@@ -1,17 +1,19 @@
 import { useState } from "react"
 import { Route, Switch } from "react-router-dom"
 import useSWR, { mutate } from "swr"
+import { post } from "./utils/request"
 
 // TODO: separate article components/styles & element components/styles
 import "./styles/app.scss"
 import "./styles/misc.scss"
 
+import HomePage from "./pages/home"
 import SoftwarePage from "./pages/software"
+import ProductivityPage from "./pages/productivity"
+
 import { Button, LinkButton, SubmitButton } from "./components/buttons"
 import { FormPrompt, YesNoPrompt } from "./components/prompts"
 import { SingleLineText } from "./components/fields"
-import { post } from "./utils/request"
-import ProductivityPage from "./pages/productivity"
 
 export default function App() {
   const [ showLogIn, setShowLogIn ] = useState(false)
@@ -78,12 +80,9 @@ export default function App() {
       </header>
 
       <Switch>
-        <Route path="/software">
-          <SoftwarePage me={me} />
-        </Route>
-        <Route path="/productivity">
-          <ProductivityPage me={me} />
-        </Route>
+        <Route exact path="/"><HomePage me={me} /></Route>
+        <Route path="/software"><SoftwarePage me={me} /></Route>
+        <Route path="/productivity"><ProductivityPage me={me} /></Route>
       </Switch>
 
       {showLogOut && <YesNoPrompt title="Do you really want to log out?" 

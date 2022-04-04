@@ -13,12 +13,10 @@ export function Post({ data, me }) {
   const [ showDeletePrompt, setShowDeletePrompt ] = useState(false)
 
   const date = new Date(data.date)
-  const repoUrl = `https://github.com/${data.repository}`
-  const repoString = `The repository can be found [here](${repoUrl})!`
 
   const deletePost = () => {
-    del(`/posts/software/${data.id}/`, true).then(res => {
-      mutate("/posts/software/")
+    del(`/posts/home/${data.id}/`, true).then(res => {
+      mutate("/posts/home/")
       setShowDeletePrompt(false)
     })
   }
@@ -31,7 +29,6 @@ export function Post({ data, me }) {
       </header>
       <section>
         <ReactMarkdown children={data.content} />
-        <ReactMarkdown children={repoString} />
       </section>
       
       {me && me.is_superuser && (
