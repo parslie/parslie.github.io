@@ -1,0 +1,28 @@
+@import "./sizings.scss";
+@import "./colors.scss";
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  margin: $small-size 0;
+
+  border: $border-size solid $dark-gray;
+  border-radius: $medium-size;
+  background: $light-gray;
+  color: $black;
+  overflow: hidden;
+
+  label {
+    padding: $small-size $medium-size;
+    font-weight: bold;
+    font-size: 0.85em;
+    color: $red;
+  }
+
+  input, textarea {
+    padding: $small-size $medium-size;
+    background: inherit;
+    color: inherit;
+    resize: vertical;
+  }
+}

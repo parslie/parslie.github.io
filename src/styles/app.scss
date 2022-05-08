@@ -10,11 +10,11 @@
     width: $app-header-width;
 
     padding: $large-size;
-    padding-right: calc(#{$large-size} + #{$inner-border-offset});
+    padding-right: calc(#{$large-size} + #{$border-size});
+    border-right: $border-size solid $dark-green;
+    box-shadow: inset -#{$border-size} 0 0 $light-green; // Acts as inner border
     background: $green;
     color: $white;
-    box-shadow: inset -#{$outer-border-offset} 0 0 $dark-green,
-                inset -#{$inner-border-offset} 0 0 $light-green;
 
     h1 { text-align: center; }
 
@@ -24,12 +24,12 @@
       gap: $small-size;
 
       input {
-        padding: calc(#{$small-size} + #{$inner-border-offset});
+        padding: calc(#{$small-size} + #{$border-size});
+        border: $border-size solid $light-green;
+        border-radius: $medium-size;
+        box-shadow: inset 0 0 0 $border-size $dark-green; // Acts as inner border
         background: $white;
         color: $black;
-        box-shadow: inset 0 0 0 $outer-border-offset $light-green,
-                    inset 0 0 0 $inner-border-offset $dark-green;
-        border-radius: $medium-size;
         cursor: pointer;
 
         &:hover { background: $light-gray; }

@@ -1,0 +1,11 @@
+@import "./sizings.scss";
+@import "./colors.scss";
+
+article {
+  display: flex;
+  flex-direction: column;
+  gap: $large-size;
+  padding: $large-size;
+
+  & + article { border-top: $border-size solid $dark-gray; }
+}
