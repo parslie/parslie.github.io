@@ -1,12 +1,15 @@
 $white: #fafafa;
 $black: #111111;
 
-$gray: #d0d0d7;
-$light-gray: #e9e9ed;
-$dark-gray: #b1b1b9;
+//$gray: darken(#d0d0d7, 0%);
+//$light-gray: darken(#e9e9ed, 0%);
+//$dark-gray: darken(#b1b1b9, 0%);
+$gray: darken(#d0d0d7, 6%);
+$light-gray: darken(#e9e9ed, 3%);
+$dark-gray: darken(#b1b1b9, 9%);
 
 $green: #44c55b;
 $light-green: saturate(lighten($green, 25%), 40%);
 $dark-green: saturate(darken($green, 20%), 5%);
 
-$red: red;
+$red: #c54444;

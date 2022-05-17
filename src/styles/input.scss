@@ -6,23 +6,40 @@
   flex-direction: column;
   margin: $small-size 0;
 
-  border: $border-size solid $dark-gray;
-  border-radius: $medium-size;
-  background: $light-gray;
-  color: $black;
-  overflow: hidden;
-
   label {
-    padding: $small-size $medium-size;
+    padding: 0 calc(#{$medium-size} + #{$border-size});
     font-weight: bold;
     font-size: 0.85em;
     color: $red;
   }
 
   input, textarea {
-    padding: $small-size $medium-size;
-    background: inherit;
-    color: inherit;
+    position: relative;
+    min-height: 2em;
     resize: vertical;
+
+    padding: $small-size $medium-size;
+    border: $border-size solid $dark-gray;
+    border-radius: $medium-size;
+    background: $white;
+    color: $black;
+  }
+
+  .resizer-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .resizer {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      pointer-events: none;
+      border-top: $medium-size solid transparent;
+      border-bottom: $medium-size solid $dark-gray;
+      border-left: $medium-size solid transparent;
+      border-right: $medium-size solid $dark-gray;
+      border-radius: 0 0 $medium-size 0;
+    }
   }
 }
