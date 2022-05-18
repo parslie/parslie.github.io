@@ -2,7 +2,7 @@ import { Route, Switch } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 import "../styles/app.scss";
-import { FormDemoPage } from "../pages/demos";
+import { FormDemoPage, GraphDemoPage } from "../pages/demos";
 
 function NavButton({ to, label }) {
   const history = useHistory();
@@ -17,7 +17,8 @@ function AppHeader() {
         <NavButton to="/" label="Home" />
         <NavButton to="/actions" label="Actions" />
         <h3>Demos</h3>
-        <NavButton to="/demo/form" label="Forms and Inputs" />
+        <NavButton to="/demo/form" label="Forms" />
+        <NavButton to="/demo/graph" label="Graphs" />
       </nav>
     </header>
   );
@@ -27,6 +28,7 @@ function AppContainer() {
   return (
     <Switch>
       <Route path="/demo/form"><FormDemoPage /></Route>
+      <Route path="/demo/graph"><GraphDemoPage /></Route>
     </Switch>
   );
 }
