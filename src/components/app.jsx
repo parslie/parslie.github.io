@@ -6,7 +6,7 @@ import { FormDemoPage } from "../pages/demos";
 
 function NavButton({ to, label }) {
   const history = useHistory();
-  return <input type="button" value={label} onClick={() => history.push(to)} />;
+  return <button onClick={() => history.push(to)}>{label}</button>;
 }
 
 function AppHeader() {

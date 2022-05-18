@@ -23,17 +23,16 @@
       flex-direction: column;
       gap: $small-size;
 
-      input {
+      button {
         padding: calc(#{$small-size} + #{$border-size});
         border: $border-size solid $light-green;
         border-radius: $medium-size;
         box-shadow: inset 0 0 0 $border-size $dark-green; // Acts as inner border
-        background: $white;
+        background: linear-gradient(180deg, $white 0%, $gray 200%);
         color: $black;
         cursor: pointer;
 
-        &:hover { background: $light-gray; }
-        &:active { background: $gray; }
+        &:hover { background: linear-gradient(0deg, $white 0%, $gray 200%); }
       }
     }
   }

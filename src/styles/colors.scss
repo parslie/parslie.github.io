@@ -1,12 +1,8 @@
 $white: #fafafa;
+$light-gray: darken($white, 10%);
+$gray: darken($white, 30%);
+$dark-gray: darken($white, 50%);
 $black: #111111;
-
-//$gray: darken(#d0d0d7, 0%);
-//$light-gray: darken(#e9e9ed, 0%);
-//$dark-gray: darken(#b1b1b9, 0%);
-$gray: darken(#d0d0d7, 6%);
-$light-gray: darken(#e9e9ed, 3%);
-$dark-gray: darken(#b1b1b9, 9%);
 
 $green: #44c55b;
 $light-green: saturate(lighten($green, 25%), 40%);
