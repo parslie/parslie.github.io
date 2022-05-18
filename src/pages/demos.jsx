@@ -1,6 +1,6 @@
 import FormArticle from "../articles/form";
 import { ButtonField, SubmitField, TextField } from "../components/input";
-import { BarGraph } from "../components/graph";
+import { BarChart } from "../components/graph";
 
 export function FormDemoPage() {
   return (
@@ -19,10 +19,9 @@ export function GraphDemoPage() {
   return (
     <main>
       <article>
-        <header><h1>Bar Graph</h1></header>
+        <header><h1>Bar Chart</h1></header>
         <section>
-          <BarGraph />
-          <BarGraph />
+          <BarChart />
         </section>
       </article>
     </main>

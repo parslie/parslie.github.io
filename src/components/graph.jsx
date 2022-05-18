@@ -1,8 +1,8 @@
 import "../styles/graph.scss";
 
-export function BarGraph() {
+export function BarChart() {
   return (
-    <div className="bar-graph">
+    <div className="bar-chart">
       <div className="bar">
         <div className="bar-section"></div>
         <div className="bar-section"></div>
