@@ -1,8 +1,9 @@
 $white: #fafafa;
+$black: #111111;
+
 $light-gray: darken($white, 10%);
 $gray: darken($white, 30%);
 $dark-gray: darken($white, 50%);
-$black: #111111;
 
 $green: #44c55b;
 $light-green: saturate(lighten($green, 25%), 40%);
@@ -11,6 +12,22 @@ $dark-green: saturate(darken($green, 20%), 5%);
 $red: #c54444;
 $light-red: saturate(lighten($red, 25%), 40%);
 $dark-red: saturate(darken($red, 20%), 5%);
+
+$purple: #9d4fca;
+$light-purple: saturate(lighten($purple, 25%), 40%);
+$dark-purple: saturate(darken($purple, 20%), 5%);
+
+$orange: rgb(245, 132, 57); //df8134
+$light-orange: saturate(lighten($orange, 20%), 40%);
+$dark-orange: saturate(darken($orange, 20%), 5%);
+
+$blue: #4491c5;
+$light-blue: saturate(lighten($blue, 25%), 40%);
+$dark-blue: saturate(darken($blue, 20%), 5%);
+
+$pink: #fa87ca;
+$light-pink: saturate(lighten($pink, 12%), 40%);
+$dark-pink: saturate(darken($pink, 20%), 5%);
 
 @mixin gradient-background($direction, $first-color, $last-color) {
   background: linear-gradient($direction, $first-color 0%, $last-color 175%);

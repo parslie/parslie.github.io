@@ -1,6 +1,13 @@
 @import "./sizings.scss";
 @import "./colors.scss";
 
+@mixin section-background($dark, $mid, $light) {
+  border: $border-size solid $dark;
+  box-shadow: inset 0 0 0 #{$border-size} $light;
+  @include gradient-background(180deg, $mid, $dark);
+  &:hover { @include gradient-background(0deg, $mid, $dark); }
+}
+
 .bar-chart {
   display: flex;
   flex-direction: row;
@@ -9,26 +16,35 @@
   margin: $small-size 0;
   aspect-ratio: 16/9;
 
+  /*
   padding: $small-size;
-  border: $border-size solid $dark-green;
+  border: $border-size solid $dark-gray;
   border-radius: $medium-size;
-  box-shadow: inset 0 0 0 #{$border-size} $light-green; // Acts as inner border
-  background: $green;
+  */
+
+  padding: calc(#{$small-size} + #{$border-size});
+  border: $border-size solid $dark-gray;
+  border-radius: $medium-size;
+  box-shadow: inset 0 0 0 $border-size $white; // Acts as inner border
+  @include gradient-background(0deg, $white, $gray);
 
   .bar {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    
-    padding: $border-size;
-    border: $border-size solid $light-green;
-    border-radius: $medium-size;
-    box-shadow: inset 0 0 0 #{$border-size} $dark-green; // Acts as inner border
-    background: $white;
 
     .bar-section {
-      flex-grow: 1; // TODO: remove (used for debug)
-      // TODO: do
+      &.red { @include section-background($dark-red, $red, $light-red); }
+      &.purple { @include section-background($dark-purple, $purple, $light-purple); }
+      &.orange { @include section-background($dark-orange, $orange, $light-orange); }
+      &.pink { @include section-background($dark-pink, $pink, $light-pink); }
+      &.green { @include section-background($dark-green, $green, $light-green); }
+      &.blue { @include section-background($dark-blue, $blue, $light-blue); }
+
+      & + .bar-section { border-top: 0; }
+
+      &.first { border-radius: $small-size $small-size 0 0; }
+      &.last { border-radius: 0 0 $small-size $small-size; }
     }
   }
 }
