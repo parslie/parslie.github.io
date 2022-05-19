@@ -19,7 +19,7 @@
     border: $border-size solid $dark-gray;
     border-radius: $medium-size;
     box-shadow: inset 0 0 0 $border-size $white; // Acts as inner border
-    background: linear-gradient(0deg, $white 0%, $gray 200%);
+    @include gradient-background(0deg, $white, $gray);
     color: $black;
   }
 
@@ -28,10 +28,10 @@
     border: $border-size solid $dark-green;
     border-radius: $medium-size;
     box-shadow: inset 0 0 0 $border-size $light-green; // Acts as inner border
-    background: linear-gradient(180deg, $green 0%, $dark-green 200%);
+    @include gradient-background(180deg, $green, $dark-green);
     color: $white;
     cursor: pointer;
     
-    &:hover { background: linear-gradient(0deg, $green 0%, $dark-green 200%); }
+    &:hover { @include gradient-background(0deg, $green, $dark-green); }
   }
 }

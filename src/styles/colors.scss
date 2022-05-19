@@ -9,5 +9,9 @@ $light-green: saturate(lighten($green, 25%), 40%);
 $dark-green: saturate(darken($green, 20%), 5%);
 
 $red: #c54444;
+$light-red: saturate(lighten($red, 25%), 40%);
+$dark-red: saturate(darken($red, 20%), 5%);
 
-// TODO: add mixin for standardized gradient background 
+@mixin gradient-background($direction, $first-color, $last-color) {
+  background: linear-gradient($direction, $first-color 0%, $last-color 175%);
+}
