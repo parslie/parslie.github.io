@@ -3,6 +3,7 @@ import useSWR from "swr";
 import Article from "../components/article";
 import Form from "../components/form";
 import { TextField, SubmitField, DropDownField } from "../components/input";
+import { ActionEntry } from "../components/entry";
 
 export default function ActionPage({ me }) {
   const { data: prefabs } = useSWR("/action/prefabs/");
@@ -21,6 +22,10 @@ export default function ActionPage({ me }) {
 
   return (
     <main>
+      <Article title="Productivity per Day">
+        <p>TODO: add action bar chart</p>
+      </Article>
+
       {me && me.is_superuser && (
         <Article title="Log an Action">
           <Form>
@@ -31,6 +36,10 @@ export default function ActionPage({ me }) {
           </Form>
         </Article>
       )}
+
+      <Article title="Actions of Today">
+        {entries && entries.map(entry => <ActionEntry key={entry.id} data={entry} />)}
+      </Article>
     </main>
   );
 }
