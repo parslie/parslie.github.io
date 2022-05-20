@@ -13,17 +13,17 @@ export function ActionBarChart({ data }) {
       const category = data.categories[cIndex];
       const sectionDuration = category.durations[day];
 
-      let sectionClass = `bar-section ${category.color}`;
-      if (cIndex == 0)
-        sectionClass += " first";
-      else if (cIndex == data.categories.length - 1)
-        sectionClass += " last";
-
-      remainingDuration -= sectionDuration;
-      barSectionList.push(<div className={sectionClass} style={{ flexGrow: sectionDuration }} key={category.id}></div>);
+      if (sectionDuration !== 0) {
+        let sectionClass = `bar-section ${category.color}`;
+        if (barSectionList.length === 0)
+          sectionClass += " first";
+  
+        remainingDuration -= sectionDuration;
+        barSectionList.push(<div className={sectionClass} style={{ flexGrow: sectionDuration }} key={category.id}></div>);
+      }
     }
 
-    if (remainingDuration != 0)
+    if (remainingDuration !== 0)
       barSectionList.unshift(<div style={{ visibilit: "hidden", flexGrow: remainingDuration }} key={-1}></div>);
 
     barList.push(<div className="bar"  key={day}>{barSectionList}</div>);

@@ -4,12 +4,13 @@ import Article from "../components/article";
 import Form from "../components/form";
 import { TextField, SubmitField, DropDownField } from "../components/input";
 import { ActionEntry } from "../components/entry";
+import { ActionBarChart } from "../components/graph";
 
 export default function ActionPage({ me }) {
-  const { data: prefabs } = useSWR("/action/prefabs/");
   const { data: categories } = useSWR("/action/categories/");
   const { data: descriptions } = useSWR("/action/prefabs/descriptions/");
   const { data: entries } = useSWR("/action/entries/");
+  const { data: statistics } = useSWR("/action/statistics/");
 
   let categoryNames = [];
   let categoryIds = [];
@@ -22,9 +23,11 @@ export default function ActionPage({ me }) {
 
   return (
     <main>
-      <Article title="Productivity per Day">
-        <p>TODO: add action bar chart</p>
-      </Article>
+      {statistics && (
+        <Article title="Productivity per Day">
+          <ActionBarChart data={statistics} />
+        </Article>
+      )}
 
       {me && me.is_superuser && (
         <Article title="Log an Action">
@@ -37,9 +40,11 @@ export default function ActionPage({ me }) {
         </Article>
       )}
 
-      <Article title="Actions of Today">
-        {entries && entries.map(entry => <ActionEntry key={entry.id} data={entry} />)}
-      </Article>
+      {entries && (
+        <Article title="Actions of Today">
+          {entries.map(entry => <ActionEntry key={entry.id} me={me} data={entry} />)}
+        </Article>
+      )}
     </main>
   );
 }

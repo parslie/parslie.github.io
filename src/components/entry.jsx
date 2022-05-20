@@ -32,8 +32,13 @@ export function ActionEntry({ me, data }) {
       <h4 className="description">{data.prefab.description}</h4>
       <div className="separator" />
       <h4 className="duration">{durationStr}</h4>
-      {!data.end_date && <ButtonField label="End" />}
-      <ButtonField label="Delete" />
+      
+      {me && me.is_superuser && (
+        <>
+          {!data.end_date && <ButtonField label="End" />}
+          <ButtonField label="Delete" />
+        </>
+      )}
     </div>
   );
 }

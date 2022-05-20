@@ -43,8 +43,14 @@
 
       & + .bar-section { border-top: 0; }
 
-      &.first { border-radius: $small-size $small-size 0 0; }
-      &.last { border-radius: 0 0 $small-size $small-size; }
+      &.first { 
+        border-top-left-radius: $small-size; 
+        border-top-right-radius: $small-size; 
+      }
+      &:last-child { // &.last
+        border-bottom-left-radius: $small-size; 
+        border-bottom-right-radius: $small-size; 
+      }
     }
   }
 }
