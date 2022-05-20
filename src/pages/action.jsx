@@ -1,6 +1,7 @@
 import useSWR from "swr";
 
-import FormArticle from "../articles/form";
+import Article from "../components/article";
+import Form from "../components/form";
 import { TextField, SubmitField, DropDownField } from "../components/input";
 
 export default function ActionPage({ me }) {
@@ -21,12 +22,14 @@ export default function ActionPage({ me }) {
   return (
     <main>
       {me && me.is_superuser && (
-        <FormArticle title="Log an Action">
-          <DropDownField name="category" placeholder="--Select a category--" options={categoryNames} 
-            values={categoryIds} />
-          <TextField name="description" placeholder="Enter description here..." options={descriptions} />
-          <SubmitField label="Log" />
-        </FormArticle>
+        <Article title="Log an Action">
+          <Form>
+            <DropDownField name="category" placeholder="--Select a category--" options={categoryNames} 
+              values={categoryIds} />
+            <TextField name="description" placeholder="Enter description here..." options={descriptions} />
+            <SubmitField label="Log" />
+          </Form>
+        </Article>
       )}
     </main>
   );

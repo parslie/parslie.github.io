@@ -1,16 +1,19 @@
-import FormArticle from "../articles/form";
 import { ButtonField, SubmitField, TextField } from "../components/input";
 import { ActionBarChart } from "../components/graph";
+import Article from "../components/article";
+import Form from "../components/form";
 
 export function FormDemoPage() {
   return (
     <main>
-      <FormArticle title="Errors, Text Fields, and Buttons">
-        <TextField name="title" placeholder="Enter single-line text here..." options={["test", "not", "what", "lol", "ecks dee"]} />
-        <TextField error="this text area has an error" name="description" placeholder="Enter multi-line text here..." multiline={true} list="title-list" />
-        <ButtonField label="Button" />
-        <SubmitField label="Submit" error="the submission caused an error" />
-      </FormArticle>
+      <Article title="Errors, Text Fields, and Buttons">
+        <Form>
+          <TextField name="title" placeholder="Enter single-line text here..." options={["test", "not", "what", "lol", "ecks dee"]} />
+          <TextField error="this text area has an error" name="description" placeholder="Enter multi-line text here..." multiline={true} list="title-list" />
+          <ButtonField label="Button" />
+          <SubmitField label="Submit" error="the submission caused an error" />
+        </Form>
+      </Article>
     </main>
   );
 }
@@ -31,12 +34,9 @@ export function GraphDemoPage() {
   
   return (
     <main>
-      <article>
-        <header><h1>Bar Chart</h1></header>
-        <section>
-          <ActionBarChart data={mockActionBarData} />
-        </section>
-      </article>
+      <Article title="Bar Chart">
+        <ActionBarChart data={mockActionBarData} />
+      </Article>
     </main>
   );
 }
