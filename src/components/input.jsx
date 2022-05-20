@@ -12,7 +12,19 @@ export function TextField({ name, placeholder, options=[], multiline=false, type
       )}
       {error && <label for={name}>Error: {error}</label>}
     </div>
-  )
+  );
+}
+
+export function DropDownField({ name, placeholder, options, values, error="", onChange }) {
+  return (
+    <div className="input-field">
+      <select name={name} defaultValue="" onChange={onChange}>
+        <option disabled value="">{placeholder}</option>
+        {options && options.map((option, i) => <option key={i} value={values[i]}>{option}</option>)}
+      </select>
+      {error && <label for={name}>Error: {error}</label>}
+    </div>
+  );
 }
 
 export function ButtonField({ label, error="", onClick }) {
@@ -21,7 +33,7 @@ export function ButtonField({ label, error="", onClick }) {
       <button onClick={onClick}>{label}</button>
       {error && <label>Error: {error}</label>}
     </div>
-  )
+  );
 }
 
 export function SubmitField({ label, error="" }) {
@@ -30,5 +42,5 @@ export function SubmitField({ label, error="" }) {
       <button type="submit">{label}</button>
       {error && <label>Error: {error}</label>}
     </div>
-  )
+  );
 }

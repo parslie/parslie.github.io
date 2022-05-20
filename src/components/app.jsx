@@ -1,8 +1,10 @@
 import { Route, Switch } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import useSWR from "swr";
 
 import "../styles/app.scss";
-import { FormDemoPage, GraphDemoPage } from "../pages/demos";
+import { FormDemoPage, GraphDemoPage } from "../pages/demo";
+import ActionPage from "../pages/action";
 
 function NavButton({ to, label }) {
   const history = useHistory();
@@ -24,9 +26,11 @@ function AppHeader() {
   );
 }
 
-function AppContainer() {
+function AppContainer({ me }) {
   return (
     <Switch>
+      <Route path="/actions"><ActionPage me={me} /></Route>
+
       <Route path="/demo/form"><FormDemoPage /></Route>
       <Route path="/demo/graph"><GraphDemoPage /></Route>
     </Switch>
@@ -34,10 +38,12 @@ function AppContainer() {
 }
 
 export default function App() {
+  const me = useSWR(["/account/me/", true]);
+
   return (
     <div className="app">
-      <AppHeader />
-      <AppContainer />
+      <AppHeader me={me.data} />
+      <AppContainer me={me.data} />
     </div>
   );
 }

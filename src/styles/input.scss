@@ -1,6 +1,14 @@
 @import "./sizings.scss";
 @import "./colors.scss";
 
+@mixin input-background($bg-direction, $first-bg-color, $last-bg-color, $outer-border-color, $inner-border-color) {
+  padding: calc(#{$small-size} + #{$border-size});
+  border: $border-size solid $outer-border-color;
+  border-radius: $medium-size;
+  box-shadow: inset 0 0 0 $border-size $inner-border-color;
+  @include gradient-background($bg-direction, $first-bg-color, $last-bg-color);
+}
+
 .input-field {
   display: flex;
   flex-direction: column;
@@ -14,21 +22,19 @@
   }
 
   input, textarea {
+    @include input-background(0deg, $white, $gray, $dark-gray, $white);
     resize: vertical;
-    padding: calc(#{$small-size} + #{$border-size});
-    border: $border-size solid $dark-gray;
-    border-radius: $medium-size;
-    box-shadow: inset 0 0 0 $border-size $white; // Acts as inner border
-    @include gradient-background(0deg, $white, $gray);
     color: $black;
+  }
+  
+  select {
+    @include input-background(0deg, $white, $gray, $dark-gray, $white);
+    color: $black;
+    cursor: pointer;
   }
 
   button {
-    padding: calc(#{$small-size} + #{$border-size});
-    border: $border-size solid $dark-green;
-    border-radius: $medium-size;
-    box-shadow: inset 0 0 0 $border-size $light-green; // Acts as inner border
-    @include gradient-background(180deg, $green, $dark-green);
+    @include input-background(180deg, $green, $dark-green, $dark-green, $light-green);
     color: $white;
     cursor: pointer;
     
