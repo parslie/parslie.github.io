@@ -22,9 +22,8 @@ export function ActionBarChart({ data }) {
         barSectionList.push(<div className={sectionClass} style={{ flexGrow: sectionDuration }} key={category.id}></div>);
       }
     }
-
     if (remainingDuration !== 0)
-      barSectionList.unshift(<div style={{ visibilit: "hidden", flexGrow: remainingDuration }} key={-1}></div>);
+      barSectionList.unshift(<span style={{ flexGrow: remainingDuration }} key={-1} />);
 
     barList.push(<div className="bar"  key={day}>{barSectionList}</div>);
   }

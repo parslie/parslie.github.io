@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import "../styles/entry.scss";
 import { ButtonField } from "./input";
 
@@ -18,26 +16,29 @@ function getDurationStr(data) {
 }
 
 export function ActionEntry({ me, data }) {
-  const [ durationStr, setDurationStr ] = useState(getDurationStr(data));
-  
-  useEffect(() => {
-    const interval = setInterval(() => setDurationStr(getDurationStr(data)), 1000);
-    return () => clearInterval(interval);
-  });
+  let titleStr = data.prefab.category.name + " — " + data.prefab.description + " — ";
+  let dateStr = new Date(data.start_date).toLocaleString("sv-SE") + " - ";
+
+  if (data.end_date) {
+    titleStr += getDurationStr(data);
+    dateStr += new Date(data.end_date).toLocaleString("sv-SE");
+  } else {
+    titleStr += "ONGOING";
+    dateStr += "NOW";
+  }
 
   return (
     <div className="action-entry">
-      <h4 className="title">{data.prefab.category.name}</h4>
-      <div className="separator" />
-      <h4 className="description">{data.prefab.description}</h4>
-      <div className="separator" />
-      <h4 className="duration">{durationStr}</h4>
+      <div className="info">
+        <h4>{titleStr}</h4>
+        <h6>{dateStr}</h6>
+      </div>
       
       {me && me.is_superuser && (
-        <>
+        <div className="buttons">
           {!data.end_date && <ButtonField label="End" />}
           <ButtonField label="Delete" />
-        </>
+        </div>
       )}
     </div>
   );
