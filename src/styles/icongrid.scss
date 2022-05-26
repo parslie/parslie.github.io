@@ -1,0 +1,11 @@
+@import "./sizings.scss";
+@import "./colors.scss";
+
+.icon-grid {
+  display: grid;
+  gap: $large-size;
+  grid-template-columns: repeat(auto-fit, minmax(1em, 1fr));
+  margin: 1rem 0;
+  font-size: 1.5em;
+  svg { cursor: help; }
+}

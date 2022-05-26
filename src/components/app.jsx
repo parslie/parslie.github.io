@@ -5,6 +5,7 @@ import useSWR from "swr";
 import "../styles/app.scss";
 import { FormDemoPage, GraphDemoPage } from "../pages/demo";
 import ActionPage from "../pages/action";
+import AboutPage from "../pages/about";
 
 function NavButton({ to, label }) {
   const history = useHistory();
@@ -16,7 +17,8 @@ function AppHeader() {
     <header>
       <h1>Parslie</h1>
       <nav>
-        <NavButton to="/" label="Home" />
+        <NavButton to="/" label="About" />
+        <h3>Apps</h3>
         <NavButton to="/actions" label="Actions" />
         <h3>Demos</h3>
         <NavButton to="/demo/form" label="Forms" />
@@ -26,11 +28,12 @@ function AppHeader() {
   );
 }
 
+// TODO: add separate pages for school and work descriptions
 function AppContainer({ me }) {
   return (
     <Switch>
+      <Route exact path="/"><AboutPage me={me} /></Route>
       <Route path="/actions"><ActionPage me={me} /></Route>
-
       <Route path="/demo/form"><FormDemoPage /></Route>
       <Route path="/demo/graph"><GraphDemoPage /></Route>
     </Switch>

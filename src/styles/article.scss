@@ -6,6 +6,5 @@ article {
   flex-direction: column;
   gap: $large-size;
   padding: $large-size;
-
   & + article { border-top: $border-size solid $dark-gray; }
 }
