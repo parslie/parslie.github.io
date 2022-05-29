@@ -1,0 +1,45 @@
+@import "./colors.scss";
+@import "./sizings.scss";
+
+.prompt-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .prompt-perimeter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .prompt {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: $large-size;
+    max-width: $max-content-width;
+
+    padding: $large-size;
+    border: $border-size solid $light-green;
+    border-radius: $large-size;
+    background-color: $green;
+    box-shadow: 0 0 1.25rem -0.25rem $black;
+
+    footer {
+      display: flex;
+      flex-direction: row;
+      gap: $small-size;
+      > * { flex-grow: 1; }
+    }
+  }
+}

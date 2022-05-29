@@ -7,7 +7,7 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: $app-header-width;
+    width: $header-width;
 
     padding: $large-size;
     padding-right: calc(#{$large-size} + #{$border-size});
@@ -16,14 +16,14 @@
     background: $green;
     color: $white;
 
-    h1 { text-align: center; }
+    > h1 { text-align: center; }
 
     nav {
       display: flex;
       flex-direction: column;
       gap: $small-size;
 
-      button {
+      > button {
         padding: calc(#{$small-size} + #{$border-size});
         border: $border-size solid $light-green;
         border-radius: $medium-size;
@@ -42,7 +42,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: $app-header-width;
+    left: $header-width;
 
     background: $white;
     overflow-y: auto;

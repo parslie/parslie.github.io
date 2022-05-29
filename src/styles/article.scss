@@ -10,6 +10,6 @@
     flex-direction: column;
     gap: $large-size;
     margin: 0 auto;
-    max-width: 50rem;
+    max-width: $max-content-width;
   }
 }
