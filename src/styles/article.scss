@@ -1,10 +1,15 @@
 @import "./sizings.scss";
 @import "./colors.scss";
 
-article {
-  display: flex;
-  flex-direction: column;
-  gap: $large-size;
+.article-wrapper {
   padding: $large-size;
-  & + article { border-top: $border-size solid $dark-gray; }
+  & + .article-wrapper { border-top: $border-size solid $dark-gray; }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: $large-size;
+    margin: 0 auto;
+    max-width: 50rem;
+  }
 }
