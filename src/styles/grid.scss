@@ -1,0 +1,22 @@
+@import "./sizings.scss";
+@import "./colors.scss";
+
+.icon-grid {
+  display: grid;
+  gap: $large-size;
+  grid-template-columns: repeat(auto-fit, minmax(1em, 1fr));
+  margin: $large-size 0;
+  font-size: 1.5em;
+  svg { cursor: help; }
+}
+
+.label-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: $large-size;
+  row-gap: $small-size;
+  margin: $large-size 0;
+
+  .title { grid-column-start: span 2; }
+  .label { font-weight: bold; }
+}
