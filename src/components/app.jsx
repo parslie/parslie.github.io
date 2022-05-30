@@ -24,15 +24,48 @@ function AppHeader({ me }) {
   const [ showRegisterPrompt, setShowRegisterPrompt ] = useState(false);
 
   const logOut = () => {
-    
+    post("/account/logout/", {}, true).then(res => {
+      window.localStorage.removeItem("token");
+      mutate(["/account/me/", true], undefined);
+      setShowLogOutPrompt(false);
+    }).catch(({ response: res }) => {
+      // TODO: add error messages
+    });
   };
 
   const logIn = (e) => {
-    
+    const loginData = {
+      email: e.target.email.value,
+      password: e.target.password.value,
+    };
+
+    post("/account/login/", loginData).then(res => {
+      window.localStorage.setItem("token", res.data.token);
+      mutate(["/account/me/", true]);
+      setShowLogInPrompt(false);
+    }).catch(({ response: res }) => {
+      // TODO: add error messages
+    })
   };
 
   const register = (e) => {
-    
+    const registerData = {
+      email: e.target.email.value,
+      username: e.target.username.value,
+      password: e.target.password.value,
+    };
+
+    if (e.target.password.value === e.target.confirmation.value) {
+      post("/account/register/", registerData).then(res => {
+        window.localStorage.setItem("token", res.data.token);
+        mutate(["/account/me/", true]);
+        setShowRegisterPrompt(false);
+      }).catch(({ response: res }) => {
+        // TODO: add error messages
+      })
+    } else {
+      // TODO: add error message
+    }
   };
 
   return (
