@@ -10,7 +10,7 @@ import ActionPage from "../pages/action";
 import AboutPage from "../pages/about";
 import Prompt from "./prompt";
 import Form from "./form";
-import { ButtonField, LinkButtonField, SubmitField, TextField } from "./input";
+import { ButtonField, CombinationField, LinkButtonField, SubmitField, TextField } from "./input";
 
 function LogOutPrompt({ setShowLogOutPrompt }) {
   const [ generalError, setGeneralError ] = useState("");
@@ -28,8 +28,10 @@ function LogOutPrompt({ setShowLogOutPrompt }) {
   return (
     <Prompt title="Are you sure you want to log out?" onCancel={() => setShowLogOutPrompt(false)}>
       <Form>
-        <ButtonField label="Yes" onClick={logOut} error={generalError} />
-        <ButtonField label="No" onClick={() => setShowLogOutPrompt(false)} />
+        <CombinationField error={generalError}>
+          <ButtonField label="Yes" onClick={logOut} />
+          <ButtonField label="No" onClick={() => setShowLogOutPrompt(false)} />
+        </CombinationField>
       </Form>
     </Prompt>
   );
@@ -93,7 +95,10 @@ function RegisterPrompt({ setShowRegisterPrompt }) {
         setGeneralError(`${res.status} ${res.statusText}`);
       })
     } else {
+      setEmailError(undefined);
+      setUsernameError(undefined);
       setPasswordError("The passwords need to match.");
+      setGeneralError(undefined);
     }
   };
   
@@ -102,8 +107,10 @@ function RegisterPrompt({ setShowRegisterPrompt }) {
       <Form onSubmit={register}>
         <TextField name="email" placeholder="Enter e-mail here..." type="email" error={emailError} />
         <TextField name="username" placeholder="Enter username here..." error={usernameError} />
-        <TextField name="password" placeholder="Enter password here..." type="password"  error={passwordError} />
-        <TextField name="confirmation" placeholder="Confirm password here..." type="password" />
+        <CombinationField error={passwordError}>
+          <TextField name="password" placeholder="Enter password here..." type="password" />
+          <TextField name="confirmation" placeholder="Confirm password here..." type="password" />
+        </CombinationField>
         <SubmitField label="Register" error={generalError} />
       </Form>
     </Prompt>

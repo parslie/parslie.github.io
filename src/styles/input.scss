@@ -11,7 +11,8 @@
 
 // General styles
 
-.input-field {
+.input-field, 
+.combination-field {
   display: flex;
   flex-direction: column;
   margin: $small-size 0;
@@ -21,6 +22,16 @@
     font-weight: bold;
     font-size: 0.85em;
     color: $red;
+  }
+}
+
+.combination-field .row {
+  display: flex;
+  flex-direction: row;
+  gap: $small-size;
+  > * { 
+    flex-grow: 1;
+    margin: 0;
   }
 }
 

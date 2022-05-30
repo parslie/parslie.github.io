@@ -51,3 +51,12 @@ export function LinkButtonField({ label, to }) {
   const history = useHistory();
   return <ButtonField onClick={() => history.push(to)} label={label} />;
 }
+
+export function CombinationField({ children, error }) {
+  return (
+    <div className="combination-field">
+      <div className="row">{children}</div>
+      {error && <label>Error: {error}</label>}
+    </div>
+  )
+}
