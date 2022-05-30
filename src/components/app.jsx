@@ -11,7 +11,7 @@ import ActionPage from "../pages/action";
 import AboutPage from "../pages/about";
 import Prompt from "./prompt";
 import Form from "./form";
-import { ButtonField, SubmitField, TextField } from "./input";
+import { ButtonField, LinkButtonField, SubmitField, TextField } from "./input";
 
 function NavButton({ to, label }) {
   const history = useHistory();
@@ -71,51 +71,49 @@ function AppHeader({ me }) {
   return (
     <header>
       <h1>Parslie</h1>
-      <nav>
-        <NavButton to="/" label="About" />
-        {me && <button onClick={() => setShowLogOutPrompt(true)}>Log Out</button>}
-        {!me && <button onClick={() => setShowLogInPrompt(true)}>Log In</button>}
-        {!me && <button onClick={() => setShowRegisterPrompt(true)}>Register</button>}
-        
-        {showLogOutPrompt && (
-          <Prompt title="Are you sure you want to log out?" onCancel={() => setShowLogOutPrompt(false)}>
-            <Form>
-              <ButtonField label="Yes" onClick={logOut} />
-              <ButtonField label="No" onClick={() => setShowLogOutPrompt(false)} />
-            </Form>
-          </Prompt>
-        )}
-        
-        {showLogInPrompt && (
-          <Prompt title="Log In" onCancel={() => setShowLogInPrompt(false)}>
-            <Form onSubmit={logIn}>
-              <TextField name="email" placeholder="Enter e-mail here..." type="email" />
-              <TextField name="password" placeholder="Enter password here..." type="password" />
-              <SubmitField label="Log In" />
-            </Form>
-          </Prompt>
-        )}
-        
-        {showRegisterPrompt && (
-          <Prompt title="Register" onCancel={() => setShowRegisterPrompt(false)}>
-            <Form onSubmit={register}>
-              <TextField name="email" placeholder="Enter e-mail here..." type="email" />
-              <TextField name="username" placeholder="Enter username here..." />
-              <TextField name="password" placeholder="Enter password here..." type="password" />
-              <TextField name="confirmation" placeholder="Confirm password here..." type="password" />
-              <SubmitField label="Register " />
-            </Form>
-          </Prompt>
-        )}
+      <LinkButtonField to="/" label="About" />
+      {me && <ButtonField onClick={() => setShowLogOutPrompt(true)} label="Log Out" />}
+      {!me && <ButtonField onClick={() => setShowLogInPrompt(true)} label="Log In" />}
+      {!me && <ButtonField onClick={() => setShowRegisterPrompt(true)} label="Register" />}
 
-        {/*
-        <h3>Apps</h3>
-        <NavButton to="/actions" label="Actions" />
-        <h3>Demos</h3>
-        <NavButton to="/demo/form" label="Forms" />
-        <NavButton to="/demo/graph" label="Graphs" />
-        */}
-      </nav>
+      {/*
+      <h3>Apps</h3>
+      <LinkButtonField to="/actions" label="Actions" />
+      <h3>Demos</h3>
+      <LinkButtonField to="/demo/form" label="Forms" />
+      <LinkButtonField to="/demo/graph" label="Graphs" />
+      */}
+      
+      {showLogOutPrompt && (
+        <Prompt title="Are you sure you want to log out?" onCancel={() => setShowLogOutPrompt(false)}>
+          <Form>
+            <ButtonField label="Yes" onClick={logOut} />
+            <ButtonField label="No" onClick={() => setShowLogOutPrompt(false)} />
+          </Form>
+        </Prompt>
+      )}
+      
+      {showLogInPrompt && (
+        <Prompt title="Log In" onCancel={() => setShowLogInPrompt(false)}>
+          <Form onSubmit={logIn}>
+            <TextField name="email" placeholder="Enter e-mail here..." type="email" />
+            <TextField name="password" placeholder="Enter password here..." type="password" />
+            <SubmitField label="Log In" />
+          </Form>
+        </Prompt>
+      )}
+      
+      {showRegisterPrompt && (
+        <Prompt title="Register" onCancel={() => setShowRegisterPrompt(false)}>
+          <Form onSubmit={register}>
+            <TextField name="email" placeholder="Enter e-mail here..." type="email" />
+            <TextField name="username" placeholder="Enter username here..." />
+            <TextField name="password" placeholder="Enter password here..." type="password" />
+            <TextField name="confirmation" placeholder="Confirm password here..." type="password" />
+            <SubmitField label="Register " />
+          </Form>
+        </Prompt>
+      )}
     </header>
   );
 }

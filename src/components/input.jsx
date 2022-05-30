@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 import "../styles/input.scss";
 
 export function TextField({ name, placeholder, options=[], multiline=false, type="text", error="" }) {
@@ -43,4 +45,9 @@ export function SubmitField({ label, error="" }) {
       {error && <label>Error: {error}</label>}
     </div>
   );
+}
+
+export function LinkButtonField({ label, to }) {
+  const history = useHistory();
+  return <ButtonField onClick={() => history.push(to)} label={label} />;
 }
