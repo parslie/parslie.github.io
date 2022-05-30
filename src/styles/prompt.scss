@@ -34,12 +34,5 @@
     border-radius: $large-size;
     background-color: $green;
     box-shadow: 0 0 1.25rem -0.25rem $black;
-
-    footer {
-      display: flex;
-      flex-direction: row;
-      gap: $small-size;
-      > * { flex-grow: 1; }
-    }
   }
 }

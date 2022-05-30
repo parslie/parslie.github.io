@@ -30,5 +30,5 @@ $light-pink: saturate(lighten($pink, 12%), 40%);
 $dark-pink: saturate(darken($pink, 20%), 5%);
 
 @mixin gradient-background($direction, $first-color, $last-color) {
-  background: linear-gradient($direction, $first-color 0%, $last-color 175%);
+  background: linear-gradient($direction, $first-color 0%, $last-color 160%);
 }

@@ -9,6 +9,8 @@
   @include gradient-background($bg-direction, $first-bg-color, $last-bg-color);
 }
 
+// General styles
+
 .input-field {
   display: flex;
   flex-direction: column;
@@ -20,7 +22,11 @@
     font-size: 0.85em;
     color: $red;
   }
+}
 
+// Component-specific styles
+
+article .input-field {
   input, textarea {
     @include input-background(0deg, $white, $gray, $dark-gray, $white);
     resize: vertical;
@@ -39,5 +45,28 @@
     cursor: pointer;
     
     &:hover { @include gradient-background(0deg, $green, $dark-green); }
+  }
+}
+
+.prompt .input-field, 
+.app > header .input-field {
+  input, textarea {
+    @include input-background(0deg, $white, $gray, $light-green, $dark-green);
+    resize: vertical;
+    color: $black;
+  }
+  
+  select {
+    @include input-background(0deg, $white, $gray, $light-green, $dark-green);
+    color: $black;
+    cursor: pointer;
+  }
+
+  button {
+    @include input-background(180deg, $white, $gray, $light-green, $dark-green);
+    color: $black;
+    cursor: pointer;
+    
+    &:hover { @include gradient-background(0deg, $white, $gray); }
   }
 }

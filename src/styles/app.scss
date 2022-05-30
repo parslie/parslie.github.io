@@ -12,29 +12,11 @@
     padding: $large-size;
     padding-right: calc(#{$large-size} + #{$border-size});
     border-right: $border-size solid $dark-green;
-    box-shadow: inset -#{$border-size} 0 0 $light-green; // Acts as inner border
+    box-shadow: inset -#{$border-size} 0 0 $light-green;
     background: $green;
     color: $white;
 
     > h1 { text-align: center; }
-
-    nav {
-      display: flex;
-      flex-direction: column;
-      gap: $small-size;
-
-      > button {
-        padding: calc(#{$small-size} + #{$border-size});
-        border: $border-size solid $light-green;
-        border-radius: $medium-size;
-        box-shadow: inset 0 0 0 $border-size $dark-green; // Acts as inner border
-        @include gradient-background(180deg, $white, $gray);
-        color: $black;
-        cursor: pointer;
-
-        &:hover { @include gradient-background(0deg, $white, $gray); }
-      }
-    }
   }
 
   > main {
