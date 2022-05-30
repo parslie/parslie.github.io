@@ -129,8 +129,12 @@ export default function App() {
         <h1>Parslie</h1>
         <LinkButtonField to="/" label="About" />
         {me && <ButtonField onClick={() => setShowLogOutPrompt(true)} label="Log Out" />}
-        {!me && <ButtonField onClick={() => setShowLogInPrompt(true)} label="Log In" />}
-        {!me && <ButtonField onClick={() => setShowRegisterPrompt(true)} label="Register" />}
+        {!me && (
+          <CombinationField>
+            <ButtonField onClick={() => setShowLogInPrompt(true)} label="Log In" />
+            <ButtonField onClick={() => setShowRegisterPrompt(true)} label="Register" />
+          </CombinationField>
+        )}
 
         {/*
         <h3>Apps</h3>
