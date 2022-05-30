@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 
 import useSWR, { mutate } from "swr";
 import { post } from "../utils/request";
@@ -13,15 +12,8 @@ import Prompt from "./prompt";
 import Form from "./form";
 import { ButtonField, LinkButtonField, SubmitField, TextField } from "./input";
 
-function NavButton({ to, label }) {
-  const history = useHistory();
-  return <button onClick={() => history.push(to)}>{label}</button>;
-}
-
-function AppHeader({ me }) {
-  const [ showLogOutPrompt, setShowLogOutPrompt ] = useState(false);
-  const [ showLogInPrompt, setShowLogInPrompt ] = useState(false);
-  const [ showRegisterPrompt, setShowRegisterPrompt ] = useState(false);
+function LogOutPrompt({ setShowLogOutPrompt }) {
+  const [ generalError, setGeneralError ] = useState("");
 
   const logOut = () => {
     post("/account/logout/", {}, true).then(res => {
@@ -29,9 +21,24 @@ function AppHeader({ me }) {
       mutate(["/account/me/", true], undefined);
       setShowLogOutPrompt(false);
     }).catch(({ response: res }) => {
-      // TODO: add error messages
+      setGeneralError(`${res.status} ${res.statusText}`);
     });
   };
+
+  return (
+    <Prompt title="Are you sure you want to log out?" onCancel={() => setShowLogOutPrompt(false)}>
+      <Form>
+        <ButtonField label="Yes" onClick={logOut} error={generalError} />
+        <ButtonField label="No" onClick={() => setShowLogOutPrompt(false)} />
+      </Form>
+    </Prompt>
+  );
+}
+
+function LogInPrompt({ setShowLogInPrompt }) {
+  const [ emailError, setEmailError ] = useState();
+  const [ passwordError, setPasswordError ] = useState();
+  const [ generalError, setGeneralError ] = useState();
 
   const logIn = (e) => {
     const loginData = {
@@ -44,9 +51,28 @@ function AppHeader({ me }) {
       mutate(["/account/me/", true]);
       setShowLogInPrompt(false);
     }).catch(({ response: res }) => {
-      // TODO: add error messages
+      setEmailError(res.data.email);
+      setPasswordError(res.data.password);
+      setGeneralError(`${res.status} ${res.statusText}`);
     })
   };
+
+  return (
+    <Prompt title="Log In" onCancel={() => setShowLogInPrompt(false)}>
+      <Form onSubmit={logIn}>
+        <TextField name="email" placeholder="Enter e-mail here..." type="email" error={emailError} />
+        <TextField name="password" placeholder="Enter password here..." type="password" error={passwordError} />
+        <SubmitField label="Log In" error={generalError} />
+      </Form>
+    </Prompt>
+  );
+}
+
+function RegisterPrompt({ setShowRegisterPrompt }) {
+  const [ emailError, setEmailError ] = useState("");
+  const [ usernameError, setUsernameError ] = useState("");
+  const [ passwordError, setPasswordError ] = useState("");
+  const [ generalError, setGeneralError ] = useState("");
 
   const register = (e) => {
     const registerData = {
@@ -61,81 +87,63 @@ function AppHeader({ me }) {
         mutate(["/account/me/", true]);
         setShowRegisterPrompt(false);
       }).catch(({ response: res }) => {
-        // TODO: add error messages
+        setEmailError(res.data.email);
+        setUsernameError(res.data.username);
+        setPasswordError(res.data.password);
+        setGeneralError(`${res.status} ${res.statusText}`);
       })
     } else {
-      // TODO: add error message
+      setPasswordError("The passwords need to match.");
     }
   };
-
+  
   return (
-    <header>
-      <h1>Parslie</h1>
-      <LinkButtonField to="/" label="About" />
-      {me && <ButtonField onClick={() => setShowLogOutPrompt(true)} label="Log Out" />}
-      {!me && <ButtonField onClick={() => setShowLogInPrompt(true)} label="Log In" />}
-      {!me && <ButtonField onClick={() => setShowRegisterPrompt(true)} label="Register" />}
-
-      {/*
-      <h3>Apps</h3>
-      <LinkButtonField to="/actions" label="Actions" />
-      <h3>Demos</h3>
-      <LinkButtonField to="/demo/form" label="Forms" />
-      <LinkButtonField to="/demo/graph" label="Graphs" />
-      */}
-      
-      {showLogOutPrompt && (
-        <Prompt title="Are you sure you want to log out?" onCancel={() => setShowLogOutPrompt(false)}>
-          <Form>
-            <ButtonField label="Yes" onClick={logOut} />
-            <ButtonField label="No" onClick={() => setShowLogOutPrompt(false)} />
-          </Form>
-        </Prompt>
-      )}
-      
-      {showLogInPrompt && (
-        <Prompt title="Log In" onCancel={() => setShowLogInPrompt(false)}>
-          <Form onSubmit={logIn}>
-            <TextField name="email" placeholder="Enter e-mail here..." type="email" />
-            <TextField name="password" placeholder="Enter password here..." type="password" />
-            <SubmitField label="Log In" />
-          </Form>
-        </Prompt>
-      )}
-      
-      {showRegisterPrompt && (
-        <Prompt title="Register" onCancel={() => setShowRegisterPrompt(false)}>
-          <Form onSubmit={register}>
-            <TextField name="email" placeholder="Enter e-mail here..." type="email" />
-            <TextField name="username" placeholder="Enter username here..." />
-            <TextField name="password" placeholder="Enter password here..." type="password" />
-            <TextField name="confirmation" placeholder="Confirm password here..." type="password" />
-            <SubmitField label="Register " />
-          </Form>
-        </Prompt>
-      )}
-    </header>
-  );
-}
-
-function AppContainer({ me }) {
-  return (
-    <Switch>
-      <Route exact path="/"><AboutPage me={me} /></Route>
-      <Route path="/actions"><ActionPage me={me} /></Route>
-      <Route path="/demo/form"><FormDemoPage /></Route>
-      <Route path="/demo/graph"><GraphDemoPage /></Route>
-    </Switch>
+    <Prompt title="Register" onCancel={() => setShowRegisterPrompt(false)}>
+      <Form onSubmit={register}>
+        <TextField name="email" placeholder="Enter e-mail here..." type="email" error={emailError} />
+        <TextField name="username" placeholder="Enter username here..." error={usernameError} />
+        <TextField name="password" placeholder="Enter password here..." type="password"  error={passwordError} />
+        <TextField name="confirmation" placeholder="Confirm password here..." type="password" />
+        <SubmitField label="Register" error={generalError} />
+      </Form>
+    </Prompt>
   );
 }
 
 export default function App() {
-  const me = useSWR(["/account/me/", true]);
+  const [ showLogOutPrompt, setShowLogOutPrompt ] = useState(false);
+  const [ showLogInPrompt, setShowLogInPrompt ] = useState(false);
+  const [ showRegisterPrompt, setShowRegisterPrompt ] = useState(false);
+  const { data: me } = useSWR(["/account/me/", true]);
 
   return (
     <div className="app">
-      <AppHeader me={me.data} />
-      <AppContainer me={me.data} />
+      <header>
+        <h1>Parslie</h1>
+        <LinkButtonField to="/" label="About" />
+        {me && <ButtonField onClick={() => setShowLogOutPrompt(true)} label="Log Out" />}
+        {!me && <ButtonField onClick={() => setShowLogInPrompt(true)} label="Log In" />}
+        {!me && <ButtonField onClick={() => setShowRegisterPrompt(true)} label="Register" />}
+
+        {/*
+        <h3>Apps</h3>
+        <LinkButtonField to="/actions" label="Actions" />
+        <h3>Demos</h3>
+        <LinkButtonField to="/demo/form" label="Forms" />
+        <LinkButtonField to="/demo/graph" label="Graphs" />
+        */}
+        
+        {showLogOutPrompt && <LogOutPrompt setShowLogOutPrompt={setShowLogOutPrompt} />}
+        {showLogInPrompt && <LogInPrompt setShowLogInPrompt={setShowLogInPrompt} />}
+        {showRegisterPrompt && <RegisterPrompt setShowRegisterPrompt={setShowRegisterPrompt} />}
+      </header>
+
+      <Switch>
+        <Route exact path="/"><AboutPage me={me} /></Route>
+        <Route path="/actions"><ActionPage me={me} /></Route>
+        <Route path="/demo/form"><FormDemoPage /></Route>
+        <Route path="/demo/graph"><GraphDemoPage /></Route>
+      </Switch>
     </div>
   );
 }
