@@ -1,5 +1,5 @@
-@import "./sizings.scss";
-@import "./colors.scss";
+@import "../sizings.scss";
+@import "../colors.scss";
 
 @mixin input-background($bg-direction, $first-bg-color, $last-bg-color, $outer-border-color, $inner-border-color) {
   padding: calc(#{$small-size} + #{$border-size});

@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 
-import "../styles/input.scss";
+import "../styles/components/input.scss";
 
 export function TextField({ name, placeholder, options=[], multiline=false, type="text", error="" }) {
   return (

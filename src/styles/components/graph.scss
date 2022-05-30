@@ -1,5 +1,5 @@
-@import "./sizings.scss";
-@import "./colors.scss";
+@import "../sizings.scss";
+@import "../colors.scss";
 
 @mixin section-background($dark, $mid, $light) {
   border: $border-size solid $dark;

@@ -1,4 +1,4 @@
-import "../styles/graph.scss";
+import "../styles/components/graph.scss";
 
 export function ActionBarChart({ data }) {
   let barList = [];

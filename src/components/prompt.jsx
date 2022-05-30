@@ -1,4 +1,4 @@
-import "../styles/prompt.scss";
+import "../styles/components/prompt.scss";
 
 export default function Prompt({ title, children, onCancel }) {
   // TODO: consider using Form instead of footer

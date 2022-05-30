@@ -1,4 +1,4 @@
-import "../styles/article.scss";
+import "../styles/components/article.scss";
 
 export default function Article({ children, title="" }) {
   return (

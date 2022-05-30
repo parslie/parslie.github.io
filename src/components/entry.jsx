@@ -1,4 +1,4 @@
-import "../styles/entry.scss";
+import "../styles/components/entry.scss";
 import { ButtonField } from "./input";
 
 function getDurationStr(data) {

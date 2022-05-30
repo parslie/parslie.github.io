@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import useSWR, { mutate } from "swr";
 import { post } from "../utils/request";
 
-import "../styles/app.scss";
+import "../styles/components/app.scss";
 import { FormDemoPage, GraphDemoPage } from "../pages/demo";
 import ActionPage from "../pages/action";
 import AboutPage from "../pages/about";
