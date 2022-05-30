@@ -1,13 +1,8 @@
-import { SiC, SiCplusplus, SiCsharp, SiCss3, SiHtml5, SiJava, SiJavascript, SiKotlin, SiLua, SiPython } from "react-icons/si";
+import "../styles/pages/about.scss";
 import Article from "../components/article";
-import { IconGrid, LabelGrid } from "../components/grid";
 
 export default function AboutPage({ me }) {
-  const languageIcons = [
-    <SiC title="C" />, <SiCplusplus title="C++" />, <SiCsharp title="C#" />, <SiCss3 title="CSS" />, 
-    <SiHtml5 title="HTML" />, <SiJava title="Java" />, <SiJavascript title="Javascript" />, 
-    <SiKotlin title="Kotlin" />, <SiLua title="Lua" />, <SiPython title="Python" />,
-  ];
+  const languages = ["C", "C++", "C#", "CSS", "HTML", "Java", "Javascript", "Kotlin", "Lua", "Python"];
 
   return (
     <main>
@@ -23,26 +18,29 @@ export default function AboutPage({ me }) {
       </Article>
 
       <Article title="Programming Languages">
-        <p>
-          These are the programming languages that I feel comfortable working with. 
-          You can hover over them to see their names.
-        </p>
-        <IconGrid icons={languageIcons} />
+        <p>These are the programming languages that I feel comfortable working with.</p>
+        <div className="programming-languages">
+          {languages.map(language => <span key={language}>{language}</span>)}
+        </div>
       </Article>
 
       <Article title="Work">
-        <LabelGrid title="Datateknologsektionen @ Linköping University:"
-          items={[
-            ["2021-2022", "Backend Developer @ WebbU"],
-            /*["2022-present", "Software Maintainer @ WebbU"],*/
-          ]} />
+        <div className="work-experiences">
+          <span className="title">Datateknologsektionen @ Linköping University:</span>
+          <span className="label">2021-2022</span>
+          <span>Backend Developer @ WebbU</span>
+          <span className="label">2022-present</span>
+          <span>Software Maintainer @ WebbU</span>
+        </div>
       </Article>
 
       <Article title="School">
-        <LabelGrid items={[
-            ["2016-2019", "Ljud- och Bildskolan (Audio and Visual School)"],
-            ["2019-present", "Linköpings University"],
-          ]} />
+        <div className="schools">
+          <span className="label">2016-2019</span>
+          <span>Ljud- och Bildskolan (Audio and Visual School)</span>
+          <span className="label">2019-present</span>
+          <span>Linköpings University</span>
+        </div>
       </Article>
     </main>
   );

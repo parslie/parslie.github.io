@@ -1,0 +1,26 @@
+@import "../colors.scss";
+@import "../sizings.scss";
+
+.work-experiences, .schools {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: $large-size;
+  row-gap: $small-size;
+  margin: $large-size 0;
+
+  .title { 
+    font-weight: bold;
+    grid-column-start: span 2; 
+  }
+  .label { 
+    font-weight: bold; 
+  }
+}
+
+.programming-languages {
+  display: grid;
+  gap: $large-size;
+  grid-template-columns: repeat(auto-fit, minmax(5em, 1fr));
+  justify-items: center;
+  margin: $large-size 0;
+}
