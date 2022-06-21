@@ -9,6 +9,7 @@ export function AboutHeader({ me }) {
     <header>
       <h1>Viktor Holta</h1>
       <LinkButtonField to="/" label="About" />
+      <LinkButtonField to="/tokipona" label="Toki Pona" />
       <AccountButtons me={me} />
     </header>
   );
