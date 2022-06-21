@@ -3,7 +3,7 @@
 
 .article-wrapper {
   padding: $large-size;
-  & + .article-wrapper { border-top: $border-size solid $dark-gray; }
+  border-bottom: $border-size solid $dark-gray;
 
   article {
     display: flex;

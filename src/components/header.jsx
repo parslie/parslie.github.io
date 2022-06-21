@@ -3,9 +3,8 @@ import { mutate } from "swr";
 
 import { post } from "../utils/request";
 
-import Form from "./form";
-import Prompt from "./prompt";
-import { LinkButtonField, CombinationField, ButtonField, TextField, SubmitField } from "./input";
+import { Prompt } from "./containers";
+import Form, { LinkButtonField, CombinationField, ButtonField, TextField, SubmitField } from "./input";
 
 function LogOutPrompt({ setShowPrompt }) {
   const [ generalError, setGeneralError ] = useState("");

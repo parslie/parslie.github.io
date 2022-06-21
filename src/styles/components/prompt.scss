@@ -1,7 +1,7 @@
 @import "../colors.scss";
 @import "../sizings.scss";
 
-.prompt-container {
+.prompt-wrapper {
   position: fixed;
   top: 0;
   right: 0;
@@ -10,7 +10,7 @@
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.5);
 
-  .prompt-perimeter {
+  .perimeter {
     position: absolute;
     top: 0;
     right: 0;

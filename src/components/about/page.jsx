@@ -2,7 +2,7 @@ import "../../styles/components/app.scss";
 import "../../styles/pages/about.scss";
 
 import AppHeader from "../header";
-import Article from "../article";
+import { Article } from "../containers";
 
 export default function AboutPage({ me }) {
   const languages = ["C", "C++", "C#", "CSS", "HTML", "Java", "Javascript", "Kotlin", "Lua", "Python"];

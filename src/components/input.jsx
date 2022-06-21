@@ -2,6 +2,16 @@ import { useHistory } from "react-router-dom";
 
 import "../styles/components/input.scss";
 
+export default function Form({ children, onSubmit }) {
+  const preSubmit = (e) => {
+    e.preventDefault();
+    if (onSubmit)
+      onSubmit(e);
+  };
+
+  return <form onSubmit={preSubmit}>{children}</form>;
+}
+
 export function TextField({ name, placeholder, options=[], multiline=false, type="text", error="" }) {
   return (
     <div className="input-field">
