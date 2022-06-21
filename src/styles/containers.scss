@@ -1,5 +1,18 @@
-@import "../colors.scss";
-@import "../sizings.scss";
+@import "./colors.scss";
+@import "./sizings.scss";
+
+.article-wrapper {
+  padding: $large-size;
+  border-bottom: $border-size solid $dark-gray;
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: $large-size;
+    margin: 0 auto;
+    max-width: $max-content-width;
+  }
+}
 
 .prompt-wrapper {
   position: fixed;

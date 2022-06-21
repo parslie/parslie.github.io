@@ -1,5 +1,4 @@
-import "../styles/components/article.scss";
-import "../styles/components/prompt.scss";
+import "../styles/containers.scss";
 
 export function Article({ title, children }) {
   return (

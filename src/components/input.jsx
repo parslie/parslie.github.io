@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 
-import "../styles/components/input.scss";
+import "../styles/input.scss";
 
 export default function Form({ children, onSubmit }) {
   const preSubmit = (e) => {

@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { mutate } from "swr";
-
 import { post } from "../utils/request";
 
 import { Prompt } from "./containers";
-import Form, { LinkButtonField, CombinationField, ButtonField, TextField, SubmitField } from "./input";
+import Form, { ButtonField, CombinationField, TextField, SubmitField } from "./input";
 
 function LogOutPrompt({ setShowPrompt }) {
   const [ generalError, setGeneralError ] = useState("");
@@ -109,17 +108,13 @@ function RegisterPrompt({ setShowPrompt }) {
   );
 }
 
-export default function AppHeader({ title, me }) {
+export default function AccountButtons({ me }) {
   const [ showLogOutPrompt, setShowLogOutPrompt ] = useState(false);
   const [ showLogInPrompt, setShowLogInPrompt ] = useState(false);
   const [ showRegisterPrompt, setShowRegisterPrompt ] = useState(false);
 
   return (
-    <header>
-      <h1>{title}</h1>
-
-      <LinkButtonField to="/" label="About" />
-
+    <>
       {!me ? (
         <CombinationField>
           <ButtonField label="Log In" onClick={() => setShowLogInPrompt(true)} />
@@ -132,6 +127,6 @@ export default function AppHeader({ title, me }) {
       {showLogOutPrompt && <LogOutPrompt setShowPrompt={setShowLogOutPrompt} />}
       {showLogInPrompt && <LogInPrompt setShowPrompt={setShowLogInPrompt} />}
       {showRegisterPrompt && <RegisterPrompt setShowPrompt={setShowRegisterPrompt} />}
-    </header>
+    </>
   );
 }
