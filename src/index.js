@@ -1,25 +1,35 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
-import { SWRConfig } from "swr";
+import useSWR, { SWRConfig } from "swr";
 import { get } from "./utils/request";
 
 import "./index.scss";
-import App from "./components/app";
+import AboutPage from "./components/about/page";
 
 const swrOptions = { 
   fetcher: (endpoint, useToken, config = {}) => get(endpoint, useToken, config).then(res => res.data), 
   shouldRetryOnError: false,
 };
 
+function App() {
+  const { data: me } = useSWR(["/account/me/", true]);
+
+  return (
+    <HashRouter>
+      <Switch>
+        <Route exact path="/"><AboutPage me={me} /></Route>
+      </Switch>
+    </HashRouter>
+  );
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <SWRConfig value={swrOptions}>
-      <HashRouter>
-        <App />
-      </HashRouter>
+      <App />
     </SWRConfig>
   </React.StrictMode>,
   document.getElementById("root")
