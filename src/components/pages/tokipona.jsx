@@ -172,7 +172,7 @@ const words = [
     example: ["ona li suwi lili.", "it is a little sweet."]
   },{
     name: "linja",
-    description: "long and flexible thing",
+    description: "long flexible thing",
     example: ["o pana e linja tawa mi.", "throw me the rope."]
   },{
     name: "lipu",
@@ -242,8 +242,259 @@ const words = [
     name: "mun",
     description: "moon, star, night sky object",
     example: ["tenpo mun ni li tenpo mun kule.", "this month is pride month."]
+  },{
+    name: "musi",
+    description: "art, entertainment",
+    example: ["kalama musi ona li pona mute.", "their music is very good."]
+  },{
+    name: "mute",
+    description: "quantity, very, many",
+    example: ["kalama musi ona li pona mute.", "their music is very good."]
+  },{
+    name: "nanpa",
+    description: "number, ordinal particle",
+    example: ["ni li tenpo nanpa wan.", "this is the first time."]
+  },{
+    name: "nasa",
+    description: "unusuality, craziness, intoxication",
+    example: ["moku suli pi telo nasa li moli.", "large consumption of alcohol is deadly."]
+  },{
+    name: "nasin",
+    description: "way, method, path",
+    example: ["sina kepeken e nasin seme?", "which method did you use?"]
+  },{
+    name: "nena",
+    description: "bump, hill, nose, button",
+    example: ["nasin kiwen ni li nena.", "this stone path is bumpy."]
+  },{
+    name: "ni",
+    description: "this, that",
+    example: ["ni li ijo.", "this is a thing."]
+  },{
+    name: "nimi",
+    description: "name, word",
+    example: ["nimi sina li seme?", "what is your name?"]
+  },{
+    name: "noka",
+    description: "foot, leg, organ of locomotion, bottom",
+    example: ["sina ken tawa kepeken noka sina.", "you can walk using your legs."]
+  },{
+    name: "o",
+    description: "vocative/imperative particle",
+    example: ["jan Malijo o, sina wile ala wile kili?", "Mario, do you want mushrooms?"]
+  },{
+    name: "olin",
+    description: "love, affection, compassion, respect",
+    example: ["o olin e jan ante.", "respect different people."]
+  },{
+    name: "ona",
+    description: "he, she, they, it",
+    example: ["ona li tenpo pi moku sike.", "it's pizza time."]
+  },{
+    name: "open",
+    description: "beginning, activation, opening",
+    example: ["o open e lupa.", "open the door."]
+  },{
+    name: "pakala",
+    description: "damage, mess",
+    example: ["ilo mi li pakala.", "my tool is destroyed."]
+  },{
+    name: "pali",
+    description: "action, work, creation",
+    example: ["sina pali e seme?", "what are you doing?"]
+  },{
+    name: "palisa",
+    description: "long hard thing",
+    example: ["jan mute li jo e palisa.", "many people have long hard things."]
+  },{
+    name: "pan",
+    description: "grain, bread, pasta",
+    example: ["tenpo poka la, mi pali e pan mute.", "lately, i have been making a lot of bread."]
+  },{
+    name: "pana",
+    description: "emission, putting, release, giving",
+    example: ["mi pakala e ilo pi pana telo.", "i broke the sprinkler."]
+  },{
+    name: "pi",
+    description: "of particle",
+    example: ["ilo pi pana telo.", "tool of water emission."]
+  },{
+    name: "pilin",
+    description: "heart, feeling",
+    example: ["mi pilin ike ala li pilin pona ala.", "i feel okay."]
+  },{
+    name: "pimeja",
+    description: "darkness, black",
+    example: ["laso pimeja li kule pona.", "dark blue is a good color."]
+  },{
+    name: "pini",
+    description: "end, completion",
+    example: ["tenpo pini la, telo suwi li pona tawa mi.", "in the past, i liked soda."]
+  },{
+    name: "pipi",
+    description: "bugs, insects, arachnids",
+    example: ["pipi li ike a tawa mi.", "i really do not like spiders."]
+  },{
+    name: "poka",
+    description: "hip, side, vicinity",
+    example: ["ona li lon poka pi tomo esun.", "it is near the store."]
+  },{
+    name: "poki",
+    description: "container",
+    example: ["o pana e poki ilo tawa mi.", "give me the tool box."]
+  },{
+    name: "pona",
+    description: "positivity, simplicity",
+    example: ["ona li jan pona tawa mi.", "they are a good person in my opinion."]
+  },{
+    name: "pu",
+    description: "the official toki pona book",
+    example: ["lipu pu li lipu sewi pi mi mute.", "the official toki pona book is our bible."]
+  },{
+    name: "sama",
+    description: "similarity, siblinghood",
+    example: ["jan sama mi li lon tomo ante.", "my siblings live in different houses."]
+  },{
+    name: "seli",
+    description: "fire, chemical reaction, heat source",
+    example: ["telo pimeja ni li seli mute a.", "this coffee is too hot."]
+  },{
+    name: "selo",
+    description: "outer layer, boundary",
+    example: ["kala pi selo kiwen li lon.", "shell fish exist."]
+  },{
+    name: "seme",
+    description: "what, which",
+    example: ["nasin kepeken pi nimi seme li seme?", "how do you use the word seme?"]
+  },{
+    name: "sewi",
+    description: "top, above, divinity",
+    example: ["sina jo ala jo e nasin sewi?", "are you religious?"]
+  },{
+    name: "sijelo",
+    description: "body, torso, physical state",
+    example: ["sijelo mi li ike.", "i am sick."]
+  },{
+    name: "sike",
+    description: "round or circular thing",
+    example: ["jan Jesu, o kama jo e sike.", "Jesus, take the wheel."]
+  },{
+    name: "sin",
+    description: "new, additional",
+    example: ["mi wile pi ilo toki sin.", "i need a new phone."]
+  },{
+    name: "sina",
+    description: "you",
+    example: ["sina mi ala.", "you are not me."]
+  },{
+    name: "sinpin",
+    description: "face, front, wall",
+    example: ["mi kule e sinpin pi tomo lape.", "i am painting the bedroom walls."]
+  },{
+    name: "sitelen",
+    description: "writing, image, representation",
+    example: ["mi wile sona e sitelen pona.", "i want to know sitelen pona."]
+  },{
+    name: "sona",
+    description: "knowledge, skill",
+    example: ["mi sona sitelen kepeken sitelen pona.", "i know how to write using sitelen pona."]
+  },{
+    name: "soweli",
+    description: "land mammal",
+    example: ["soweli ni li tawa suli kepeken tenpo lili.", "that animal is moving fast."]
+  },{
+    name: "suli",
+    description: "big, important, adult",
+    example: ["telo suli li lete.", "the lake is cold."]
+  },{
+    name: "suno",
+    description: "sun, light, light source",
+    example: ["o lukin ala e suno.", "do not look at the sun."]
+  },{
+    name: "supa",
+    description: "horizontal surface, thing to put something on",
+    example: ["mi pana e telo pimeja sina lon supa.", "i put your coffee on the table."]
+  },{
+    name: "suwi",
+    description: "sweet, cute",
+    example: ["sina suwi a.", "you are so cute."]
+  },{
+    name: "suwi",
+    description: "sweet, cute",
+    example: ["kili mute li suwi.", "many fruit are sweet."]
+  },{
+    name: "tan",
+    description: "by, from, because of",
+    example: ["tan sina pi pali ni li seme?", "why are you doing this?"]
+  },{
+    name: "taso",
+    description: "but, only",
+    example: ["mi wile telo taso.", "i only want water."]
+  },{
+    name: "tawa",
+    description: "movement, to, for, in the opinion of",
+    example: ["mi pali e ni tawa sina a.", "i am doing this for you."]
+  },{
+    name: "telo",
+    description: "water, liquid, beverage",
+    example: ["mi wile tawa telo.", "i want to swim."]
+  },{
+    name: "tenpo",
+    description: "time, duration",
+    example: ["ona li tenpo musi.", "it is party time."]
+  },{
+    name: "toki",
+    description: "speech, thought",
+    example: ["mi ken toki kepeken toki pona.", "i can speak toki pona."]
+  },{
+    name: "tomo",
+    description: "structure, home, indoor space",
+    example: ["mi tawa tomo.", "i am going home."]
+  },{
+    name: "tu",
+    description: "two",
+    example: ["mi jo e kili tu.", "i have two fruit."]
+  },{
+    name: "unpa",
+    description: "sex",
+    example: ["unpa li ike tawa jan pi mute lili.", "some people do not like sex."]
+  },{
+    name: "uta",
+    description: "mouth, lips, jaw",
+    example: ["sijelo uta mi li ike.", "my jaw hurts."]
+  },{
+    name: "utala",
+    description: "battle, challenge, competition",
+    example: ["jan utala mute li lon poka mi.", "i have many warriors at my side."]
+  },{
+    name: "walo",
+    description: "white, pale",
+    example: ["telo walo pi telo pimeja wawa li pona.", "milk with strong coffee is good."]
+  },{
+    name: "wan",
+    description: "one, unity, unique",
+    example: ["mi tu li wan olin.", "we are married."]
+  },{
+    name: "waso",
+    description: "winged animal, flying animal",
+    example: ["waso li ilo lukin pi kulupu lawa.", "birds are spy tools for the government ."]
+  },{
+    name: "wawa",
+    description: "strength, energy, confidence",
+    example: ["telo pimeja la, telo wawa suwi li pona.", "energy drinks are tastier than coffee."]
+  },{
+    name: "weka",
+    description: "absence, removal",
+    example: ["o tawa weka.", "go away."]
+  },{
+    name: "wile",
+    description: "need, desire",
+    example: ["sina wile seme?", "what do you want?"]
   }
 ];
+
+// TODO: cross reference pu with lipu sona pona
+// TODO: change the description (maybe split into noun, adje, verb...)
 
 export function TokiPonaHeader({ me }) {
   return (
