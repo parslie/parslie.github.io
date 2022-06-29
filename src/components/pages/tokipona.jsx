@@ -26,7 +26,7 @@ const words = [
   },{
     name: "ale/ali",
     nouns: ["abundance", "everything", "life", "universe"],
-    adjectives: ["all", "abundant", "coutnless", "bountiful", "every", "plentiful"],
+    adjectives: ["all", "abundant", "countless", "bountiful", "every", "plentiful"],
     numbers: ["100"],
     example: ["ale li pona.", "everything is good."]
   },{
@@ -525,27 +525,37 @@ export function TokiPonaHeader({ me }) {
 }
 
 export function TokiPonaMain({ me }) {
-  const channelLink = "https://www.youtube.com/c/HBMmaster";
-  const videoLink = "https://www.youtube.com/watch?v=2EZihKCB9iw&list=PLuYLhuXt4HrQwIDV7FBkA8zApw0pnEJrX&index=1";
-  const officialSiteLink = "https://devurandom.xyz/tokipona/";
+  const janMisaliLink = "https://www.youtube.com/c/HBMmaster";
+  const sonaPiTokiPonaLink = "https://www.youtube.com/playlist?list=PLuYLhuXt4HrQIv3xnDxZqRaLfmxB2U5rJ";
+  const janLentanLink = "https://devurandom.xyz/";
+  const lipuSonaPonaLink = "https://devurandom.xyz/tokipona/";
+  const officialSiteLink = "https://tokipona.org/";
 
   return (
     <main>
       <Article title="kama pona">
         <p>
           toki. mi jan Wito. tenpo lili la, mi kama sona e toki pona.
-          taso sona nimi mi li pona lili. tan ni la, mi pali e lipu nimi ni.
+          taso, sona nimi mi li pona lili taso. tan ni la, mi pali e lipu nimi ni.
         </p>
         <p>
-          Toki Pona is a conlang made by Sonja Lang in 2001. I was introduced to it through 
-          a <a href={videoLink}>video</a> by <a href={channelLink}>jan Misali</a> around 
-          the start of 2022. Since then, I've been casually learning it. 
-          There's a lot of great sources on the <a href={officialSiteLink}>official site</a>.
+          <a href={officialSiteLink}>Toki Pona</a> is a language focused on simplicity.
+          It has less than 200 words, which makes finding a way to express yourself fun and challenging. 
+          I have been learning it through <a href={janMisaliLink}>jan Misali's</a> video 
+          series <a href={sonaPiTokiPonaLink}>sona pi toki pona</a> and <a href={janLentanLink}>jan 
+          Lentan's</a> online course <a href={lipuSonaPonaLink}>lipu sona pona</a>. I recommend these
+          as a starting point if you are interested in learning.
         </p>
         <p>
-          The grammar has been fairly easy to learn, but I don't feel comfortable speaking it 
-          yet. I want to get better, so I'm starting by creating a dictionary to improve my 
-          vocabulary.
+          The grammar of Toki Pona has been fairly easy to learn, but the vocabulary has been more
+          difficult. Since there's so few words, it's important to know what they all mean and how
+          to use them. Therefore, I have created this dictionary, filled with definitions and examples,
+          to improve my knowledge of them.
+        </p>
+        <p>
+          Currently, I have only included words as they are defined in the official book. However, I will
+          cross-reference this with other sources in the future, along with removing definitions that are
+          redundant or duplicate (in my opinion).
         </p>
       </Article>
 
