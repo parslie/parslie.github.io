@@ -4,6 +4,7 @@ import useSWR from "swr";
 import "../styles/app.scss";
 
 import { AboutHeader, AboutMain } from "./pages/about";
+import { TasksHeader, TasksMain } from "./pages/tasks";
 import { TokiPonaHeader, TokiPonaMain } from "./pages/tokipona";
 
 export default function App() {
@@ -15,6 +16,10 @@ export default function App() {
         <Route exact path="/">
           <AboutHeader me={me} />
           <AboutMain me={me} />
+        </Route>
+        <Route path="/tasks">
+          <TasksHeader me={me} />
+          <TasksMain me={me} />
         </Route>
         <Route path="/tokipona">
           <TokiPonaHeader me={me} />

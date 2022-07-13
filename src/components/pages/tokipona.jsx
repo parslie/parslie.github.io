@@ -518,6 +518,7 @@ export function TokiPonaHeader({ me }) {
     <header>
       <h1>jan Wito</h1>
       <LinkButtonField to="/" label="About" />
+      <LinkButtonField to="/tasks" label="Tasks" />
       <LinkButtonField to="/tokipona" label="Toki Pona" />
       <AccountButtons me={me} />
     </header>
