@@ -1,0 +1,17 @@
+@import "../colors.scss";
+@import "../sizings.scss";
+
+.task {
+  display: flex;
+  flex-direction: row;
+  gap: $small-size;
+  align-items: center;
+  margin: $medium-size 0;
+
+  * { margin: 0; }
+  .spacer { flex-grow: 1; }
+  .duration {
+    font-weight: bold;
+    color: $dark-gray;
+  }
+}
