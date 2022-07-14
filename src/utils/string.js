@@ -7,5 +7,5 @@ export function secondsToText(seconds) {
   else if (minutes >= 1)
     return `${minutes.toFixed(0)} minutes`;
   else 
-    return `${seconds} seconds`;
+    return `${seconds.toFixed(0)} seconds`;
 }

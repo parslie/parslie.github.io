@@ -2,16 +2,26 @@
 @import "../sizings.scss";
 
 .task {
-  display: flex;
-  flex-direction: row;
-  gap: $small-size;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr min-content;
   margin: $medium-size 0;
-
+  
   * { margin: 0; }
-  .spacer { flex-grow: 1; }
-  .duration {
-    font-weight: bold;
-    color: $dark-gray;
+  .description { 
+    grid-column: 1;
+    grid-row: 2;
+    color: $dark-gray; 
   }
+  .input-field { 
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+}
+
+.task-entry {
+  margin: $medium-size 0;
+  
+  * { margin: 0; }
+  .description { color: $dark-gray; }
 }
