@@ -1,33 +1,36 @@
-$white: #fafafa;
 $black: #111111;
+$dark-gray: #383838;
+$gray: #6c6c6c;
+$light-gray: #cbcbcb;
+$white: #fafafa;
 
-$light-gray: darken($white, 10%);
-$gray: darken($white, 30%);
-$dark-gray: darken($white, 50%);
+$dark-red: #791e19;
+$red: #d84f48;
+$light-red: #f9938a;
 
+$dark-orange: #7d4e1a;
+$orange: #d89750;
+$light-orange: #f6c58f;
+
+$dark-yellow: #797519;
+$yellow: #d4ce4a;
+$light-yellow: #f2ed8c;
+
+$dark-green: #196c27;
 $green: #44c55b;
-$light-green: saturate(lighten($green, 25%), 40%);
-$dark-green: saturate(darken($green, 20%), 5%);
+$light-green: #8deda7;
 
-$red: #c54444;
-$light-red: saturate(lighten($red, 25%), 40%);
-$dark-red: saturate(darken($red, 20%), 5%);
+$dark-cyan: #1e7379;
+$cyan: #4cc8cf;
+$light-cyan: #97f1f6;
 
-$purple: #9d4fca;
-$light-purple: saturate(lighten($purple, 25%), 40%);
-$dark-purple: saturate(darken($purple, 20%), 5%);
+$dark-blue: #1f3d7d;
+$blue: #4c79d8;
+$light-blue: #9ab8f9;
 
-$orange: rgb(245, 132, 57); //df8134
-$light-orange: saturate(lighten($orange, 20%), 40%);
-$dark-orange: saturate(darken($orange, 20%), 5%);
-
-$blue: #4491c5;
-$light-blue: saturate(lighten($blue, 25%), 40%);
-$dark-blue: saturate(darken($blue, 20%), 5%);
-
-$pink: #fa87ca;
-$light-pink: saturate(lighten($pink, 12%), 40%);
-$dark-pink: saturate(darken($pink, 20%), 5%);
+$dark-purple: #671b82;
+$purple: #b248d8;
+$light-purple: #df91fb;
 
 @mixin gradient-background($direction, $first-color, $last-color) {
   background: linear-gradient($direction, $first-color 0%, $last-color 160%);
