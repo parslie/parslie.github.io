@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useSWR, { mutate } from "swr";
 import { post } from "../../utils/request";
 
@@ -39,7 +38,7 @@ function Main({ me }) {
       <Article title="Weekly Statistics (W.I.P)">
         <p>This chart shows the amount of tasks Viktor has completed this week.</p>
       </Article>
-      <Article title="Daily Entries">
+      <Article title="Daily Entries" collapsable>
         {entries && entries.map(entry => <TaskEntry me={me} data={entry} key={entry.id} />)}
       </Article>
       {me && me.is_superuser && (
@@ -50,7 +49,7 @@ function Main({ me }) {
           </Form>
         </Article>
       )}
-      <Article title="Tasks">
+      <Article title="Tasks" collapsable>
         {tasks && tasks.map(task => <Task me={me} data={task} key={task.id} />)}
       </Article>
     </main>
