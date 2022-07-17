@@ -1,7 +1,8 @@
-@import "../colors.scss";
-@import "../sizings.scss";
+@import "../../colors.scss";
+@import "../../sizings.scss";
 
-.work-experiences, .schools {
+.work-experiences, 
+.schools {
   display: grid;
   grid-template-columns: max-content 1fr;
   column-gap: $large-size;

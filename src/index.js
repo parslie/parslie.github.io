@@ -1,13 +1,12 @@
 import reportWebVitals from "./reportWebVitals";
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { SWRConfig } from "swr";
 import { get } from "./utils/request";
 
 import "./index.scss";
-
-import App from "./components/app";
+import App from "./app";
 
 const swrOptions = { 
   fetcher: (endpoint, useToken, config = {}) => get(endpoint, useToken, config).then(res => res.data), 

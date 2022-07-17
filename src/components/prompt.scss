@@ -1,18 +1,5 @@
-@import "./colors.scss";
-@import "./sizings.scss";
-
-.article-wrapper {
-  padding: $large-size;
-  border-bottom: $border-size solid $dark-gray;
-
-  article {
-    display: flex;
-    flex-direction: column;
-    gap: $large-size;
-    margin: 0 auto;
-    max-width: $max-content-width;
-  }
-}
+@import "../colors.scss";
+@import "../sizings.scss";
 
 .prompt-wrapper {
   position: fixed;
@@ -40,10 +27,10 @@
     display: flex;
     flex-direction: column;
     gap: $large-size;
-    max-width: $max-content-width;
+    max-width: $article-max-width;
 
     padding: $large-size;
-    border: $border-size solid $light-green;
+    border: 1px solid $light-green;
     border-radius: $large-size;
     background-color: $green;
     box-shadow: 0 0 1.25rem -0.25rem $black;

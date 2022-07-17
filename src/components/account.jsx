@@ -2,7 +2,7 @@ import { useState } from "react";
 import { mutate } from "swr";
 import { post } from "../utils/request";
 
-import { Prompt } from "./containers";
+import Prompt from "./prompt";
 import Form, { ButtonField, CombinationField, TextField, SubmitField } from "./input";
 
 function LogOutPrompt({ setShowPrompt }) {
@@ -108,7 +108,7 @@ function RegisterPrompt({ setShowPrompt }) {
   );
 }
 
-export default function AccountButtons({ me }) {
+function AccountButtons({ me }) {
   const [ showLogOutPrompt, setShowLogOutPrompt ] = useState(false);
   const [ showLogInPrompt, setShowLogInPrompt ] = useState(false);
   const [ showRegisterPrompt, setShowRegisterPrompt ] = useState(false);
@@ -130,3 +130,5 @@ export default function AccountButtons({ me }) {
     </>
   );
 }
+
+export default AccountButtons;

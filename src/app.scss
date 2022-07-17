@@ -1,5 +1,5 @@
-@import "./sizings.scss";
 @import "./colors.scss";
+@import "./sizings.scss";
 
 .app {
   > header {
@@ -7,13 +7,12 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: $header-width;
+    width: $app-header-width;
 
+    border-right: 1px solid $dark-green;
     padding: $large-size;
-    padding-right: calc(#{$large-size} + #{$border-size});
-    border-right: $border-size solid $dark-green;
-    box-shadow: inset -#{$border-size} 0 0 $light-green;
-    background: $green;
+    box-shadow: inset -1px 0 0 $light-green;
+    background-color: $green;
     color: $white;
 
     > h1 { text-align: center; }
@@ -24,9 +23,10 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: $header-width;
+    left: $app-header-width;
 
-    background: $white;
+    background-color: $white;
+    color: $black;
     overflow-y: auto;
   }
 }

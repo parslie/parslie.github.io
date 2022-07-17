@@ -1,22 +1,22 @@
-import "../../styles/pages/about.scss";
+import "./style.scss";
 
-import AccountButtons from "../account";
-import { Article } from "../containers";
-import { LinkButtonField } from "../input";
+import Article from "../../components/article";
+import { LinkButtonField } from "../../components/input";
+import AccountButtons from "../../components/account";
 
-export function AboutHeader({ me }) {
+function Header({ me }) {
   return (
     <header>
       <h1>Viktor Holta</h1>
-      <LinkButtonField to="/" label="About" />
-      <LinkButtonField to="/tasks" label="Tasks" />
-      <LinkButtonField to="/tokipona" label="Toki Pona" />
+      <LinkButtonField label="About" to="/" />
+      <LinkButtonField label="Tasks" to="/tasks" />
+      <LinkButtonField label="Toki Pona" to="/tokipona" />
       <AccountButtons me={me} />
     </header>
   );
 }
 
-export function AboutMain({ me }) {
+function Main({ me }) {
   const languages = ["C", "C++", "C#", "CSS", "HTML", "Java", "Javascript", "Kotlin", "Lua", "Python"];
 
   return (
@@ -31,14 +31,12 @@ export function AboutMain({ me }) {
           at <a href="mailto:viktor.holta@outlook.com">viktor.holta@outlook.com</a>.
         </p>
       </Article>
-
       <Article title="Programming Languages">
         <p>These are the programming languages that I feel comfortable working with.</p>
         <div className="programming-languages">
           {languages.map(language => <span key={language}>{language}</span>)}
         </div>
       </Article>
-
       <Article title="Work">
         <div className="work-experiences">
           <span className="title">Datateknologsektionen @ Linköping University:</span>
@@ -48,7 +46,6 @@ export function AboutMain({ me }) {
           <span>Software Maintainer @ WebbU</span>
         </div>
       </Article>
-
       <Article title="School">
         <div className="schools">
           <span className="label">2016-2019</span>
@@ -60,3 +57,6 @@ export function AboutMain({ me }) {
     </main>
   );
 }
+
+const AboutPage = ({ me }) => <><Header me={me} /><Main me={me} /></>;
+export default AboutPage;

@@ -1,8 +1,8 @@
 import { useHistory } from "react-router-dom";
 
-import "../styles/input.scss";
+import "./input.scss";
 
-export default function Form({ children, onSubmit }) {
+function Form({ children, onSubmit }) {
   const preSubmit = (e) => {
     e.preventDefault();
     if (onSubmit)
@@ -12,7 +12,7 @@ export default function Form({ children, onSubmit }) {
   return <form onSubmit={preSubmit}>{children}</form>;
 }
 
-export function TextField({ name, placeholder, options=[], multiline=false, type="text", error="" }) {
+function TextField({ name, placeholder, options=[], multiline=false, type="text", error="" }) {
   return (
     <div className="input-field">
       {multiline ? <textarea id={name} name={name} placeholder={placeholder} type={type} /> 
@@ -27,7 +27,7 @@ export function TextField({ name, placeholder, options=[], multiline=false, type
   );
 }
 
-export function DropDownField({ name, placeholder, options, values, error="", onChange }) {
+function DropDownField({ name, placeholder, options, values, error="", onChange }) {
   return (
     <div className="input-field">
       <select name={name} defaultValue="" onChange={onChange}>
@@ -39,16 +39,7 @@ export function DropDownField({ name, placeholder, options, values, error="", on
   );
 }
 
-export function ButtonField({ label, error="", onClick }) {
-  return (
-    <div className="input-field">
-      <button onClick={onClick}>{label}</button>
-      {error && <label>Error: {error}</label>}
-    </div>
-  );
-}
-
-export function SubmitField({ label, error="" }) {
+function SubmitField({ label, error="" }) {
   return (
     <div className="input-field">
       <button type="submit">{label}</button>
@@ -57,12 +48,21 @@ export function SubmitField({ label, error="" }) {
   );
 }
 
-export function LinkButtonField({ label, to }) {
+function ButtonField({ label, error="", onClick }) {
+  return (
+    <div className="input-field">
+      <button onClick={onClick}>{label}</button>
+      {error && <label>Error: {error}</label>}
+    </div>
+  );
+}
+
+function LinkButtonField({ label, to }) {
   const history = useHistory();
   return <ButtonField onClick={() => history.push(to)} label={label} />;
 }
 
-export function CombinationField({ children, error }) {
+function CombinationField({ children, error }) {
   return (
     <div className="combination-field">
       <div className="row">{children}</div>
@@ -70,3 +70,6 @@ export function CombinationField({ children, error }) {
     </div>
   )
 }
+
+export default Form;
+export { ButtonField, CombinationField, DropDownField, LinkButtonField, SubmitField, TextField };

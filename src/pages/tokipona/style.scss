@@ -1,5 +1,5 @@
-@import "../colors.scss";
-@import "../sizings.scss";
+@import "../../colors.scss";
+@import "../../sizings.scss";
 
 .word-entry {
   display: flex;
@@ -7,5 +7,5 @@
   margin: $medium-size 0;
   > * { margin: 0; }
 
-  .example { color: $dark-gray; }
+  .example { color: $gray; }
 }
