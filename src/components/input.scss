@@ -4,31 +4,32 @@
 @mixin input-background($bg-direction, $first-bg-color, $last-bg-color, $outer-border-color, $inner-border-color) {
   padding: $small-size $medium-size;
   border: 1px solid $outer-border-color;
-  border-radius: $medium-size;
+  border-radius: $small-size;
   box-shadow: inset 0 0 0 1px $inner-border-color;
   @include gradient-background($bg-direction, $first-bg-color, $last-bg-color);
 }
 
 // General styles
 
-.input-field, 
-.combination-field {
-  display: flex;
-  flex-direction: column;
+.input-field {
   margin: $small-size 0;
 
-  label {
-    padding: 0 $medium-size;
-    font-weight: bold;
-    font-size: 0.85em;
-    color: $red;
+  button, input, select, textarea {
+    border-radius: $small-size;
+    padding: $small-size $medium-size;
+    width: 100%;
+    height: 100%;
   }
+
+  button { cursor: pointer; }
+  textarea { resize: vertical; }
 }
 
-.combination-field .row {
+.combination-field {
   display: flex;
   flex-direction: row;
   gap: $small-size;
+
   > * { 
     flex-grow: 1;
     margin: 0;
@@ -36,50 +37,39 @@
   }
 }
 
-// Component-specific styles
+// Specific styles
 
-article .input-field {
-  input, textarea {
-    @include input-background(0deg, $white, $gray, $dark-gray, $white);
-    resize: vertical;
-    color: $black;
-  }
-  
-  select {
-    @include input-background(0deg, $white, $gray, $dark-gray, $white);
-    color: $black;
-    cursor: pointer;
-  }
-
+.app > header .input-field,
+.prompt-wrapper .input-field {
   button {
-    @include input-background(180deg, $green, $dark-green, $dark-green, $light-green);
+    border: 1px solid $light-green;
+    box-shadow: inset 0 0 0 1px $dark-green;
+    background: linear-gradient(180deg, $white 0%, $light-gray 100%);
+    color: $black;
+    &:hover { background: linear-gradient(0deg, $white 0%, $light-gray 100%); }
+  }
+
+  input, textarea {
+    border: 1px solid $light-green;
+    box-shadow: inset 0 0 0 1px $dark-green;
+    background: linear-gradient(0deg, $white 0%, $light-gray 100%);
+    color: $black;
+  }
+}
+
+.article-wrapper .input-field {
+  button {
+    border: 1px solid $dark-green;
+    box-shadow: inset 0 0 0 1px $light-green;
+    background: linear-gradient(180deg, $green 0%, $dark-green 200%);
     color: $white;
-    cursor: pointer;
-    
-    &:hover { @include gradient-background(0deg, $green, $dark-green); }
+    &:hover { background: linear-gradient(0deg, $green 0%, $dark-green 200%); }
   }
-}
 
-.prompt .input-field, 
-.app > header .input-field {
   input, textarea {
-    @include input-background(0deg, $white, $gray, $light-green, $dark-green);
-    resize: vertical;
+    border: 1px solid $dark-gray;
+    box-shadow: inset 0 0 0 1px $white;
+    background: linear-gradient(0deg, $white 0%, $light-gray 100%);
     color: $black;
-  }
-  
-  select {
-    @include input-background(0deg, $white, $gray, $light-green, $dark-green);
-    color: $black;
-    cursor: pointer;
-  }
-
-  button {
-    @include input-background(180deg, $white, $gray, $light-green, $dark-green);
-    color: $black;
-    cursor: pointer;
-    
-    &:hover { @include gradient-background(0deg, $white, $gray); }
   }
 }
-

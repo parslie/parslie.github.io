@@ -12,7 +12,7 @@ function Form({ children, onSubmit }) {
   return <form onSubmit={preSubmit}>{children}</form>;
 }
 
-function TextField({ name, placeholder, options=[], multiline=false, type="text", error="" }) {
+function TextField({ name, placeholder, options=[], multiline=false, type="text", error }) {
   return (
     <div className="input-field">
       {multiline ? <textarea id={name} name={name} placeholder={placeholder} type={type} /> 
@@ -22,37 +22,33 @@ function TextField({ name, placeholder, options=[], multiline=false, type="text"
           {options.map((option, i) => <option key={i} value={option} />)}
         </datalist>
       )}
-      {error && <label for={name}>Error: {error}</label>}
     </div>
   );
 }
 
-function DropDownField({ name, placeholder, options, values, error="", onChange }) {
+function DropDownField({ name, placeholder, options, values, error, onChange }) {
   return (
     <div className="input-field">
       <select name={name} defaultValue="" onChange={onChange}>
         <option disabled value="">{placeholder}</option>
         {options && options.map((option, i) => <option key={i} value={values[i]}>{option}</option>)}
       </select>
-      {error && <label for={name}>Error: {error}</label>}
     </div>
   );
 }
 
-function SubmitField({ label, error="" }) {
+function SubmitField({ label, error }) {
   return (
     <div className="input-field">
       <button type="submit">{label}</button>
-      {error && <label>Error: {error}</label>}
     </div>
   );
 }
 
-function ButtonField({ label, error="", onClick }) {
+function ButtonField({ label, error, onClick }) {
   return (
     <div className="input-field">
       <button onClick={onClick}>{label}</button>
-      {error && <label>Error: {error}</label>}
     </div>
   );
 }
@@ -63,12 +59,7 @@ function LinkButtonField({ label, to }) {
 }
 
 function CombinationField({ children, error }) {
-  return (
-    <div className="combination-field">
-      <div className="row">{children}</div>
-      {error && <label>Error: {error}</label>}
-    </div>
-  )
+  return <div className="combination-field">{children}</div>;
 }
 
 export default Form;

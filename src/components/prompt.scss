@@ -29,9 +29,9 @@
     gap: $large-size;
     max-width: $article-max-width;
 
-    padding: $large-size;
+    border-radius: $medium-size;
     border: 1px solid $light-green;
-    border-radius: $large-size;
+    padding: $large-size;
     background-color: $green;
     box-shadow: 0 0 1.25rem -0.25rem $black;
   }
