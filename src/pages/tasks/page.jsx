@@ -39,7 +39,9 @@ function Main({ me }) {
         <p>This chart shows the amount of tasks Viktor has completed this week.</p>
       </Article>
       <Article title="Daily Entries" collapsable>
-        {entries && entries.map(entry => <TaskEntry me={me} data={entry} key={entry.id} />)}
+        <div className="task-entry-list">
+          {entries && entries.map(entry => <TaskEntry me={me} data={entry} key={entry.id} />)}
+        </div>
       </Article>
       <Article title="Tasks" collapsable>
         {me && me.is_superuser && (

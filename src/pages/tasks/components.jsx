@@ -11,8 +11,10 @@ function TaskEntry({ me, data }) {
 
   return (
     <div className="task-entry">
-      <h3 className="name">{data.task.name}</h3>
-      <span className="description">This task was started {startDate.toLocaleTimeString("sv-SE")} and took {secondsToText(duration)}.</span>
+      <header>{data.task.name}</header>
+      <section>
+        <span>This task was started {startDate.toLocaleTimeString("sv-SE")} and took {secondsToText(duration)}.</span>
+      </section>
     </div>
   );
 }
@@ -37,12 +39,14 @@ function Task({ me, data }) {
 
   return (
     <div className="task">
-      <h3 className="name">{data.name}</h3>
-      {data.average_duration !== 0 
-        ? <span className="description">This task takes {secondsToText(data.average_duration)} on average.</span>
-        : <span className="description">This task hasn't been performed yet.</span>}
-      {me && me.is_superuser && data.is_started && <ButtonField label="End" onClick={endTask} />}
-      {me && me.is_superuser && !data.is_started && <ButtonField label="Start" onClick={startTask} />}
+      <header>{data.name}</header>
+      <section>
+        {data.average_duration !== 0 
+          ? <span>This task takes {secondsToText(data.average_duration)} on average.</span>
+          : <span>This task hasn't been performed yet.</span>}
+        {me && me.is_superuser && data.is_started && <ButtonField label="End" onClick={endTask} />}
+        {me && me.is_superuser && !data.is_started && <ButtonField label="Start" onClick={startTask} />}
+      </section>
     </div>
   );
 }
