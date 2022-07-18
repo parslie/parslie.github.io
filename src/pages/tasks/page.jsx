@@ -41,16 +41,17 @@ function Main({ me }) {
       <Article title="Daily Entries" collapsable>
         {entries && entries.map(entry => <TaskEntry me={me} data={entry} key={entry.id} />)}
       </Article>
-      {me && me.is_superuser && (
-        <Article title="Create a New Task">
-          <Form onSubmit={createTask}>
-            <TextField name="name" placeholder="Enter name here..."/>
-            <SubmitField label="Create" />
-          </Form>
-        </Article>
-      )}
       <Article title="Tasks" collapsable>
-        {tasks && tasks.map(task => <Task me={me} data={task} key={task.id} />)}
+        {me && me.is_superuser && (
+          <Form onSubmit={createTask}>
+            <TextField name="name" placeholder="Enter task name here..."/>
+            <SubmitField label="Create Task" />
+          </Form>
+        )}
+        
+        <div className="task-list">
+          {tasks && tasks.map(task => <Task me={me} data={task} key={task.id} />)}
+        </div>
       </Article>
     </main>
   );
