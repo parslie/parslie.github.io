@@ -1,32 +1,74 @@
 @import "./colors.scss";
 @import "./sizings.scss";
 
-.app {
-  > header {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: $app-header-width;
+@media screen and (min-width: $desktop-min-width) {
+  .app {
+    > header {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: $app-header-width;
 
-    border-right: 1px solid $dark-green;
-    padding: $large-size;
-    box-shadow: inset -1px 0 0 $light-green;
-    background-color: $green;
-    color: $white;
+      border-right: 1px solid $dark-green;
+      padding: $large-size;
+      box-shadow: inset -1px 0 0 $light-green;
+      background: $green;
+      color: $white;
 
-    > h1 { text-align: center; }
+      > h1 { text-align: center; }
+    }
+
+    > main {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: $app-header-width;
+
+      background: $white;
+      color: $black;
+      overflow-y: auto;
+    }
   }
+}
 
-  > main {
+@media screen and (max-width: $mobile-max-width) {
+  .app {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
-    left: $app-header-width;
+    left: 0;
+    
+    display: flex;
+    flex-direction: column;
 
-    background-color: $white;
-    color: $black;
-    overflow-y: auto;
+    > header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: $small-size;
+      row-gap: $medium-size;
+      > * { margin: 0; }
+
+      border-bottom: 1px solid $dark-green;
+      padding: $large-size;
+      box-shadow: inset 0 -1px 0 $light-green;
+      background: $green;
+      color: $white;
+      
+      > h1 {
+        grid-column: 1 / span 3;
+        text-align: center;
+      }
+      > .combination-field {
+        grid-column-end: span 2;
+      }
+    }
+    
+    > main {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
   }
 }
