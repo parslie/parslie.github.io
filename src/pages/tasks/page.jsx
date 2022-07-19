@@ -14,8 +14,10 @@ function Header({ me }) {
       <h1>Viktor Holta</h1>
       <LinkButtonField label="About" to="/" />
       <LinkButtonField label="Tasks" to="/tasks" />
-      <LinkButtonField label="Toki Pona" to="/tokipona" />
       <AccountButtons me={me} />
+      
+      <h2>Toki Pona</h2>
+      <LinkButtonField label="Dictionary" to="/tokipona" /> {/* TODO: Change path to /tokipona/dictionary */}
     </header>
   );
 }
