@@ -3,9 +3,9 @@ export function secondsToText(seconds) {
   const hours = minutes / 60;
   
   if (hours >= 1)
-    return `${hours.toFixed(0)} hours`;
+    return `${hours.toFixed(1)} hours`;
   else if (minutes >= 1)
-    return `${minutes.toFixed(0)} minutes`;
+    return `${minutes.toFixed(1)} minutes`;
   else 
-    return `${seconds.toFixed(0)} seconds`;
+    return `${seconds.toFixed(1)} seconds`;
 }

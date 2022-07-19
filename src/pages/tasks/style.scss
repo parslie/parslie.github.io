@@ -19,10 +19,10 @@
 .task-entry {
   > header {
     border-radius: $small-size $small-size 0 0;
-    border: 1px solid $dark-red;
+    border: 1px solid $dark-primary;
     padding: $small-size $medium-size;
-    box-shadow: inset 0 0 0 1px $light-red;
-    background: linear-gradient(180deg, $red 0%, $dark-red 200%);
+    box-shadow: inset 0 0 0 1px $light-primary;
+    background: linear-gradient(180deg, $primary 0%, $dark-primary 200%);
     color: $white;
   }
   > section {

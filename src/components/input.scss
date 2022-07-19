@@ -42,16 +42,16 @@
 .app > header .input-field,
 .prompt-wrapper .input-field {
   button {
-    border: 1px solid $light-green;
-    box-shadow: inset 0 0 0 1px $dark-green;
+    border: 1px solid $light-primary;
+    box-shadow: inset 0 0 0 1px $dark-primary;
     background: linear-gradient(180deg, $white 0%, $light-gray 100%);
     color: $black;
     &:hover { background: linear-gradient(0deg, $white 0%, $light-gray 100%); }
   }
 
   input, textarea {
-    border: 1px solid $light-green;
-    box-shadow: inset 0 0 0 1px $dark-green;
+    border: 1px solid $light-primary;
+    box-shadow: inset 0 0 0 1px $dark-primary;
     background: linear-gradient(0deg, $white 0%, $light-gray 100%);
     color: $black;
   }
@@ -59,11 +59,11 @@
 
 .article-wrapper .input-field {
   button {
-    border: 1px solid $dark-green;
-    box-shadow: inset 0 0 0 1px $light-green;
-    background: linear-gradient(180deg, $green 0%, $dark-green 200%);
+    border: 1px solid $dark-secondary;
+    box-shadow: inset 0 0 0 1px $light-secondary;
+    background: linear-gradient(180deg, $secondary 0%, $dark-secondary 200%);
     color: $white;
-    &:hover { background: linear-gradient(0deg, $green 0%, $dark-green 200%); }
+    &:hover { background: linear-gradient(0deg, $secondary 0%, $dark-secondary 200%); }
   }
 
   input, textarea {

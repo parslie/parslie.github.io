@@ -10,10 +10,10 @@
       left: 0;
       width: $app-header-width;
 
-      border-right: 1px solid $dark-green;
+      border-right: 1px solid $dark-primary;
       padding: $large-size;
-      box-shadow: inset -1px 0 0 $light-green;
-      background: $green;
+      box-shadow: inset -1px 0 0 $light-primary;
+      background: $primary;
       color: $white;
 
       > h1 { text-align: center; }
@@ -51,10 +51,10 @@
       row-gap: $medium-size;
       > * { margin: 0; }
 
-      border-bottom: 1px solid $dark-green;
+      border-bottom: 1px solid $dark-primary;
       padding: $large-size;
-      box-shadow: inset 0 -1px 0 $light-green;
-      background: $green;
+      box-shadow: inset 0 -1px 0 $light-primary;
+      background: $primary;
       color: $white;
       
       > h1 {

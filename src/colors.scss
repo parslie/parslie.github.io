@@ -32,6 +32,13 @@ $dark-purple: #671b82;
 $purple: #b248d8;
 $light-purple: #df91fb;
 
+$dark-primary: $dark-green;
+$primary: $green;
+$light-primary: $light-green;
+$dark-secondary: $dark-red;
+$secondary: $red;
+$light-secondary: $light-red;
+
 @mixin gradient-background($direction, $first-color, $last-color) {
   background: linear-gradient($direction, $first-color 0%, $last-color 160%);
 }
