@@ -14,32 +14,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-.task,
-.task-entry {
-  > header {
-    border-radius: $small-size $small-size 0 0;
-    border: 1px solid $dark-primary;
-    padding: $small-size $medium-size;
-    box-shadow: inset 0 0 0 1px $light-primary;
-    background: linear-gradient(180deg, $primary 0%, $dark-primary 200%);
-    color: $white;
-  }
-  > section {
-    display: flex;
-    flex-direction: row;
-    gap: $small-size;
-    align-items: center;
-    > * { margin: 0; }
-
-    border-radius: 0 0 $small-size $small-size;
-    border: 1px solid $dark-gray;
-    border-top: 0;
-    padding: $small-size $medium-size;
-    box-shadow: inset 0 0 0 1px $white;
-    background: linear-gradient(0deg, $white 0%, $light-gray 100%);
-    color: $dark-gray;
-  }
-
-  .description { flex-grow: 1; }
-}

@@ -26,6 +26,8 @@
   }
 
   > section {
+    flex-grow: 1;
+
     border-radius: $small-size;
     border: 1px solid $light-primary;
     box-shadow: inset 0 0 0 1px $dark-primary;
