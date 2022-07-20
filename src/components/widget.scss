@@ -1,0 +1,80 @@
+@import "../colors.scss";
+@import "../sizings.scss";
+
+.widget {
+  display: flex;
+  flex-direction: column;
+  gap: $small-size;
+
+  border-radius: $small-size;
+  border: 1px solid $dark-primary;
+  box-shadow: inset 0 0 0 1px $light-primary;
+  padding: $small-size;
+  background: $primary;
+
+  > header {
+    padding: 0 0 0 $small-size;
+    color: $white;
+  }
+
+  > section {
+    border-radius: $small-size;
+    border: 1px solid $light-primary;
+    box-shadow: inset 0 0 0 1px $dark-primary;
+    padding: $small-size $medium-size;
+    background: $white;
+    color: $black;
+  }
+}
+
+/*
+.test-three {
+  display: flex;
+  flex-direction: column;
+  gap: $small-size;
+
+  border-radius: $small-size;
+  border: 1px solid $dark-primary;
+  box-shadow: inset 0 0 0 1px $light-primary;
+  padding: $small-size;
+  background: $primary;
+  
+  > header {
+    display: flex;
+    flex-direction: row;
+    gap: $small-size;
+    > * { margin: 0; }
+
+    > h3 { 
+      flex-grow: 1; 
+      border-radius: $small-size;
+      border: 1px solid $light-primary;
+      box-shadow: inset 0 0 0 1px $dark-primary;
+      padding: $small-size $small-size $small-size $medium-size;
+      background: $white;
+      color: $black;
+    }
+
+    .input-field {
+      button {
+        border: 1px solid $light-primary;
+        box-shadow: inset 0 0 0 1px $dark-primary;
+        background: linear-gradient(180deg, $white 0%, $light-gray 100%);
+        color: $black;
+        &:hover { background: linear-gradient(0deg, $white 0%, $light-gray 100%); }
+      }
+    }
+  }
+
+  > section {
+    flex-grow: 1;
+
+    border-radius: $small-size;
+    border: 1px solid $light-primary;
+    box-shadow: inset 0 0 0 1px $dark-primary;
+    padding: $small-size $medium-size;
+    background: $white;
+    color: $black;
+  }
+}
+*/
