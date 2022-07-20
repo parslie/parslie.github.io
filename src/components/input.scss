@@ -21,7 +21,10 @@
     height: 100%;
   }
 
-  button { cursor: pointer; }
+  button { 
+    cursor: pointer; 
+    &:disabled { cursor: not-allowed; }
+  }
   textarea { resize: vertical; }
 }
 
@@ -39,13 +42,23 @@
 
 // Specific styles
 
-.article-wrapper .input-field {
+article > header .input-field,
+article > section > .input-field,
+article > section > form .input-field {
   button {
     border: 1px solid $dark-secondary;
     box-shadow: inset 0 0 0 1px $light-secondary;
     background: linear-gradient(180deg, $secondary 0%, $dark-secondary 200%);
     color: $white;
-    &:hover { background: linear-gradient(0deg, $secondary 0%, $dark-secondary 200%); }
+    &:hover { 
+      background: linear-gradient(0deg, $secondary 0%, $dark-secondary 200%); 
+    }
+    &:active, &:disabled { 
+      border: 1px solid $black;
+      box-shadow: inset 0 0 0 1px $secondary;
+      background: linear-gradient(0deg, $dark-secondary 0%, $black 200%); 
+      color: $light-gray;
+    }
   }
 
   input, textarea {
@@ -58,13 +71,14 @@
 
 .app > header .input-field,
 .prompt-wrapper .input-field,
-.widget .input-field {
+.widget > header .input-field {
   button {
     border: 1px solid $light-primary;
     box-shadow: inset 0 0 0 1px $dark-primary;
     background: linear-gradient(180deg, $white 0%, $light-gray 100%);
     color: $black;
     &:hover { background: linear-gradient(0deg, $white 0%, $light-gray 100%); }
+    &:active, &:disabled { background: linear-gradient(0deg, $light-gray 0%, $gray 150%); }
   }
 
   input, textarea {

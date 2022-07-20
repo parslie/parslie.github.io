@@ -2,6 +2,7 @@ import { mutate } from "swr";
 import { post } from "../../utils/request";
 import { secondsToText } from "../../utils/string";
 
+import Widget from "../../components/widget";
 import { ButtonField } from "../../components/input";
 
 function TaskEntry({ me, data }) {
@@ -10,12 +11,9 @@ function TaskEntry({ me, data }) {
   const duration = (endDate - startDate) / 1000;
 
   return (
-    <div className="task-entry">
-      <header>{data.task.name}</header>
-      <section>
-        <span className="description">This task was started {startDate.toLocaleTimeString("sv-SE")} and took {secondsToText(duration)}.</span>
-      </section>
-    </div>
+    <Widget title={data.task.name}>
+      <p>This task was started {startDate.toLocaleTimeString("sv-SE")} and took {secondsToText(duration)}.</p>
+    </Widget>
   );
 }
 
@@ -37,17 +35,19 @@ function Task({ me, data }) {
     });
   };
 
+
+  let actionButtons = [];
+  if (me && me.is_superuser) {
+    actionButtons.push(<ButtonField label="Start" onClick={startTask} disabled={data.is_started}  />);
+    actionButtons.push(<ButtonField label="End" onClick={endTask} disabled={!data.is_started} />);
+  }
+
   return (
-    <div className="task">
-      <header>{data.name}</header>
-      <section>
-        {data.average_duration !== 0 
-          ? <span className="description">This task takes {secondsToText(data.average_duration)} on average.</span>
-          : <span className="description">This task hasn't been performed yet.</span>}
-        {me && me.is_superuser && data.is_started && <ButtonField label="End" onClick={endTask} />}
-        {me && me.is_superuser && !data.is_started && <ButtonField label="Start" onClick={startTask} />}
-      </section>
-    </div>
+    <Widget title={data.name} buttons={actionButtons}>
+      {data.average_duration !== 0 
+        ? <p>This task takes {secondsToText(data.average_duration)} on average.</p>
+        : <p>This task hasn't been performed yet.</p>}
+    </Widget>
   );
 }
 

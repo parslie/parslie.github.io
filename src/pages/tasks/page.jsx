@@ -52,7 +52,6 @@ function Main({ me }) {
             <SubmitField label="Create Task" />
           </Form>
         )}
-        
         <div className="task-list">
           {tasks && tasks.map(task => <Task me={me} data={task} key={task.id} />)}
         </div>

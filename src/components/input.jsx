@@ -45,10 +45,10 @@ function SubmitField({ label, error }) {
   );
 }
 
-function ButtonField({ label, error, onClick }) {
+function ButtonField({ label, error, onClick, disabled=false }) {
   return (
     <div className="input-field">
-      <button onClick={onClick}>{label}</button>
+      <button onClick={onClick} disabled={disabled}>{label}</button>
     </div>
   );
 }
