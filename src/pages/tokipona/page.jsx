@@ -3,19 +3,13 @@ import { WordEntry } from "./components";
 import { words } from "./data";
 
 import Article from "../../components/article";
-import { LinkButtonField } from "../../components/input";
-import AccountButtons from "../../components/account";
+import AppNavigation from "../../components/navigation";
 
 function Header({ me }) {
   return (
     <header>
       <h1>jan Wito</h1>
-      <LinkButtonField label="About" to="/" />
-      <LinkButtonField label="Tasks" to="/tasks" />
-      <AccountButtons me={me} />
-      
-      <h2>Toki Pona</h2>
-      <LinkButtonField label="Dictionary" to="/tokipona" /> {/* TODO: Change path to /tokipona/dictionary */}
+      <AppNavigation me={me} />
     </header>
   );
 }

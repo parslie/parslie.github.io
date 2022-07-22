@@ -3,7 +3,7 @@ import { mutate } from "swr";
 import { post } from "../utils/request";
 
 import Prompt from "./prompt";
-import Form, { ButtonField, CombinationField, TextField, SubmitField } from "./input";
+import Form, { ButtonField, CombinationField, LinkButtonField, TextField, SubmitField } from "./input";
 
 function LogOutPrompt({ setShowPrompt }) {
   const [ generalError, setGeneralError ] = useState("");
@@ -108,13 +108,17 @@ function RegisterPrompt({ setShowPrompt }) {
   );
 }
 
-function AccountButtons({ me }) {
+function AppNavigation({ me }) {
   const [ showLogOutPrompt, setShowLogOutPrompt ] = useState(false);
   const [ showLogInPrompt, setShowLogInPrompt ] = useState(false);
   const [ showRegisterPrompt, setShowRegisterPrompt ] = useState(false);
-
+  
   return (
-    <>
+    <nav>
+      <LinkButtonField label="About" to="/" />
+      <LinkButtonField label="Tasks" to="/tasks" />
+      <LinkButtonField label="Toki Pona" to="/tokipona" />
+
       {!me ? (
         <CombinationField>
           <ButtonField label="Log In" onClick={() => setShowLogInPrompt(true)} />
@@ -127,8 +131,8 @@ function AccountButtons({ me }) {
       {showLogOutPrompt && <LogOutPrompt setShowPrompt={setShowLogOutPrompt} />}
       {showLogInPrompt && <LogInPrompt setShowPrompt={setShowLogInPrompt} />}
       {showRegisterPrompt && <RegisterPrompt setShowPrompt={setShowRegisterPrompt} />}
-    </>
+    </nav>
   );
 }
 
-export default AccountButtons;
+export default AppNavigation;
