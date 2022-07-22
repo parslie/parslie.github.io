@@ -30,6 +30,7 @@ function Task({ me, data }) {
     post(`/todo/tasks/${data.id}/end/`, {}, true).then(res => {
       mutate("/todo/tasks/");
       mutate("/todo/entries/");
+      mutate("/todo/tasks/");
     }).catch(({ response: res }) => {
       // TODO: add some type of error response
     });
