@@ -8,6 +8,7 @@ import Article from "../../components/article";
 import Form, { SubmitField, TextField } from "../../components/input";
 import AppNavigation from "../../components/navigation";
 import AppTitle from "../../components/title";
+import BarChart from "../../components/barchart";
 
 function Header({ me }) {
   return (
@@ -21,6 +22,7 @@ function Header({ me }) {
 function Main({ me }) {
   const { data: tasks } = useSWR("/todo/tasks/");
   const { data: entries } = useSWR("/todo/entries/");
+  const { data: statistics } = useSWR("/todo/statistics/");
 
   const createTask = (e) => {
     post("/todo/tasks/", { name: e.target.name.value }, true).then(res => {
@@ -33,8 +35,8 @@ function Main({ me }) {
 
   return (
     <main>
-      <Article title="Weekly Statistics (W.I.P)">
-        <p>This chart shows the amount of tasks Viktor has completed this week.</p>
+      <Article title="Statistics" collapsable>
+        {statistics && <BarChart title="Total Task Time (past 7 days)" data={statistics} />}
       </Article>
       <Article title="Daily Entries" collapsable>
         <div className="task-entry-list">

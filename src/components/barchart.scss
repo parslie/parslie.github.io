@@ -1,0 +1,30 @@
+@import "../colors.scss";
+@import "../sizings.scss";
+
+.bar-chart {
+  display: flex;
+  flex-direction: row;
+  gap: $small-size;
+
+  aspect-ratio: 2/1;
+
+  .bar {
+    display: flex;
+    flex-direction: column;
+    gap: $small-size;
+    flex-grow: 1;
+
+    .bar-section {
+      border-radius: $small-size;
+      border: 1px solid $dark-secondary;
+      box-shadow: inset 0 0 0 1px $light-secondary;;
+      background: $secondary;
+      cursor: help;
+    }
+    
+    .bar-title {
+      text-align: center;
+      font-size: 0.8em;
+    }
+  }
+}
