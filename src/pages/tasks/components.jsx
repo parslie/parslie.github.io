@@ -38,8 +38,8 @@ function Task({ me, data }) {
 
   let actionButtons = [];
   if (me && me.is_superuser) {
-    actionButtons.push(<ButtonField label="Start" onClick={startTask} disabled={data.is_started}  />);
-    actionButtons.push(<ButtonField label="End" onClick={endTask} disabled={!data.is_started} />);
+    actionButtons.push(<ButtonField key={1} label="Start" onClick={startTask} disabled={data.is_started}  />);
+    actionButtons.push(<ButtonField key={2} label="End" onClick={endTask} disabled={!data.is_started} />);
   }
 
   return (
