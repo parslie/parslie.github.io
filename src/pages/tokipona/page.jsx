@@ -4,11 +4,12 @@ import { words } from "./data";
 
 import Article from "../../components/article";
 import AppNavigation from "../../components/navigation";
+import AppTitle from "../../components/title";
 
 function Header({ me }) {
   return (
     <header>
-      <h1>jan Wito</h1>
+      <AppTitle value="jan Wito" />
       <AppNavigation me={me} />
     </header>
   );

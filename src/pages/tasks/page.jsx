@@ -7,11 +7,12 @@ import { Task, TaskEntry } from "./components";
 import Article from "../../components/article";
 import Form, { SubmitField, TextField } from "../../components/input";
 import AppNavigation from "../../components/navigation";
+import AppTitle from "../../components/title";
 
 function Header({ me }) {
   return (
     <header>
-      <h1>Viktor Holta</h1>
+      <AppTitle value="Viktor Holta" />
       <AppNavigation me={me} />
     </header>
   );

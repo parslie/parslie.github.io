@@ -16,7 +16,29 @@
       background: $primary;
       color: $white;
 
-      > h1 { text-align: center; }
+      svg {
+        margin: $large-size 0;
+        width: 100%;
+        height: 1em;
+        font-size: 2.4em;
+
+        text {
+          text-anchor: middle;
+          dominant-baseline: central;
+
+          &.fill {
+            fill: $white;
+          }
+          &.outline-one {
+            stroke: $dark-primary;
+            stroke-width: 2px;
+          }
+          &.outline-two {
+            stroke: $light-primary;
+            stroke-width: 4px;
+          }
+        }
+      }
     }
 
     > main {
@@ -50,7 +72,30 @@
       box-shadow: inset 0 -1px 0 $light-primary;
       background: $primary;
       color: $white;
-      h1 { text-align: center; }
+      
+      svg {
+        margin: $large-size 0;
+        width: 100%;
+        height: 1em;
+        font-size: 2em;
+
+        text {
+          text-anchor: middle;
+          dominant-baseline: central;
+
+          &.fill {
+            fill: $white;
+          }
+          &.outline-one {
+            stroke: $dark-primary;
+            stroke-width: 2px;
+          }
+          &.outline-two {
+            stroke: $light-primary;
+            stroke-width: 4px;
+          }
+        }
+      }
     }
     
     > main {

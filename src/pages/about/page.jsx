@@ -2,11 +2,12 @@ import "./style.scss";
 
 import Article from "../../components/article";
 import AppNavigation from "../../components/navigation";
+import AppTitle from "../../components/title";
 
 function Header({ me }) {
   return (
     <header>
-      <h1>Viktor Holta</h1>
+      <AppTitle value="Viktor Holta" />
       <AppNavigation me={me} />
     </header>
   );
@@ -47,7 +48,7 @@ function Main({ me }) {
           <span className="label">2016-2019</span>
           <span>Ljud- och Bildskolan (Audio and Visual School)</span>
           <span className="label">2019-present</span>
-          <span>Linköpings University</span>
+          <span>Linköpings Universitet (Linköping Univeristy)</span>
         </div>
       </Article>
     </main>
