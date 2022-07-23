@@ -1,6 +1,13 @@
 @font-face {
   font-family: "linjasuwi";
+  size-adjust: 105%;
   src: url(./fonts/linjasuwi.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "linjapona";
+  size-adjust: 110%;
+  src: url(./fonts/linja-pona-4.2.otf) format("opentype");
 }
 
 * {

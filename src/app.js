@@ -16,7 +16,7 @@ function App() {
     <div className="app">
       <header>
         <Switch>
-          <Route path="/tokipona"><h1>jan Wito</h1></Route>
+          <Route path="/tokipona"><h1 style={{ fontFamily: "linjapona" }}>jan [_wawa_ilo_tonsi_o]</h1></Route>
           <Route path="/"><h1>Viktor Holta</h1></Route>
         </Switch>
 
