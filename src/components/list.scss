@@ -1,27 +1,27 @@
-@import "../../colors.scss";
-@import "../../sizings.scss";
+@import "../colors.scss";
+@import "../sizings.scss";
 
-.work-experiences, 
-.schools {
+.labeled-list {
   display: grid;
   grid-template-columns: max-content 1fr;
   column-gap: $large-size;
   row-gap: $small-size;
   margin: $large-size 0;
 
-  .title { 
+  .title {
     font-weight: bold;
-    grid-column-start: span 2; 
+    grid-column-end: span 2;
   }
-  .label { 
-    font-weight: bold; 
+  .label {
+    font-weight: bold;
   }
 }
 
-.programming-languages {
+.grid-list {
   display: grid;
-  gap: $large-size;
   grid-template-columns: repeat(auto-fit, minmax(5em, 1fr));
+  column-gap: $large-size;
+  row-gap: $small-size;
   justify-items: center;
   margin: $large-size 0;
 }

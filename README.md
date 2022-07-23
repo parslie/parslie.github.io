@@ -7,7 +7,7 @@ This project is built and deployed with node **17.9.1**.
 
 ### Directories
 - **src/components:** Contains globally used components (e.g. **src/components/input.jsx**).
-- **src/pages:** Contains pages and their local components (e.g. **src/pages/about/page.jsx**).
+- **src/pages:** Contains pages and their local components (e.g. **src/pages/about.jsx**).
 - **src/utils:** Contains utility functions (e.g. **HTTP request** functions).
 
 ### Styles

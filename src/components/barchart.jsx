@@ -1,32 +1,29 @@
-import { secondsToText } from "../utils/string";
 import "./barchart.scss";
 import Widget from "./widget";
 
-// TODO: make general (paired with data conversion functions)
 function BarChart({ title, data }) {
-  const maxDuration = 60 * 60 * 24;
   let bars = [];
+  for (let i = 0; i < data.length; i++) {
+    const barData = data[i];
+    let barSections = [];
 
-  for (let i = 0; i < data.days.length; i++) {
-    const day = data.days[i];
-    const date = new Date(day.date);
-    const tooltip = secondsToText(day.duration);
-    let barSections= [];
-
-    if (day.duration < maxDuration)
-      barSections.push(<div style={{ flexGrow: maxDuration - day.duration }} />);
-    if (day.duration > maxDuration * 0.01)
-      barSections.push(<div className="bar-section" style={{ flexGrow: day.duration }} title={tooltip} />);
-    barSections.push(<span className="bar-title">{date.toLocaleDateString("sv-SE")}</span>);
+    if (barData.percentage < 1)
+      barSections.push(<div key={0} style={{ flexGrow: 1 - barData.percentage }} />);
+    if (barData.percentage >= 0.01)
+      barSections.push(<div key={1} className="bar-section" style={{ flexGrow: barData.percentage }} title={barData.tooltip} />);
 
     bars.push(<div key={i} className="bar">{barSections}</div>);
+    bars.push(<span key={-(i+1)} className="bar-label">{barData.label}</span>);
   }
+
+  // Makes sure bars are equally wide
+  let style = { gridTemplateColumns: "" };
+  for (let i = 0; i < data.length; i++)
+    style.gridTemplateColumns += "1fr ";
 
   return (
     <Widget title={title}>
-      <div className="bar-chart">
-        {bars}
-      </div>
+      <div className="bar-chart" style={style}>{bars}</div>
     </Widget>
   );
 }

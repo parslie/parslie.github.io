@@ -2,8 +2,8 @@
 @import "../sizings.scss";
 
 .article-wrapper {
-  border-bottom: 1px solid $dark-green;
   padding: $large-size;
+  & + & { border-top: 1px solid $dark-primary; }
 
   article {
     display: flex;

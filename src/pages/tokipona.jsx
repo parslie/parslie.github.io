@@ -1,3 +1,8 @@
+import "./tokipona.scss";
+import Article from "../components/article";
+
+// TODO: split into main page, dictionary page, blog page
+
 const words = [
   {
     name: "a",
@@ -504,4 +509,80 @@ const words = [
   }
 ];
 
-export { words };
+function WordEntry({ data }) {
+  const listToText = (list) => {
+    let text = "";
+    for (let i = 0; i < list.length; i++)
+      text += (i !== 0) ? `, ${list[i]}` : list[i];
+    return text;
+  };
+
+  const partOfSpeech = (title, list) => {
+    return (
+      <span className="part-of-speech">
+        <b>{title}:</b> {listToText(list)}
+      </span>
+    );
+  }
+
+  return (
+    <div className="word-entry">
+      <h2 className="title">{data.name}</h2>
+
+      {data.particles && partOfSpeech("particles", data.particles)}
+      {data.nouns && partOfSpeech("nouns", data.nouns)}
+      {data.adjectives && partOfSpeech("adjectives", data.adjectives)}
+      {data.verbs && partOfSpeech("verbs", data.verbs)}
+      {data.preverbs && partOfSpeech("pre-verbs", data.preverbs)}
+      {data.prepositions && partOfSpeech("prepositions", data.prepositions)}
+      {data.numbers && partOfSpeech("numbers", data.numbers)}
+      
+      <span className="example">
+        <b>example:</b> "{data.example[0]}" - "{data.example[1]}"
+      </span>
+    </div>
+  );
+}
+
+function TokiPonaPage({ me }) {
+  const janMisaliLink = "https://www.youtube.com/c/HBMmaster";
+  const sonaPiTokiPonaLink = "https://www.youtube.com/playlist?list=PLuYLhuXt4HrQIv3xnDxZqRaLfmxB2U5rJ";
+  const janLentanLink = "https://devurandom.xyz/";
+  const lipuSonaPonaLink = "https://devurandom.xyz/tokipona/";
+  const officialSiteLink = "https://tokipona.org/";
+
+  return (
+    <main>
+      <Article title="kama pona a">
+        <p>
+          toki. mi jan Wito. tenpo lili la, mi kama sona e toki pona.
+          taso, sona nimi mi li pona lili taso. tan ni la, mi pali e lipu nimi ni.
+        </p>
+        <p>
+          <a href={officialSiteLink}>Toki Pona</a> is a language focused on simplicity.
+          It has less than 200 words, which makes finding a way to express yourself fun and challenging. 
+          I have been learning it through <a href={janMisaliLink}>jan Misali's</a> video 
+          series <a href={sonaPiTokiPonaLink}>sona pi toki pona</a> and <a href={janLentanLink}>jan 
+          Lentan's</a> online course <a href={lipuSonaPonaLink}>lipu sona pona</a>. I recommend these
+          as a starting point if you are interested in learning.
+        </p>
+        <p>
+          The grammar of Toki Pona has been fairly easy to learn, but the vocabulary has been more
+          difficult. Since there's so few words, it's important to know what they all mean and how
+          to use them. Therefore, I have created this dictionary, filled with definitions and examples,
+          to improve my knowledge of them.
+        </p>
+        <p>
+          Currently, I have only included words as they are defined in the official book. However, I will
+          cross-reference this with other sources in the future, along with removing definitions that are
+          redundant or duplicate (in my opinion).
+        </p>
+      </Article>
+      <Article title="lipu nimi pu">
+        {words.map((word, i) => <WordEntry key={i} data={word} />)}
+      </Article>
+    </main>
+  );
+}
+
+export default TokiPonaPage;

@@ -3,7 +3,9 @@ import { mutate } from "swr";
 import { post } from "../utils/request";
 
 import Prompt from "./prompt";
-import Form, { ButtonField, CombinationField, LinkButtonField, TextField, SubmitField } from "./input";
+import Form, { ButtonField, CombinationField, TextField, SubmitField } from "./input";
+
+// TODO: clean up
 
 function LogOutPrompt({ setShowPrompt }) {
   const [ generalError, setGeneralError ] = useState("");
@@ -108,31 +110,25 @@ function RegisterPrompt({ setShowPrompt }) {
   );
 }
 
-function AppNavigation({ me }) {
+function AccountButtons({ me }) {
   const [ showLogOutPrompt, setShowLogOutPrompt ] = useState(false);
   const [ showLogInPrompt, setShowLogInPrompt ] = useState(false);
   const [ showRegisterPrompt, setShowRegisterPrompt ] = useState(false);
   
   return (
-    <nav>
-      <LinkButtonField label="About" to="/" />
-      <LinkButtonField label="Tasks" to="/tasks" />
-      <LinkButtonField label="Toki Pona" to="/tokipona" />
-
-      {!me ? (
+    <>
+      {me ? <ButtonField label="Log Out" onClick={() => setShowLogOutPrompt(true)} /> : (
         <CombinationField>
           <ButtonField label="Log In" onClick={() => setShowLogInPrompt(true)} />
           <ButtonField label="Register" onClick={() => setShowRegisterPrompt(true)} />
         </CombinationField>
-      ) : (
-        <ButtonField label="Log Out" onClick={() => setShowLogOutPrompt(true)} />
       )}
 
       {showLogOutPrompt && <LogOutPrompt setShowPrompt={setShowLogOutPrompt} />}
       {showLogInPrompt && <LogInPrompt setShowPrompt={setShowLogInPrompt} />}
       {showRegisterPrompt && <RegisterPrompt setShowPrompt={setShowRegisterPrompt} />}
-    </nav>
+    </>
   );
 }
 
-export default AppNavigation;
+export default AccountButtons;

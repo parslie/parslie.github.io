@@ -38,7 +38,3 @@ $light-primary: $light-green;
 $dark-secondary: $dark-red;
 $secondary: $red;
 $light-secondary: $light-red;
-
-@mixin gradient-background($direction, $first-color, $last-color) {
-  background: linear-gradient($direction, $first-color 0%, $last-color 160%);
-}

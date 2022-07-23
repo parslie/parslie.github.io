@@ -1,6 +1,6 @@
 import "./widget.scss";
 
-function Widget({ title, children, buttons }) {
+function Widget({ children, title, buttons }) {
   return (
     <div className="widget">
       <header>

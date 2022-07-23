@@ -2,19 +2,36 @@ import { Route, Switch } from "react-router-dom";
 import useSWR from "swr";
 
 import "./app.scss";
-import AboutPage from "./pages/about/page";
-import TaskPage from "./pages/tasks/page";
-import TokiPonaPage from "./pages/tokipona/page";
+import AccountButtons from "./components/account";
+import { LinkButtonField } from "./components/input";
+
+import AboutPage from "./pages/about";
+import TasksPage from "./pages/tasks";
+import TokiPonaPage from "./pages/tokipona";
 
 function App() {
   const { data: me } = useSWR(["/account/me/", true]);
 
   return (
     <div className="app">
+      <header>
+        <Switch>
+          <Route path="/tokipona"><h1>jan Wito</h1></Route>
+          <Route path="/"><h1>Viktor Holta</h1></Route>
+        </Switch>
+
+        <nav>
+          <LinkButtonField label="About" to="/" />
+          <LinkButtonField label="Tasks" to="/tasks" />
+          <LinkButtonField label="Toki Pona" to="/tokipona" />
+          <AccountButtons me={me} />
+        </nav>
+      </header>
+
       <Switch>
-        <Route exact path="/"><AboutPage me={me} /></Route>
-        <Route path="/tasks"><TaskPage me={me} /></Route>
         <Route path="/tokipona"><TokiPonaPage me={me} /></Route>
+        <Route path="/tasks"><TasksPage me={me} /></Route>
+        <Route path="/"><AboutPage me={me} /></Route>
       </Switch>
     </div>
   );
