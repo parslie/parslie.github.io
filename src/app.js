@@ -6,6 +6,7 @@ import AccountButtons from "./components/account";
 import { LinkButtonField } from "./components/input";
 
 import AboutPage from "./pages/about";
+import ProjectsPage from "./pages/projects";
 import TasksPage from "./pages/tasks";
 import TokiPonaPage from "./pages/tokipona";
 
@@ -22,6 +23,8 @@ function App() {
 
         <nav>
           <LinkButtonField label="About" to="/" />
+          <LinkButtonField label="Projects" to="/projects" />
+
           <LinkButtonField label="Tasks" to="/tasks" />
           <LinkButtonField label="Toki Pona" to="/tokipona" />
           <AccountButtons me={me} />
@@ -31,6 +34,7 @@ function App() {
       <Switch>
         <Route path="/tokipona"><TokiPonaPage me={me} /></Route>
         <Route path="/tasks"><TasksPage me={me} /></Route>
+        <Route path="/projects"><ProjectsPage me={me} /></Route>
         <Route path="/"><AboutPage me={me} /></Route>
       </Switch>
     </div>
