@@ -5,7 +5,7 @@ import Widget from "../components/widget";
 
 function ProjectEntry({ title, description, url }) {
   const goToRepository = () => {
-    
+    window.open(url, "_blank").focus();
   };
 
   return (
