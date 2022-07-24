@@ -15,16 +15,19 @@ function AboutPage({ me }) {
           at <a href="mailto:viktor.holta@outlook.com">viktor.holta@outlook.com</a>
         </p>
       </Article>
+      
       <Article title="Programming Languages">
         <p>These are the programming languages that I feel comfortable working with.</p>
         <GridList items={languages} />
       </Article>
+
       <Article title="Work">
         <LabeledList title={"Datateknologsektionen @ Linköping University:"} items={[
           ["2021-2022", "Backend Developer @ WebbU"],
           ["2022-present", "Software Maintainer @ WebbU"],
         ]} />
       </Article>
+
       <Article title="School">
         <LabeledList items={[
           ["2016-2019", "Ljud- och Bildskolan (Audio and Visual School)"],

@@ -2,11 +2,11 @@ import useSWR, { mutate } from "swr";
 import { post } from "../utils/request";
 import { secondsToText } from "../utils/string";
 
-import "./tasks.scss";
 import Article from "../components/article";
 import BarChart from "../components/barchart";
 import Widget from "../components/widget";
 import Form, { ButtonField, SubmitField, TextField } from "../components/input";
+import { WidgetGrid } from "../components/list";
 
 function getBarChartData(statistics) {
   let data = [];
@@ -86,11 +86,11 @@ function TasksPage({ me }) {
       <Article title="Statistics">
         {statistics && <BarChart title="Total Task Time (past 7 days)" data={getBarChartData(statistics)} />}
       </Article>
+
       <Article title="Today's Entries">
-        <div className="widget-grid">
-          {entries && entries.map((entry, key) => <TaskEntry data={entry} key={key} />)}
-        </div>
+        <WidgetGrid>{entries && entries.map((entry, key) => <TaskEntry data={entry} key={key} />)}</WidgetGrid>
       </Article>
+      
       <Article title="Available Tasks">
         {me && me.is_superuser && (
           <Form onSubmit={createTask}>
@@ -98,9 +98,7 @@ function TasksPage({ me }) {
             <SubmitField label="Create Task" />
           </Form>
         )}
-        <div className="widget-grid">
-          {tasks && tasks.map((task, key) => <Task me={me} data={task} key={key} />)}
-        </div>
+        <WidgetGrid>{tasks && tasks.map((task, key) => <Task me={me} data={task} key={key} />)}</WidgetGrid>
       </Article>
     </main>
   );

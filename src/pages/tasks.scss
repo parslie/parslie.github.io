@@ -1,9 +1,0 @@
-@import "../colors.scss";
-@import "../sizings.scss";
-
-.widget-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $small-size;
-  margin: $large-size 0;
-}

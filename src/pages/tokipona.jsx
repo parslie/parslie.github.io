@@ -578,6 +578,7 @@ function TokiPonaPage({ me }) {
           redundant or duplicate (in my opinion).
         </p>
       </Article>
+      
       <Article title="lipu nimi pu">
         {words.map((word, i) => <WordEntry key={i} data={word} />)}
       </Article>

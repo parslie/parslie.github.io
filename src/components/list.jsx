@@ -23,4 +23,8 @@ function LabeledList({ title, items }) {
   );
 }
 
-export { GridList, LabeledList };
+function WidgetGrid({ children }) {
+  return <div className="widget-grid">{children}</div>;
+}
+
+export { GridList, LabeledList, WidgetGrid };

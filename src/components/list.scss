@@ -25,3 +25,10 @@
   justify-items: center;
   margin: $large-size 0;
 }
+
+.widget-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $small-size;
+  margin: $large-size 0;
+}
