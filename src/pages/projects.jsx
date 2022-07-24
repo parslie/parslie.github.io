@@ -1,12 +1,16 @@
 import Article from "../components/article";
+import { ButtonField } from "../components/input";
 import { WidgetGrid } from "../components/list";
 import Widget from "../components/widget";
 
 function ProjectEntry({ title, description, url }) {
+  const goToRepository = () => {
+    
+  };
+
   return (
-    <Widget title={title}>
+    <Widget title={title} buttons={[<ButtonField label="Repository" onClick={goToRepository} />]}>
       <p>{description}</p>
-      <p>View the repository <a href={url}>here</a>.</p>
     </Widget>
   );
 }
@@ -27,20 +31,6 @@ function ProjectsPage({ me }) {
             description="A discord bot made with python. It has some fun and useful commands." />
           <ProjectEntry title="Auxiliary Scripts" url="https://github.com/parslie/auxiliary-scripts" 
             description="A set of bash scripts that make certain terminal tasks easier." />
-        </WidgetGrid>
-      </Article>
-
-      <Article title="Social Media">
-        <WidgetGrid>
-          <ProjectEntry title="Outstanding" url="https://github.com/parslie/outstanding-app" 
-            description="A social media app made with kotlin. It's currently on hiatus." />
-        </WidgetGrid>
-      </Article>
-      
-      <Article title="Video Games">
-        <WidgetGrid>
-          <ProjectEntry title="Voxelcraft" url="https://github.com/parslie/voxelcraft" 
-            description="A Minecraft clone made with Unity. It's currently on hiatus." />
         </WidgetGrid>
       </Article>
     </main>
