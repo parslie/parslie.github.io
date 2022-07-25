@@ -11,7 +11,7 @@ import TasksPage from "./pages/tasks";
 import TokiPonaPage from "./pages/tokipona";
 
 function App() {
-  const { data: me } = useSWR(["/account/me/", true]);
+  const { data: me } = useSWR(["/accounts/me/", true]);
 
   return (
     <div className="app">

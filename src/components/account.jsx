@@ -11,9 +11,9 @@ function LogOutPrompt({ setShowPrompt }) {
   const [ generalError, setGeneralError ] = useState("");
 
   const logOut = () => {
-    post("/account/logout/", {}, true).then(res => {
+    post("/accounts/logout/", {}, true).then(res => {
       window.localStorage.removeItem("token");
-      mutate(["/account/me/", true], undefined);
+      mutate(["/accounts/me/", true], undefined);
       setShowPrompt(false);
     }).catch(({ response: res }) => {
       setGeneralError(`${res.status} ${res.statusText}`);
@@ -41,9 +41,9 @@ function LogInPrompt({ setShowPrompt }) {
       password: e.target.password.value,
     };
 
-    post("/account/login/", loginData).then(res => {
+    post("/accounts/login/", loginData).then(res => {
       window.localStorage.setItem("token", res.data.token);
-      mutate(["/account/me/", true]);
+      mutate(["/accounts/me/", true]);
       setShowPrompt(false);
     }).catch(({ response: res }) => {
       setEmailError(res.data.email);
@@ -77,9 +77,9 @@ function RegisterPrompt({ setShowPrompt }) {
     };
 
     if (e.target.password.value === e.target.confirmation.value) {
-      post("/account/register/", registerData).then(res => {
+      post("/accounts/register/", registerData).then(res => {
         window.localStorage.setItem("token", res.data.token);
-        mutate(["/account/me/", true]);
+        mutate(["/accounts/me/", true]);
         setShowPrompt(false);
       }).catch(({ response: res }) => {
         setEmailError(res.data.email);

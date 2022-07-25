@@ -33,20 +33,20 @@ function TaskEntry({ data }) {
   );
 }
 
-function Task({ me, data }) {
+function TaskType({ me, data }) {
   const startTask = () => {
-    post(`/todo/tasks/${data.id}/start/`, {}, true).then(res => {
-      mutate("/todo/tasks/");
+    post(`/tasks/types/${data.id}/start/`, {}, true).then(res => {
+      mutate("/tasks/types/");
     }).catch(({ response: res }) => {
       // TODO: add some type of error response
     });
   };
 
   const endTask = () => {
-    post(`/todo/tasks/${data.id}/end/`, {}, true).then(res => {
-      mutate("/todo/statistics/");
-      mutate("/todo/entries/");
-      mutate("/todo/tasks/");
+    post(`/tasks/types/${data.id}/end/`, {}, true).then(res => {
+      mutate("/tasks/statistics/");
+      mutate("/tasks/entries/");
+      mutate("/tasks/types/");
     }).catch(({ response: res }) => {
       // TODO: add some type of error response
     });
@@ -68,14 +68,14 @@ function Task({ me, data }) {
 }
 
 function TasksPage({ me }) {
-  const { data: statistics } = useSWR("/todo/statistics/");
-  const { data: entries } = useSWR("/todo/entries/");
-  const { data: tasks } = useSWR("/todo/tasks/");
+  const { data: statistics } = useSWR("/tasks/statistics/");
+  const { data: entries } = useSWR("/tasks/entries/");
+  const { data: types } = useSWR("/tasks/types/");
 
-  const createTask = (e) => {
-    post("/todo/tasks/", { name: e.target.name.value }, true).then(res => {
+  const createTaskType = (e) => {
+    post("/tasks/types/", { name: e.target.name.value }, true).then(res => {
       e.target.reset()
-      mutate("/todo/tasks/");
+      mutate("/tasks/types/");
     }).catch(({ response: res }) => {
       // TODO: add some type of error response
     });
@@ -91,14 +91,14 @@ function TasksPage({ me }) {
         <WidgetGrid>{entries && entries.map((entry, key) => <TaskEntry data={entry} key={key} />)}</WidgetGrid>
       </Article>
       
-      <Article title="Available Tasks">
+      <Article title="Available Task Types">
         {me && me.is_superuser && (
-          <Form onSubmit={createTask}>
+          <Form onSubmit={createTaskType}>
             <TextField name="name" placeholder="Enter task name here..."/>
-            <SubmitField label="Create Task" />
+            <SubmitField label="Create Task Type" />
           </Form>
         )}
-        <WidgetGrid>{tasks && tasks.map((task, key) => <Task me={me} data={task} key={key} />)}</WidgetGrid>
+        <WidgetGrid>{types && types.map((task, key) => <TaskType me={me} data={task} key={key} />)}</WidgetGrid>
       </Article>
     </main>
   );
