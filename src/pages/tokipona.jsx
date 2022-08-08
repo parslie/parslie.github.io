@@ -54,7 +54,7 @@ const words = [
     example: ["jan en waso li ante.", "people and birds are different."]
   },{
     name: "esun",
-    noun: ["market", "shop", "fair", "bazaar", "business transaction"],
+    nouns: ["market", "shop", "fair", "bazaar", "business transaction"],
     example: ["mi mute li wile tawa tomo esun.", "we need to go to the store."]
   },{
     name: "ijo",
@@ -292,7 +292,7 @@ const words = [
     example: ["sina ken tawa kepeken noka sina.", "you can walk using your legs."]
   },{
     name: "o",
-    particle: ["vocative", "imperative"],
+    particles: ["vocative", "imperative"],
     example: ["jan Malijo o, sina wile ala wile kili?", "Mario, do you want mushrooms?"]
   },{
     name: "olin",
