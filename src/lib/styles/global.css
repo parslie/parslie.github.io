@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'Signika Negative';
+	src: url('fonts/SignikaNegative-VariableFont_wght.ttf');
+}
+
+body {
+	font-family: 'Signika Negative', sans-serif;
+	font-optical-sizing: auto;
+}
