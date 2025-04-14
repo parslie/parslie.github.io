@@ -1,16 +1,38 @@
-## Important
-This project is built and deployed with node **17.9.1**.
+# sv
 
-## Project Strucure
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-### Directories
-- **src/components:** Contains globally used components (e.g. **src/components/input.jsx**).
-- **src/pages:** Contains pages and their local components (e.g. **src/pages/about.jsx**).
-- **src/utils:** Contains utility functions (e.g. **HTTP request** functions).
+## Creating a project
 
-### Styles
-Stylesheets are stored next to their corresponding **.jsx** file (e.g. **src/components/input.jsx**
-and **src/components/input.scss**). Styles that don't correspond to any such file go into
-**src/index.scss**.
+If you're seeing this, you've probably already done this step. Congrats!
 
-Stylesheets containing variables are stored in **src** (e.g. **src/colors.scss**).
+```bash
+# create a new project in the current directory
+npx sv create
+
+# create a new project in my-app
+npx sv create my-app
+```
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
