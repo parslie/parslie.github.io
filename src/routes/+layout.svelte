@@ -13,6 +13,11 @@
 </main>
 
 <style>
+	@font-face {
+		font-family: 'Signika Negative';
+		src: url('$lib/fonts/SignikaNegative-VariableFont_wght.ttf');
+	}
+
 	:root {
 		--outer-pad-x: 2rem;
 		--outer-pad-y: 1rem;
