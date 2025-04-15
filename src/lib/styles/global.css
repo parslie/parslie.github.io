@@ -3,7 +3,26 @@
 	src: url('fonts/SignikaNegative-VariableFont_wght.ttf');
 }
 
+:root {
+	--bg-color: #191919;
+	--fg-color: #ffffff;
+	--green: #33ff33;
+	--dark-green: #007700;
+}
+
 body {
+	margin: 0;
+	padding: 0;
+	background: var(--bg-color);
+	color: var(--fg-color);
 	font-family: 'Signika Negative', sans-serif;
 	font-optical-sizing: auto;
+}
+
+*:first-child {
+	margin-top: 0;
+}
+
+*:last-child {
+	margin-bottom: 0;
 }
