@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '$lib/styles/global.css'; // This stylesheet affects the entire site.
+	import "$lib/styles/global.css"; // This stylesheet affects the entire site.
 
 	let { children } = $props();
 </script>

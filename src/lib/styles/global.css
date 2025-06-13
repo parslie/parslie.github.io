@@ -1,11 +1,11 @@
 @font-face {
-	font-family: 'Signika Negative';
-	src: url('$lib/fonts/Signika Negative/SignikaNegative-VariableFont_wght.ttf');
+	font-family: "Signika Negative";
+	src: url("$lib/fonts/Signika Negative/SignikaNegative-VariableFont_wght.ttf");
 }
 
 @font-face {
-	font-family: 'Fira Code';
-	src: url('$lib/fonts/Fira Code/FiraCode-VariableFont_wght.ttf');
+	font-family: "Fira Code";
+	src: url("$lib/fonts/Fira Code/FiraCode-VariableFont_wght.ttf");
 	size-adjust: 90%;
 }
 
@@ -23,7 +23,7 @@ body {
 	padding: 0;
 	background: var(--bg-color);
 	color: var(--fg-color);
-	font-family: 'Signika Negative', sans-serif;
+	font-family: "Signika Negative", sans-serif;
 	font-optical-sizing: auto;
 }
 
@@ -48,7 +48,7 @@ pre:has(code) {
 	padding: 0.1rem;
 	border-radius: 0.3rem;
 	background: var(--bg-highlight-color);
-	font-family: 'Fira Code', monospace;
+	font-family: "Fira Code", monospace;
 	overflow: scroll;
 }
 
