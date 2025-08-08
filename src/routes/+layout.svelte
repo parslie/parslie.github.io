@@ -1,5 +1,5 @@
 <script lang="ts">
-	import "$lib/styles/global.css"; // This stylesheet affects the entire site.
+	import "$lib/styles/global.scss";
 
 	let { children } = $props();
 </script>
@@ -12,30 +12,33 @@
 	{@render children()}
 </main>
 
-<style>
-	:root {
-		--outer-pad-x: 2rem;
-		--outer-pad-y: 1rem;
-	}
+<style lang="scss">
+	@use "$lib/styles/color.scss";
+	@use "$lib/styles/mixin.scss";
+
+	$outer-padding: 1rem 2rem;
 
 	header {
-		display: flex;
-		justify-content: center;
-		padding: var(--outer-pad-y) var(--outer-pad-x) 0;
+		padding: $outer-padding 0;
+		text-align: center;
 	}
 
 	main {
-		padding: var(--outer-pad-y) var(--outer-pad-x);
+		padding: $outer-padding;
+
+		:global {
+			@include mixin.remove-edge-child-margins();
+		}
 	}
 
 	.title {
-		/* Centers the text vertically in the header */
-		padding-top: 0.05em;
-		line-height: 1;
+		@include mixin.gradient-text(160deg, color.$green-2, color.$green-1);
 
-		background: linear-gradient(160deg, var(--green), var(--dark-green));
-		background-clip: text;
-		color: transparent;
+		// Centers the text vertically in the header
+		display: inline-block;
+		padding-top: 0.05em;
+
+		line-height: 1;
 		font-size: 3em;
 		font-weight: 700;
 	}

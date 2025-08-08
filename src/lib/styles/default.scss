@@ -1,0 +1,40 @@
+// This stylesheet contains all default styles for HTML elements
+
+@use "color.scss";
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: color.$black;
+	color: color.$white;
+	font-family: "Signika Negative", sans-serif;
+	font-optical-sizing: auto;
+}
+
+a {
+	color: color.$green-2;
+
+	&:visited {
+		color: color.$green-1;
+	}
+}
+
+code,
+pre:has(code) {
+	border-radius: 0.3rem;
+	background-color: color.$gray;
+	font-family: "Fira Code", monospace;
+	overflow: scroll;
+}
+
+code {
+	padding: 0 0.1rem;
+}
+
+pre:has(code) {
+	padding: 0.4rem 0.5rem;
+
+	code {
+		padding: 0;
+	}
+}

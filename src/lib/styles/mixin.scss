@@ -1,0 +1,27 @@
+// This stylesheet contains all mixins for common style rules
+
+@mixin remove-edge-child-margins($horizontal: false) {
+	@if $horizontal {
+		*:first-child {
+			margin-left: 0;
+		}
+
+		*:last-child {
+			margin-right: 0;
+		}
+	} @else {
+		*:first-child {
+			margin-top: 0;
+		}
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+@mixin gradient-text($degrees, $colors...) {
+	background: linear-gradient($degrees, $colors);
+	background-clip: text;
+	color: transparent;
+}
