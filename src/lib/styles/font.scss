@@ -1,5 +1,10 @@
 // This stylesheet contains all font declarations
 
+@import url("$lib/fonts/Font Awesome Free 7/css/fontawesome.min.css");
+@import url("$lib/fonts/Font Awesome Free 7/css/solid.min.css");
+@import url("$lib/fonts/Font Awesome Free 7/css/regular.min.css");
+@import url("$lib/fonts/Font Awesome Free 7/css/brands.min.css");
+
 @font-face {
 	font-family: "Signika Negative";
 	src: url("$lib/fonts/Signika Negative/SignikaNegative-VariableFont_wght.ttf");

@@ -24,3 +24,15 @@
     &rbrace;;
 &rbrace;
 </code></pre>
+
+<h2>Font Awesome 7 Free icons</h2>
+<p>Font Awesome is a very useful icon pack, that also includes optional animations!</p>
+<p>
+	Firefox: <i class="fa-brands fa-firefox-browser"></i>
+	<br />
+	Check: <i class="fa-solid fa-check fa-beat-fade"></i>
+	<br />
+	Loading spinner: <i class="fa-solid fa-spinner fa-spin-pulse"></i>
+	<br />
+	PDF file: <i class="fa-regular fa-file-pdf fa-bounce"></i>
+</p>
