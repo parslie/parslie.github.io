@@ -1,3 +1,9 @@
+<script>
+	import Overlay from "$lib/components/Overlay.svelte";
+
+	let overlayEnabled = $state(false);
+</script>
+
 <h1>Experiments</h1>
 <p>This is where I experiment with designing components and elements.</p>
 
@@ -35,3 +41,39 @@
 	<br />
 	PDF file: <i class="fa-regular fa-file-pdf fa-bounce"></i>
 </p>
+
+<h2>Overlays</h2>
+<div>
+	<Overlay enabled={overlayEnabled}>
+		<p>Cool, right?</p>
+		<p>
+			Ut efficitur hendrerit tellus at fermentum. Nullam lacinia nisi sed orci sagittis, quis varius
+			ligula pulvinar. Suspendisse non turpis erat. Vivamus tristique nisi at urna tempus porta. Sed
+			neque nisi, varius nec libero eget, viverra tincidunt neque. Vestibulum et mauris nulla. Class
+			aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam
+			consectetur, elit eu blandit ultricies, magna ante sollicitudin lectus, et consectetur ex nibh
+			non tortor. Mauris molestie nulla in sapien semper vulputate. Praesent varius erat sit amet
+			nulla commodo convallis. Maecenas dictum diam sit amet ornare pharetra. Cras at massa
+			ullamcorper, venenatis arcu eget, posuere ex. Nulla sodales tortor eu elit lacinia iaculis.
+		</p>
+	</Overlay>
+	<p>
+		Overlays are essentially elements that you can put atop other elements to fully cover them. Try
+		them out below!
+	</p>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet, ante at lacinia
+		vehicula, magna ipsum aliquam nisi, non vestibulum turpis dui a turpis. Vivamus dapibus leo at
+		nisi sollicitudin, viverra aliquet ipsum ullamcorper. Etiam sit amet mollis odio. Etiam vel
+		hendrerit nibh. Mauris feugiat vehicula augue. Etiam ante ante, maximus eget sem in, varius
+		pulvinar odio. Nullam mi orci, semper eu augue in, ullamcorper finibus libero. In elementum orci
+		ligula, id fringilla justo consectetur cursus.
+	</p>
+</div>
+<fieldset>
+	<legend>Overlay settings</legend>
+	<label>
+		Enabled
+		<input type="checkbox" bind:checked={overlayEnabled} />
+	</label>
+</fieldset>
