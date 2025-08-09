@@ -1,17 +1,17 @@
 // This stylesheet contains all font declarations
 
-@import url("$lib/fonts/Font Awesome Free 7/css/fontawesome.min.css");
-@import url("$lib/fonts/Font Awesome Free 7/css/solid.min.css");
-@import url("$lib/fonts/Font Awesome Free 7/css/regular.min.css");
-@import url("$lib/fonts/Font Awesome Free 7/css/brands.min.css");
+@use "../fonts/Font Awesome Free 7/css/fontawesome.min.css";
+@use "../fonts/Font Awesome Free 7/css/solid.min.css";
+@use "../fonts/Font Awesome Free 7/css/regular.min.css";
+@use "../fonts/Font Awesome Free 7/css/brands.min.css";
 
 @font-face {
 	font-family: "Signika Negative";
-	src: url("$lib/fonts/Signika Negative/SignikaNegative-VariableFont_wght.ttf");
+	src: url("../fonts/Signika Negative/SignikaNegative-VariableFont_wght.ttf");
 }
 
 @font-face {
 	font-family: "Fira Code";
-	src: url("$lib/fonts/Fira Code/FiraCode-VariableFont_wght.ttf");
+	src: url("../fonts/Fira Code/FiraCode-VariableFont_wght.ttf");
 	size-adjust: 90%;
 }
