@@ -2,7 +2,8 @@
 	import { resolve } from "$app/paths";
 	import { page } from "$app/state";
 	import type { Pathname } from "$app/types";
-	import "$lib/styles/global.scss";
+
+	import "$lib/styles/default.scss";
 
 	let { children } = $props();
 
