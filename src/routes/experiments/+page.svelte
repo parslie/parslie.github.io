@@ -1,8 +1,11 @@
 <script>
 	import Overlay from "$lib/components/Overlay.svelte";
+	import PageHead from "$lib/components/PageHead.svelte";
 
 	let overlayEnabled = $state(false);
 </script>
+
+<PageHead title="Experiments" />
 
 <h1>Experiments</h1>
 <p>This is where I experiment with designing components and elements.</p>
