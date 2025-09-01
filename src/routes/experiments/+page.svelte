@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Heading from "$lib/components/Heading.svelte";
 	import Overlay from "$lib/components/Overlay.svelte";
 	import PageHead from "$lib/components/PageHead.svelte";
 
@@ -7,20 +8,20 @@
 
 <PageHead title="Experiments" />
 
-<h1>Experiments</h1>
+<Heading level={1} content="Experiments" />
 <p>This is where I experiment with designing components and elements.</p>
 
-<h2>Links</h2>
+<Heading level={2} content="Links" />
 <p>
 	This is a regular link: <a href="https://www.youtube.com/watch?v=SerTJpflwMM">
 		Niko B - Why's this dealer?
 	</a>
 </p>
 
-<h2>Inline Code</h2>
+<Heading level={2} content="Inline Code" />
 <p>The <code>&lt;code&gt;</code> tag is used to display computer code.</p>
 
-<h2>Code Block</h2>
+<Heading level={2} content="Code Block" />
 <p>The following is a rust macro that returns the max number of a set of numbers.</p>
 <pre><code
 		>macro_rules! max &lbrace;
@@ -33,7 +34,7 @@
 &rbrace;
 </code></pre>
 
-<h2>Font Awesome 7 Free icons</h2>
+<Heading level={2} content="Font Awesome 7 Free Icons" />
 <p>Font Awesome is a very useful icon pack, that also includes optional animations!</p>
 <p>
 	Firefox: <i class="fa-brands fa-firefox-browser"></i>
@@ -45,7 +46,7 @@
 	PDF file: <i class="fa-regular fa-file-pdf fa-bounce"></i>
 </p>
 
-<h2>Overlays</h2>
+<Heading level={2} content="Overlays" />
 <div>
 	<Overlay enabled={overlayEnabled}>
 		<p>Cool, right?</p>
