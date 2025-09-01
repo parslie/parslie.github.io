@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Overlay from "$lib/components/Overlay.svelte";
 	import PageHead from "$lib/components/PageHead.svelte";
 
