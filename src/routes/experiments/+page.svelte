@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Heading from "$lib/components/Heading.svelte";
+	import Link from "$lib/components/Link.svelte";
 	import Overlay from "$lib/components/Overlay.svelte";
 	import PageHead from "$lib/components/PageHead.svelte";
 
@@ -13,9 +14,10 @@
 
 <Heading level={2} content="Links" />
 <p>
-	This is a regular link: <a href="https://www.youtube.com/watch?v=SerTJpflwMM">
+	This is a text link:
+	<Link type="text" href="https://www.youtube.com/watch?v=SerTJpflwMM">
 		Niko B - Why's this dealer?
-	</a>
+	</Link>
 </p>
 
 <Heading level={2} content="Inline Code" />

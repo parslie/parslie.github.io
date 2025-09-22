@@ -11,14 +11,6 @@ body {
 	font-optical-sizing: auto;
 }
 
-a {
-	color: color.$green-2;
-
-	&:visited {
-		color: color.$green-1;
-	}
-}
-
 code,
 pre:has(code) {
 	border-radius: 0.3rem;
