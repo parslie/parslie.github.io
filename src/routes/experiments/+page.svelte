@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from "$app/paths";
+	import Button from "$lib/components/Button.svelte";
 	import Heading from "$lib/components/Heading.svelte";
 	import Link from "$lib/components/Link.svelte";
 	import Overlay from "$lib/components/Overlay.svelte";
@@ -13,11 +15,23 @@
 <p>This is where I experiment with designing components and elements.</p>
 
 <Heading level={2} content="Links" />
+<p>There are multiple types of links: text links and button links.</p>
+
+<Heading level={3} content="Text Links" />
 <p>
-	This is a text link:
-	<Link type="text" href="https://www.youtube.com/watch?v=SerTJpflwMM">
-		Niko B - Why's this dealer?
-	</Link>
+	Text links are standard links that you see all over the web. Such as the link to the song
+	<Link href="https://www.youtube.com/watch?v=SerTJpflwMM">Niko B - Why's this dealer?</Link>.
+</p>
+
+<Heading level={3} content="Button Links" />
+<p>
+	Button links have more specific use-cases. They draw more attention and are perfect for uses like
+	linking to a sign-up form.
+</p>
+<p>
+	Here's a link that opens in this tab and one that opens in a new tab:
+	<Button type="link" href={resolve("/")}>Home Page</Button>
+	<Button type="link" target="_blank" href="https://lithehax.se/events">LiTHe Hax Events</Button>
 </p>
 
 <Heading level={2} content="Inline Code" />
