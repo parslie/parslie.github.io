@@ -6,9 +6,28 @@
 	import Link from "$lib/components/Link.svelte";
 	import Overlay from "$lib/components/Overlay.svelte";
 	import Overlayed from "$lib/components/Overlayed.svelte";
+	import StatusOverlay from "$lib/components/overlays/StatusOverlay.svelte";
 	import PageHead from "$lib/components/PageHead.svelte";
+	import type { Status } from "$lib/types";
 
 	let showOverlay = $state(true);
+	let status = $state<Status>("loading");
+	let statusMessage = $state("Loading the things... (╭ರ_•́)");
+
+	function setLoadingStatus() {
+		status = "loading";
+		statusMessage = "Loading... (╭ರ_•́)";
+	}
+
+	function setErrorStatus() {
+		status = "error";
+		statusMessage = "Error... (◞‸◟；)";
+	}
+
+	function setSuccessStatus() {
+		status = "success";
+		statusMessage = "Success! ( ˶ˆᗜˆ˵ )";
+	}
 </script>
 
 <PageHead title="Experiments" />
@@ -87,3 +106,28 @@ macro_rules! max {
 	</Overlay>
 </div>
 <Button type="button" onclick={() => (showOverlay = !showOverlay)}>Toggle Overlay</Button>
+
+<Heading level={3} content="Status Overlay" />
+<p>
+	In addition to general overlays, there are also status overlays. These can be used to overlay
+	forms on submission, for example.
+</p>
+<div style:position="relative">
+	<Overlayed>
+		<p>
+			Lorem ipsum dolor sit amet. Aut earum culpa ut saepe optio ab autem voluptate qui beatae
+			saepe? In similique recusandae est velit omnis a officiis iste aut aliquid fugit qui natus
+			debitis sit voluptate deserunt id blanditiis odio! A cupiditate eveniet ex ipsum sequi eum
+			vitae magni qui placeat cumque eos impedit minima sit odio amet.
+		</p>
+		<p>
+			Qui molestiae sint ut sunt quia vel aliquam earum aut veritatis maxime. Et quod repudiandae
+			eos voluptatum facilis sit tenetur aliquam aut quod voluptatem rem odio aspernatur vel
+			voluptas quis!
+		</p>
+	</Overlayed>
+	<StatusOverlay {status} message={statusMessage} />
+</div>
+<Button type="button" onclick={setLoadingStatus}>Set Loading</Button>
+<Button type="button" onclick={setErrorStatus}>Set Error</Button>
+<Button type="button" onclick={setSuccessStatus}>Set Success</Button>
