@@ -3,7 +3,9 @@
 	import PageHead from "$lib/components/PageHead.svelte";
 </script>
 
-<PageHead title="" />
+<PageHead
+	title=""
+	description="Viktor Holta is a software engineering student, who is passionate about computers, problem-solving, and creativity." />
 
 <Heading level={1} content="Welcome to my site!" />
 <p>

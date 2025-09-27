@@ -30,7 +30,7 @@
 	}
 </script>
 
-<PageHead title="Experiments" />
+<PageHead title="Experiments" description="Experimental components used to build the website." />
 
 <Heading level={1} content="Experiments" />
 <p>This is where I experiment with designing components and elements.</p>
