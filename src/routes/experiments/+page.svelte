@@ -3,6 +3,7 @@
 	import Button from "$lib/components/Button.svelte";
 	import Code from "$lib/components/Code.svelte";
 	import Heading from "$lib/components/Heading.svelte";
+	import Link from "$lib/components/Link.svelte";
 	import PageHead from "$lib/components/PageHead.svelte";
 </script>
 
@@ -20,6 +21,10 @@
 <p>This heading doesn't have an ID, so it doesn't have a link attached to it.</p>
 
 <Heading level={2} content="Links" />
+<p>
+	This is a good song I found a while ago:
+	<Link href="https://www.youtube.com/watch?v=SerTJpflwMM">Niko B - Why's this dealer?</Link>
+</p>
 
 <Heading level={2} content="Buttons" />
 <p>There are four types of buttons:</p>
