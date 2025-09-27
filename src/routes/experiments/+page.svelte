@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from "$app/paths";
+	import Button from "$lib/components/Button.svelte";
 	import OldHeading from "$lib/components/old/Heading.svelte";
 	import PageHead from "$lib/components/PageHead.svelte";
 </script>
@@ -13,6 +15,13 @@
 <OldHeading level={2} content="Links" />
 
 <OldHeading level={2} content="Buttons" />
+<p>There are four types of buttons:</p>
+<div>
+	<Button type="button">Button</Button>
+	<Button type="submit">Submit</Button>
+	<Button type="reset">Reset</Button>
+	<Button type="link" href={resolve("/")}>Link</Button>
+</div>
 
 <OldHeading level={2} content="Code" />
 
