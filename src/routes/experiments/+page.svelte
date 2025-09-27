@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from "$app/paths";
 	import Button from "$lib/components/Button.svelte";
+	import Code from "$lib/components/Code.svelte";
 	import Heading from "$lib/components/Heading.svelte";
 	import PageHead from "$lib/components/PageHead.svelte";
 </script>
@@ -30,5 +31,24 @@
 </div>
 
 <Heading level={2} content="Code" />
+<p>
+	Code can either be inline like this:
+	<Code
+		disableLigatures
+		content="----[-->+++++<]>-.---.[-->+++++<]>+++.+[->+++<]>.-[--->+<]>-.-.+++[->+++<]>." />
+</p>
+<p>It can also be a block like this:</p>
+<Code
+	isBlock
+	content={`
+macro_rules! max {
+    ($number:expr) => {
+        $number
+    };
+    ($first:expr, $($rest:expr),+) => {
+        std::cmp::max($first, max!($($rest),+))
+    };
+}
+	`} />
 
 <Heading level={2} content="Overlay" />

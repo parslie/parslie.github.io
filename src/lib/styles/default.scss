@@ -19,24 +19,4 @@ a {
 		color: color.$green-1;
 	}
 }
-
-code,
-pre:has(code) {
-	border-radius: 0.3rem;
-	background-color: color.$gray;
-	font-family: "Fira Code", monospace;
-	overflow: scroll;
-}
-
-code {
-	padding: 0 0.1rem;
-}
-
-pre:has(code) {
-	padding: 0.4rem 0.5rem;
-
-	code {
-		padding: 0;
-	}
-}
 */
