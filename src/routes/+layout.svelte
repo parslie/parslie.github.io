@@ -52,7 +52,7 @@
 		padding: $outer-padding 0;
 
 		.content {
-			@include mixin.gradient-text(160deg, color.$green-2, color.$green-1);
+			@include mixin.gradient-text(160deg, color.$green, color.$dark-green);
 
 			display: flex;
 			flex-direction: column;
