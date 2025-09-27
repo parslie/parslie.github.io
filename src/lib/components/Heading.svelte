@@ -1,7 +1,7 @@
 <script lang="ts">
 	type HeadingProps = {
 		content: string;
-		disableLink: boolean;
+		disableLink?: boolean;
 		level: 1 | 2 | 3 | 4 | 5 | 6;
 	};
 
